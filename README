@@ -1,0 +1,7 @@
+SkyBlue CMS version 2.0 is the second generation of the SkyBlueCanvas lightweight CMS. Before downloading this code, be sure you understand the following:
+
+- The code is not quite finished and is not ready for production web sites. 
+- You will need substantial PHP and debugging skills to get the code working.
+- It does work, but the set-up requires advanced PHP skills
+- You will also need decent command-line and Linux skills
+- Support from the developer will be minimal due to time constraints but I will make an effort to help serious developers who want to contribute to the project
