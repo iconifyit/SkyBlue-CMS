@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <obj type="_SBC_SYS_">
+        <item id="1"
+              name="adminacl"
+              hasdisplay="1"
+              path="managers/adminacl/">
+        </item>
+        <item id="2"
+              name="checkouts"
+              hasdisplay="1"
+              path="managers/checkouts/">
+        </item>
+        <item id="3"
+              name="collections"
+              hasdisplay="1"
+              path="managers/collections/">
+        </item>
+        <item id="4"
+              name="configuration"
+              hasdisplay="1"
+              path="managers/configuration/">
+        </item>
+        <item id="5"
+              name="console"
+              hasdisplay="1"
+              path="managers/console/">
+        </item>
+        <item id="6"
+              name="contacts"
+              hasdisplay="1"
+              path="managers/contacts/">
+        </item>
+        <item id="7"
+              name="extensions"
+              hasdisplay="1"
+              path="managers/extensions/">
+        </item>
+        <item id="8"
+              name="help"
+              hasdisplay="1"
+              path="managers/help/">
+        </item>
+        <item id="9" 
+              name="login"
+              hasdisplay="0"
+              path="managers/login/">
+        </item>
+        <item id="10"
+              name="media"
+              path="managers/media/">
+        </item>
+        <item id="11"
+              name="menus"
+              hasdisplay="1"
+              path="managers/menus/">
+        </item>
+        <item id="12"
+              name="meta"
+              hasdisplay="1"
+              path="managers/meta/">
+        </item>
+        <item id="13"
+              name="page"
+              hasdisplay="1"
+              path="managers/page/">
+        </item>
+        <item id="14"
+              name="plugin"
+              path="managers/plugin/">
+        </item>
+        <item id="15"
+              name="settings"
+              hasdisplay="1"
+              path="managers/settings/">
+        </item>
+        <item id="16"
+              name="skin"
+              hasdisplay="1"
+              path="managers/skin/">
+        </item>
+        <item id="17"
+              name="users"
+              hasdisplay="1"
+              path="managers/users/">
+        </item>
+    </obj>
+</root>

@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+		<meta http-equiv="Content-Language" content="en-us" />
+		<meta http-equiv="imagetoolbar" content="false" />
+
+		<meta name="MSSmartTagsPreventParsing" content="true" />
+		<meta name="robots" content="all" />
+		<meta name="revisit-after" content="3 days" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="" />
+		<meta name="copyright" content="" />
+		<meta name="company" content="" />
+		
+		<style type="text/css" media="screen">
+		
+			html, body, div, span, applet, object, iframe,
+			h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+			a, abbr, acronym, address, big, cite, code,
+			del, dfn, em, font, img, ins, kbd, q, s, samp,
+			small, strike, strong, sub, sup, tt, var,
+			dl, dt, dd, ol, ul, li,
+			fieldset, form, label, legend,
+			table, caption, tbody, tfoot, thead, tr, th, td {
+				margin: 0; padding: 0; border: 0; font-weight: inherit;
+				font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; }
+			a img,:link img,:visited img { border:none }
+			body { line-height: 1.5; font-family: Arial, Helvetica, Verdana, sans-serif; color: #333; font-size: 75%;}
+			html > body   { font-size: 12px; padding: 20px }  
+			h1 { font-size: 2.0em; font-weight: normal; margin: 0.6em 0em 0.8em 0em; padding: 0em; }
+			h2 { font-size: 1.4em; margin: 1.2em 0em 1.2em 0em; font-weight: normal; }
+			h3 { font-size: 1.2em; margin: 1.2em 0em 1.2em 0em; font-weight: normal; }
+			ol, ul, li { font-size: 1.0em; }
+			p { font-size: 1.0em; line-height: 1.6em; margin: 1.0em 0em 1.0em 0em; }
+			pre, code { font-family: monospace; font-size: 1.0em; }
+			
+			p { color: #444; }
+			a:link, a:hover, a:visited { color: #015C8A; }
+			#page { padding: 20px 20px; }
+			h1 { font-family: "helvetica neue", helvetica, arial, verdana, sans-serif; color: #999; border-bottom: 1px solid #999; padding-bottom: 5px;
+			margin-top: 0; }
+			h1 a { text-decoration: none; color: #999 !important; }
+			h1 a:hover { text-decoration: underline; }
+			h1 span { color: #444; }
+			h2 { font-family: "helvetica neue", helvetica, arial, verdana, sans-serif; border-bottom: 1px solid #CCC; padding-bottom: 5px; margin-bottom:
+			0.9em; color: #444; }
+			h3 { font-family: "helvetica neue", helvetica, arial, verdana, sans-serif; color: #444; margin-top: 1.0em; font-weight: bold; }
+			#nav { background: #333; padding: 7px 20px; }
+			#nav a { color: #FFB900; text-decoration: none; }
+			#nav a:hover { text-decoration: underline; }
+			code { font-weight: normal !important; }
+			li { margin-left: 16px}
+			
+		</style>
+
+	<title>jQuery URL Parser</title>
+	
+</head>
+
+<body>
+	
+		<h1><span>jQuery URL Parser</span></h1>
+		
+		<h2>Overview</h2>
+
+		<p>A jQuery plugin to parse URLs and provides easy access to information within them, such as the protocol, host, port, the segments that make up the path and the various query string values.</p>
+		
+		<p>Created and maintained by <a href="http://allmarkedup.com/">Mark Perkins</a>. Visit http://projects.allmarkedup.com/jquery_url_parser/ for up-to-date releases, documentation and more.</p>
+
+		<p>The parser is based on the Regex URI parser by Stephen Levithian - <a href="http://blog.stevenlevithan.com/archives/parseURL" title="parseURL 1.2: Split URLs in JavaScript">http://blog.stevenlevithan.com/archives/parseURI</a>.</p>
+		
+		<p><strong>This version:</strong> 1.0<br />
+			<strong>Dependancies:</strong> jQuery 1.2 or greater (may work with earlier releases but untested!)<br />
+			<strong>Licence:</strong> Released under a <a href="http://projects.allmarkedup.com/jquery_url_parser/licence.txt">MIT-style licence</a>.</p>
+	
+		<h2>Usage Notes</h2>
+
+		<p>By default, the parser will use the URL of the current page. This can be changed to use a URL passed in manually if required (see code example below).</p>
+
+		<p>There are two modes of URL parser - strict and loose. Loose is the default parsing mode, it deviates from the specs slightly but splits the URL up in a more intuitive manner. It is the recommended parsing mode. For more information on the two different parsing modes, see Steven Levithian's blog post (linked above) on the URL parser used in the parser.</p>
+
+		<p>The parser can return the following information about the URL:</p>
+
+		<ul>
+			<li><p><strong>source</strong> - the URL itself</p></li>
+			<li><p><strong>protocol</strong> - eg. http, https, file, etc</p></li>
+			<li><p><strong>host</strong> - eg. www.mydomain.com, localhost etc</p></li>
+			<li><p><strong>port</strong> - eg. 80</p></li>
+			<li><p><strong>query</strong> - the entire query string if it exists, eg. item=value&item2=value2</p></li>
+			<li><p><strong>individual query string parameter values</strong></p></li>
+			<li><p><strong>file</strong> - the basename of the file eg. index.html</p></li>
+			<li><p><strong>anchor</strong> - the hash (anchor) value</p></li>
+			<li><p><strong>path</strong> - the path to the file (eg. /folder/dir/index.html)</p></li>
+			<li><p><strong>relative</strong> - the relative path to the file including the query string (eg. /folder/dir/index.html?item=value)</p></li>
+			<li><p><strong>directory</strong> - the directory part of the path (eg. /folder/dir/)</p></li>
+			<li><p><strong>individual segments of the path</strong></p></li>
+		</ul>
+
+		<p>The <strong>source</strong>, <strong>protocol</strong>, <strong>host</strong>, <strong>port</strong>, <strong>relative</strong>, <strong>path</strong>, <strong>directory</strong>, <strong>file</strong>, <strong>query</strong> and <strong>anchor</strong> strings are available through the <code>.attr()</code> method.</p>
+
+		<p>The <strong>query string parameters</strong> are available through the <code>.param()</code> method</p>
+
+		<p>The <strong>individual path segements</strong> are available through the <code>.segment()</code> method</p>
+
+		<h2>Examples of Use</h2>
+
+		<p>Using the current page's URL (for these examples <strong>https://mysite.com/information/about/index.html?itemID=2&user=dave</strong>)</p>
+
+<code class="snippet"><pre>
+<span class="comment">// get the protocol</span>
+jQuery.URL.attr("protocol") <span class="comment">// returns 'http'</span>
+
+<span class="comment">// get the path</span>
+jQuery.URL.attr("path") <span class="comment">// returns '/information/about/index.html'</span>
+
+<span class="comment">// get the host</span>
+jQuery.URL.attr("host") <span class="comment">// returns 'mysite.com'</span>
+
+<span class="comment">// get the value for the itemID query parameter</span>
+jQuery.URL.param("itemID") <span class="comment">// returns 2</span>
+
+<span class="comment">// get the second segment from the URL path</span>
+jQuery.URL.segment(2) <span class="comment">// returns 'about'</span>
+
+</pre></code>
+
+<p>Using a differnt URL to the current page:<p>
+
+<code class="snippet"><pre>
+<span class="comment">// get the protocol</span>
+jQuery.URL.setURL("http://allmarkedup.com/category/javascript/#footer").attr("anchor") <span class="comment">// returns 'footer'</span>
+
+</pre></code>
+
+
+</body>
+</html>

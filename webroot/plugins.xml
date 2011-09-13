@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugins>
+    <plugin name="plugin.bbcoder.php" published="0" />
+    <plugin name="plugin.patches.php" published="1" />
+    <plugin name="plugin.preloader.php" published="1" />
+    <plugin name="plugin.sitevars.php" published="1" />
+    <plugin name="plugin.snippets.php" published="1" />
+    <plugin name="plugin.ads.php" published="1" />
+    <plugin name="plugin.gadgets.php" published="1" />
+    <plugin name="plugin.magpie.php" published="1" />
+    <plugin name="plugin.theme.php" published="1" />
+    <plugin name="plugin.embed-video.php" published="0" />
+</plugins>

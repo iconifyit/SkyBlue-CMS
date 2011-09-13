@@ -1,0 +1,263 @@
+#logo-main
+ {
+   float: right;
+   background: none;
+   border: none;
+   width: 127px;
+   height: 19px;
+   margin: 0px 4px 0px 0px;
+ }
+ 
+#hideselect
+{
+  z-index:99;
+  position:absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color:#fff;
+  border:none;
+  filter:alpha(opacity=0);
+  -moz-opacity: 0;
+  opacity: 0;
+}
+
+#overlay
+{
+  position: absolute;
+  z-index:100;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color:#000;
+  filter:alpha(opacity=60);
+  -moz-opacity: 0.6;
+  opacity: 0.6;
+}
+
+#PopUpDiv div#ImgSelectorTopRow
+{
+  height: 20px;
+  margin: 0px 0px 8px 0px;
+  background-color: #2F3F7C;
+}
+
+#PopUpDiv div#ImgSelectorTopRow span
+{
+  background-color: #2F3F7C;
+  font-weight: bold;
+  color: #FFF;
+}
+
+ul#ImgSelectorThumbList
+{
+  clear: both;
+}
+
+ul#ImgSelectorThumbList li
+{
+  width: 74px;
+  height: 74px;
+  float: left;
+  margin: 0px 2px 3px 0px;
+  background-color: #CCC;
+}
+
+ul#ImgSelectorThumbList li a
+{
+  width: 72px;
+  height: 72px;
+  display: block;
+  border: 1px solid #AAA;
+}
+
+ul#ImgSelectorThumbList li a:hover
+{
+  border: 1px solid #333;
+}
+
+#imgSelectorHeadText
+{
+  display: block;
+  width: 150px;
+  width: 90%;
+  float: left;
+  padding: 2px 0px 0px 2px;
+  font-family: Verdana, Helvetica, Arial Sanserif;
+  font-size: 12px;
+}
+
+#imgSelectorCloseButton
+{
+  float: right;
+  cursor: pointer;
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-image: url( btn.close.gif );
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+  border: 1px solid #AAA;
+}
+
+#imgSelectorCloseButton:hover
+{
+  border: 1px solid #000;
+}
+
+#PopUpDiv
+{
+  background-color: #FFF;
+  border: 6px solid #444;
+  width: 402px;
+  height: auto;
+  position: absolute;
+  margin: 0px auto;
+  padding: 3px;
+  overflow: auto;
+  z-index: 1000;
+}
+
+#PopUpCloseButton
+{
+  float: right;
+  cursor: pointer;
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-image: url( btn.close.gif );
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+  border: 1px solid #AAA;
+}
+
+#PopUpTopRow
+{
+  background-color: #2F3F7C;
+  font-weight: bold;
+  color: #FFF;
+  height: 18px;
+  padding: 0px 0px 0px 2px;
+}
+
+
+#PopUpHeadText
+{
+  display: block;
+  height: 16px;
+  width: 150px;
+  width: 90%;
+  float: left;
+  padding: 2px 0px 0px 2px;
+  font-family: Verdana, Helvetica, Arial Sanserif;
+  font-size: 12px;
+}
+
+#PopUpDiv form
+{
+  width: 395px;
+  height: auto;
+  margin: 0px;
+  padding: 0px;
+}
+
+#PopUpCloseButton:hover
+{
+  border: 1px solid #000;
+}
+
+#PopUpDiv ul
+{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.pleasewait
+{
+  color:#FFF; 
+  margin: 0px;
+  padding: 10px;
+  border: 2px solid #000;
+  background-color: #0A0;
+  font-family: Verdana, Arial, sanserif;
+  font-size: 16px;
+}
+
+#pasteFormDiv
+{
+  width: 100%;
+}
+
+#pasteFormDiv label
+{
+  font-weight: bold;
+  font-family: Verdana, Arial, sanserif;
+  display: block;
+  height: 20px;
+  margin: 0px 0px 8px 0px;
+  background-color: #2F3F7C;
+  color: #FFF;
+}
+ 
+#pasteFormDiv textarea
+{
+  width: 395px;
+  height: 320px;
+}
+
+#PopUpDiv div.inputdiv
+{
+  margin-top: 4px;
+  border-bottom: 1px dotted #AAA; 
+  padding: 0px;
+  height: 40px;
+  clear: both;
+}
+
+#PopUpDiv div.inputdivlast
+{
+  margin: 4px 0px;
+  border: none;
+  padding-bottom: 0px;
+  height: 30px;
+  width: 170px;
+  clear: both;
+}
+
+div.inputdiv h3
+{
+  margin: 4px 0px 0px 4px;
+  font-size: 12px;
+  width: 150px;
+  height: 36px;
+  float: left;
+  text-align: left;
+  font-family: Verdana, Arial, Sanserif;
+  
+}
+
+div.inputdiv input.inputfield,
+div.inputdiv select
+{
+  margin: 4px 0px 0px 5px;
+  width: 200px;
+}
+
+div.inputdiv input.inputfield
+{
+  width: 198px;
+}
+
+#editoranchor
+{
+  width: auto;
+}
+
+.hide
+{
+  display: none;
+}
+

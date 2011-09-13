@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+<obj type="_SBC_APP_">
+<item id="1"
+      name="links"
+      version="2.0"
+      author="Scott Lewis"
+      date="unknown"
+      url="http://www.skybluecanvas.com"
+      email="unknown"
+      path="managers/links/"
+      show_in="collections"
+      hasdisplay="1"
+      objtype="">
+</item>
+
+<item id="2"
+      name="snippets"
+      version="2.0"
+      author="Scott Lewis"
+      date="unknown"
+      url="http://www.skybluecanvas.com"
+      email="unknown"
+      path="managers/snippets/"
+      show_in="collections"
+      hasdisplay="1"
+      objtype="">
+</item>
+
+<item id="3"
+      name="myvars"
+      version="0.1"
+      author="Scott Lewis"
+      date="unknown"
+      url="http://www.skybluecanvas.com"
+      email="unknown"
+      path="managers/myvars/"
+      show_in="collections"
+      hasdisplay="1"
+      objtype="">
+</item>
+
+</obj>
+</root>

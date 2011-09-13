@@ -1,0 +1,137 @@
+#editorToolbar {
+    text-align: right;
+    padding: 3px 25px 0px 0px;
+    background-image: url(../images/bg.toolbar.png);
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+    height: 35px;
+    width: 100%;
+    position: fixed;
+    z-index: 10000;
+}
+
+#editorToolbar span {
+    color: #333;
+}
+
+#editorToolbar span a {
+    color: #000;
+}
+
+#editorToolbar #editorToolbarControls {
+    position: absolute;
+    top: 1px;
+    left: 5px;
+    width: 300px;
+    height: 24px;
+    background-color: transparent;
+}
+
+#editorToolbar #editorToolbarControls ul {
+    margin: 0px;
+    float: left;
+    list-style-type: none;
+    background-color: transparent;
+    background-image: url(../images/bg.toolbar.controls.png);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    padding: 4px 0px 0px 10px;
+}
+
+#editorToolbar #editorToolbarControls ul li,
+#editorToolbar #editorToolbarControls ul li a {
+    width: 24px;
+    height: 24px;
+    padding: 0px;
+    margin: 0px;
+    float: left;
+    background-color: transparent;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+
+#editorToolbar #editorToolbarControls ul li {
+    margin-right: 4px;
+    background-image: url(../images/bg.toolbar.divider.png);
+    background-position: top right;
+}
+
+#editorToolbar #editorToolbarControls ul li.last {
+    margin-right: 0px;
+    background-image: none;
+}
+
+#editorToolbar #editorToolbarControls ul li a.console {
+    background-image: url(../icons/silk/house.png);
+}
+
+#editorToolbar #editorToolbarControls ul li a.settings {
+    background-image: url(../icons/silk/cog.png);
+}
+
+#editorToolbar #editorToolbarControls ul li a.users {
+    background-image: url(../icons/silk/group.png);
+}
+
+#editorToolbar #editorToolbarControls ul li a.pages {
+    background-image: url(../icons/silk/page_edit.png);
+}
+
+#editorToolbar #editorToolbarControls ul li a.layout {
+    background-image: url(../icons/silk/layout.png);
+    background-image: url(../icons/silk/images.png);
+}
+
+#editorToolbar #editorToolbarControls ul li a.extensions {
+    background-image: url(../icons/silk/brick.png);
+}
+
+#editorToolbar #editorToolbarControls ul li a.collections {
+    background-image: url(../icons/silk/package.png);
+}
+
+#editorToolbar #editorToolbarControls ul li a.media {
+    background-image: url(../icons/silk/picture.png);
+}
+
+#editorToolbar #editorToolbarControls ul li a.help {
+    background-image: url(../icons/silk/help.png);
+}
+
+#editorToolbar #editorToolbarControls ul li a.addpage {
+    background-image: url(../icons/silk/page_add.png);
+}
+
+#editorToolbar span.signout a {
+    background-image: url(../icons/silk/lock.png);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    padding-left: 22px;
+}
+
+#editorToolbar span.user {
+    background-image: url(../icons/silk/user.png);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    padding-left: 22px;
+}
+
+#tooltip {
+    position: absolute;
+    border: 1px solid #333;
+    background: #f7f5d1;
+    padding: 2px 5px;
+    color: #333;
+    display: none;
+}
+
+#tooltip {
+    position: absolute;
+    border: 0px solid #FFF;
+    background: #000;
+    padding: 2px 5px;
+    color: #FFF;
+    display: none;
+}
