@@ -163,33 +163,33 @@ class PageController extends Controller {
         $Page = new Page(array(
             'name' => trim($name)
         ));
-		$Page->setModified(date(SB_DATE_MODIFIED_FORMAT,time()));
-		$Page->setType('page');
-		$Page->setObjtype('page');
-		$Page->setPublished(0);
-		
-		$permalink = PageHelper::getUniquePermalink(
-			$Page, PageHelper::getPermalink($Page)
-		);
-		if ($permalink{0} == "-") {
-		    $permalink = substr($permalink, 1);
-		}
-		if ($permalink{strlen($permalink)-1} == "-") {
-		    $permalink = substr($permalink, 0, -1);
-		}
-		$Page->setPermalink($permalink);
-		
-		$result    = $this->dao->insert($Page);
-		$pageId    = $this->dao->lastInsertId();
-		$permalink = $Page->getPermalink();
+        $Page->setModified(date(SB_DATE_MODIFIED_FORMAT,time()));
+        $Page->setType('page');
+        $Page->setObjtype('page');
+        $Page->setPublished(0);
+        
+        $permalink = PageHelper::getUniquePermalink(
+            $Page, PageHelper::getPermalink($Page)
+        );
+        if ($permalink{0} == "-") {
+            $permalink = substr($permalink, 1);
+        }
+        if ($permalink{strlen($permalink)-1} == "-") {
+            $permalink = substr($permalink, 0, -1);
+        }
+        $Page->setPermalink($permalink);
+        
+        $result    = $this->dao->insert($Page);
+        $pageId    = $this->dao->lastInsertId();
+        $permalink = $Page->getPermalink();
         
         $message = base64_encode(HtmlUtils::formatMessage(new Message(array(
-		    'type' => $result ? 'success' : 'error',
-		    'title' => $result ? 'Success' : 'Error',
-		    'message' => $result ? "The page '{$name}' has been created" : 'The page could not be created'
-		))));
+            'type' => $result ? 'success' : 'error',
+            'title' => $result ? 'Success' : 'Error',
+            'message' => $result ? "The page '{$name}' has been created" : 'The page could not be created'
+        ))));
         
-		$this->view->assign('body', "{pageId:'$pageId', nodeId:'$nodeId', message:'$message', permalink:'$permalink'}");
+        $this->view->assign('body', "{pageId:'$pageId', nodeId:'$nodeId', message:'$message', permalink:'$permalink'}");
     }
     
     function doAjaxRename($Request) {
@@ -221,18 +221,18 @@ class PageController extends Controller {
         }
         
         $message = base64_encode(HtmlUtils::formatMessage(new Message(array(
-		    'type' => $result ? 'success' : 'error',
-		    'title' => $result ? 'Success' : 'Error',
-		    'message' => $message
-		))));
+            'type' => $result ? 'success' : 'error',
+            'title' => $result ? 'Success' : 'Error',
+            'message' => $message
+        ))));
         
-		$this->view->assign('body', "{message:'$message'}");
+        $this->view->assign('body', "{message:'$message'}");
     }
     
     function doSaveStructure($Request) {
         $this->view->isAjax = true;
         $this->setViewName('response.php');
-		$this->view->assign('body', $this->saveStructure($Request));
+        $this->view->assign('body', $this->saveStructure($Request));
     }
     
     function doAjaxDelete($Request) {
@@ -246,25 +246,25 @@ class PageController extends Controller {
         $Page   = $this->dao->getItem($itemId);
         
         if ($this->checkOut($Page) == 1) {
-			if ($Page->getIsdefault()) {
-			    $this->checkIn($Page);
-				$message = base64_encode(HtmlUtils::formatMessage(new Message(array(
-					'type'    => 'error',
-					'title'   => __('GLOBAL.ERROR', 'Error', 1),
-					'message' => __('PAGE.NO_DELETE_DEFAULT_PAGE', 'The page you tried to delete is set as your home (default) page. The home page cannot be deleted. If you want to delete this page you must first set another page as your default page, then delete this one.', 1)
-				))));
-				$this->view->assign('body', "{message:'$message',result: false}");
-			}
-			else {
-			    $result = $this->dao->delete($itemId);
-				$message = base64_encode(HtmlUtils::formatMessage(new Message(array(
-					'type'    => $result ? 'success' : 'error',
-					'title'   => $result ? 'Success' : 'Error',
-					'message' => $result ? 'The page has been deleted' : 'The page could not be deleted'
-				))));
-				$result ? "true" : "false" ;
-				$this->view->assign('body', "{message:'$message',result: $result, nodeId:'$nodeId'}");
-			}
+            if ($Page->getIsdefault()) {
+                $this->checkIn($Page);
+                $message = base64_encode(HtmlUtils::formatMessage(new Message(array(
+                    'type'    => 'error',
+                    'title'   => __('GLOBAL.ERROR', 'Error', 1),
+                    'message' => __('PAGE.NO_DELETE_DEFAULT_PAGE', 'The page you tried to delete is set as your home (default) page. The home page cannot be deleted. If you want to delete this page you must first set another page as your default page, then delete this one.', 1)
+                ))));
+                $this->view->assign('body', "{message:'$message',result: false}");
+            }
+            else {
+                $result = $this->dao->delete($itemId);
+                $message = base64_encode(HtmlUtils::formatMessage(new Message(array(
+                    'type'    => $result ? 'success' : 'error',
+                    'title'   => $result ? 'Success' : 'Error',
+                    'message' => $result ? 'The page has been deleted' : 'The page could not be deleted'
+                ))));
+                $result ? "true" : "false" ;
+                $this->view->assign('body', "{message:'$message',result: $result, nodeId:'$nodeId'}");
+            }
         }
     }
     
@@ -284,16 +284,16 @@ class PageController extends Controller {
                 $message = __("GLOBAL.CANNOT_UNPUBLISH_HOMEPAGE", 'The Home Page cannot be un-published.', 1);
             }
             else {
-				$Page->setPublished($direction == 'up' ? 1 : 0);
-				if ($this->dao->publish($Page) && $this->saveStructure($Request)) {
-					$this->checkIn($Page);
-					$result  = true;
-					$message = __('GLOBAL.SAVE_SUCCESS', 'Your changes were saved successfully.', 1);
-				}
-				else {
-					$result  = false;
-					$message = __('GLOBAL.CHANGES_NOT_SAVED', 'Your changes could not be saved.', 1);
-				}
+                $Page->setPublished($direction == 'up' ? 1 : 0);
+                if ($this->dao->publish($Page) && $this->saveStructure($Request)) {
+                    $this->checkIn($Page);
+                    $result  = true;
+                    $message = __('GLOBAL.SAVE_SUCCESS', 'Your changes were saved successfully.', 1);
+                }
+                else {
+                    $result  = false;
+                    $message = __('GLOBAL.CHANGES_NOT_SAVED', 'Your changes could not be saved.', 1);
+                }
             }
         }
         else {
@@ -301,10 +301,10 @@ class PageController extends Controller {
             $message = __("GLOBAL.CURRENTLY_CHECKED_OUT", 'The page could not be checked out because it is currently checked out by another user.', 1);
         }
         $this->view->assign('body', HtmlUtils::formatMessage(new Message(array(
-		    'type' => $result ? 'success' : 'error',
-		    'title' => $result ? 'Success' : 'Error',
-		    'message' => $message
-		))));
+            'type' => $result ? 'success' : 'error',
+            'title' => $result ? 'Success' : 'Error',
+            'message' => $message
+        ))));
     }
     
     function doAjaxChangeNav($Request) {
@@ -316,25 +316,25 @@ class PageController extends Controller {
 
         if ($this->checkOut($Page) == 1) {
             $Page->setShow_in_navigation(Filter::getAlphaNumeric($Request, 'show_in_navigation', 1));
-			if ($this->dao->updateShowInNavigation($Page) && $this->saveStructure($Request)) {
-				$this->checkIn($Page);
-				$result  = true;
-				$message = __('GLOBAL.SAVE_SUCCESS', 'Your changes were saved successfully.', 1);
-			}
-			else {
-				$result  = false;
-				$message = __('GLOBAL.CHANGES_NOT_SAVED', 'Your changes could not be saved.', 1);
-			}
+            if ($this->dao->updateShowInNavigation($Page) && $this->saveStructure($Request)) {
+                $this->checkIn($Page);
+                $result  = true;
+                $message = __('GLOBAL.SAVE_SUCCESS', 'Your changes were saved successfully.', 1);
+            }
+            else {
+                $result  = false;
+                $message = __('GLOBAL.CHANGES_NOT_SAVED', 'Your changes could not be saved.', 1);
+            }
         }
         else {
             $result  = false;
             $message = __("GLOBAL.CURRENTLY_CHECKED_OUT", 'The page could not be checked out because it is currently checked out by another user.', 1);
         }
         $this->view->assign('body', HtmlUtils::formatMessage(new Message(array(
-		    'type' => $result ? 'success' : 'error',
-		    'title' => $result ? 'Success' : 'Error',
-		    'message' => $message
-		))));
+            'type' => $result ? 'success' : 'error',
+            'title' => $result ? 'Success' : 'Error',
+            'message' => $message
+        ))));
     }
     
     function saveStructure($Request) {
@@ -343,9 +343,9 @@ class PageController extends Controller {
         try {
             $DaoClass = ucwords(DB_TYPE) . "DAO";
             $Dao = new $DaoClass(array(
-				'type' => 'structure', 
-				'bean_class' => 'Structure'
-			));
+                'type' => 'structure', 
+                'bean_class' => 'Structure'
+            ));
             if ($Dao->query("UPDATE Structure set structure='{$xml}' where site_id = 'sbc'")) {
                 $result = 1;
             }
@@ -354,9 +354,9 @@ class PageController extends Controller {
             }
         }
         catch (PDOException $e) {
-			die($e->getMessage());
-		}
-		return $result;
+            die($e->getMessage());
+        }
+        return $result;
     }
     
     function doUpdateTree($Request) {
@@ -365,11 +365,11 @@ class PageController extends Controller {
         
         $result = $this->saveStructure($Request);
 
-		$this->view->assign('body', HtmlUtils::formatMessage(new Message(array(
-		    'type' => $result ? 'success' : 'error',
-		    'title' => $result ? 'Success' : 'Error',
-		    'message' => $result ? "The page has been created" : 'The page could not be created'
-		))));
+        $this->view->assign('body', HtmlUtils::formatMessage(new Message(array(
+            'type' => $result ? 'success' : 'error',
+            'title' => $result ? 'Success' : 'Error',
+            'message' => $result ? "The page has been created" : 'The page could not be created'
+        ))));
     }
     
     function doAdd() {
@@ -504,20 +504,20 @@ class PageController extends Controller {
                 $doc->removeChild($node);
                 PageHelper::saveStructureXml($dom->saveXml());
             
-				$this->_setMessage(
-					'success',
-					__('GLOBAL.SUCCESS', 'Success', 1),
-					__('GLOBAL.SAVE_SUCCESS', 'Your changes were saved successfully.', 1)
-				);
-			}
-			else {
-				$this->_setMessage(
-					'error',
-					__('GLOBAL.ERROR', 'Error', 1),
-					__('GLOBAL.CHANGES_NOT_SAVED', 'Your changes could not be saved.', 1)
-				);
-			}
-			Utils::redirect("admin.php?com=page&pageNum={$Request->get('pageNum', 1)}");
+                $this->_setMessage(
+                    'success',
+                    __('GLOBAL.SUCCESS', 'Success', 1),
+                    __('GLOBAL.SAVE_SUCCESS', 'Your changes were saved successfully.', 1)
+                );
+            }
+            else {
+                $this->_setMessage(
+                    'error',
+                    __('GLOBAL.ERROR', 'Error', 1),
+                    __('GLOBAL.CHANGES_NOT_SAVED', 'Your changes could not be saved.', 1)
+                );
+            }
+            Utils::redirect("admin.php?com=page&pageNum={$Request->get('pageNum', 1)}");
         }
     }
     
