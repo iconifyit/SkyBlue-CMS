@@ -2,51 +2,51 @@
 <rss version="2.0">
     <channel>
         <title>Paper Aeroplane</title>
-        <link>http://127.0.0.1/sbc-mysql/webroot/skins/paper-aeroplane/</link>
+        <link>/sbc-mysql/webroot/skins/paper-aeroplane/</link>
         <description>Paper Aeroplane Blog Photo Feed</description>
         <language>en-us</language>
         <pubDate>Fri, 30 Jul 2010 13:58:01 EST</pubDate>
         <item>
              <title>Image One</title>
-             <link>http://127.0.0.1/sbc-mysql/webroot/skins/paper-aeroplane/images/image-01.png</link>
+             <link>/sbc-mysql/webroot/skins/paper-aeroplane/images/image-01.png</link>
              <description>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</description>
              <pubDate>Sun, 25 July 2010 10:35:00 EST</pubDate>
-             <guid>http://127.0.0.1/sbc-mysql/webroot/skins/paper-aeroplane/images/image-01.png</guid>
+             <guid>/sbc-mysql/webroot/skins/paper-aeroplane/images/image-01.png</guid>
         </item>
         <item>
              <title>Image Two</title>
-             <link>http://127.0.0.1/sbc-mysql/webroot/skins/paper-aeroplane/images/image-02.png</link>
+             <link>/sbc-mysql/webroot/skins/paper-aeroplane/images/image-02.png</link>
              <description>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</description>
              <pubDate>Sun, 25 July 2010 10:35:00 EST</pubDate>
-             <guid>http://127.0.0.1/sbc-mysql/webroot/skins/paper-aeroplane/images/image-02.png</guid>
+             <guid>/sbc-mysql/webroot/skins/paper-aeroplane/images/image-02.png</guid>
         </item>
         <item>
              <title>Image Three</title>
-             <link>http://127.0.0.1/sbc-mysql/webroot/skins/paper-aeroplane/images/image-03.png</link>
+             <link>/sbc-mysql/webroot/skins/paper-aeroplane/images/image-03.png</link>
              <description>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</description>
              <pubDate>Sun, 25 July 2010 10:35:00 EST</pubDate>
-             <guid>http://127.0.0.1/sbc-mysql/webroot/skins/paper-aeroplane/images/image-03.png</guid>
+             <guid>/sbc-mysql/webroot/skins/paper-aeroplane/images/image-03.png</guid>
         </item>
         <item>
              <title>Image Four</title>
-             <link>http://127.0.0.1/sbc-mysql/webroot/skins/paper-aeroplane/images/image-04.png</link>
+             <link>/sbc-mysql/webroot/skins/paper-aeroplane/images/image-04.png</link>
              <description>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</description>
              <pubDate>Sun, 25 July 2010 10:35:00 EST</pubDate>
-             <guid>http://127.0.0.1/sbc-mysql/webroot/skins/paper-aeroplane/images/image-04.png</guid>
+             <guid>/sbc-mysql/webroot/skins/paper-aeroplane/images/image-04.png</guid>
         </item>
         <item>
              <title>Image Five</title>
-             <link>http://127.0.0.1/sbc-mysql/webroot/skins/paper-aeroplane/images/image-05.png</link>
+             <link>/sbc-mysql/webroot/skins/paper-aeroplane/images/image-05.png</link>
              <description>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</description>
              <pubDate>Sun, 25 July 2010 10:35:00 EST</pubDate>
-             <guid>http://127.0.0.1/sbc-mysql/webroot/skins/paper-aeroplane/images/image-05.png</guid>
+             <guid>/sbc-mysql/webroot/skins/paper-aeroplane/images/image-05.png</guid>
         </item>
         <item>
              <title>Image Six</title>
-             <link>http://127.0.0.1/sbc-mysql/webroot/skins/paper-aeroplane/images/image-06.png</link>
+             <link>/sbc-mysql/webroot/skins/paper-aeroplane/images/image-06.png</link>
              <description>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</description>
              <pubDate>Sun, 25 July 2010 10:35:00 EST</pubDate>
-             <guid>http://127.0.0.1/sbc-mysql/webroot/skins/paper-aeroplane/images/image-06.png</guid>
+             <guid>/sbc-mysql/webroot/skins/paper-aeroplane/images/image-06.png</guid>
         </item>
     </channel>
 </rss>
