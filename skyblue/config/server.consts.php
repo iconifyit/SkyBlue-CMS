@@ -12,58 +12,51 @@
  * See COPYING.txt for copyright notices and details.
  */
 
-# ###################################################################################
-# The constants files MUST be loaded in the following order:
-# 
-# server.consts.php
-# dirs.consts.php
-# files.consts.php
-# strings.consts.php
-# tokens.consts.php
-# regex.consts.php
-# ###################################################################################
+/**
+ * NOTE:
+ * The constants files MUST be loaded in the following order:
+ * 
+ * server.consts.php
+ * dirs.consts.php
+ * files.consts.php
+ * strings.consts.php
+ * tokens.consts.php
+ * regex.consts.php
+ */
 
-# ###################################################################################
-# SB_SERVER_PATH:
-# Do not edit this setting unless you are certain you know what you are doing.
-# ###################################################################################
+
+/**
+ * SB_SERVER_PATH:
+ * Do not edit this setting unless you are certain you know what you are doing.
+ */
 
 sb_conf('SB_SERVER_PATH', str_replace('config', null, dirname(__FILE__)));
 
-# ###################################################################################
-# SB_SESSION_SAVE_PATH:
-# The path to the directory where session files are saved. Typically this is /tmp
-# and does not need to be changed.
-# ###################################################################################
-
+/**
+ * The path to the directory where session files are saved. Typically this is /tmp 
+ * and does not need to be changed.
+ */
 sb_conf('SB_SESSION_SAVE_PATH', '/tmp');
 
-# ###################################################################################
-# SB_COOKIE_PATH:
-# The path scope of session cookies.
-# ###################################################################################
 
+/**
+ * The path scope of session cookies. 
+ */
 sb_conf('SB_COOKIE_PATH', '/');
 
-# ###################################################################################
-# SB_PHPSESSID:
-# The PHP Session ID Variable
-# ###################################################################################
-
+/**
+ * The PHP Session ID Variable 
+ */
 sb_conf('SB_PHPSESSID', 'PHPSESSID');
 
-# ###################################################################################
-# SB_SESSION_LIFETIME:
-# The default session lifetime in seconds
-# ###################################################################################
+/**
+ * The default session lifetime in seconds 
+ */
+sb_conf('SB_SESSION_LIFETIME', 86400);
 
-sb_conf('SB_SESSION_LIFETIME', 3600);
-
-# ###################################################################################
-# WYM_RELATIVE_PATH:
-# The relative path from the WYMeditor iframe to the SBC root.
-# ###################################################################################
-
+/**
+ * The relative path from the WYMeditor iframe to the SBC root. 
+ */
 sb_conf('WYM_RELATIVE_PATH', '../../../../../../');
 
 # ###################################################################################
