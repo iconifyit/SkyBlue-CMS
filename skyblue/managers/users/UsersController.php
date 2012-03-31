@@ -207,7 +207,7 @@ class UsersController extends Controller {
     
     function doSave($Request) {
         
-        $User = $this->dao->dao->getByKey('username', $Request->get('username'));
+        $User = $this->dao->getByKey('username', $Request->get('username'));
         
         $this->addValidation('username', 'notnull', 'USERS.VALIDATE.USERNAME');
         $this->addValidation('email', 'email', 'USERS.VALIDATE.EMAIL');
