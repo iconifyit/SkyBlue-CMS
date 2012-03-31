@@ -17,9 +17,9 @@
  * @date   December 12, 2008
  */
 
-Loader::load('includes.mvc.view',       true, _SBC_SYS_);
-Loader::load('includes.mvc.controller', true, _SBC_SYS_);
-Loader::load('includes.mvc.dao',        true, _SBC_SYS_);
+Loader::load('includes.mvc.View',       true, _SBC_SYS_);
+Loader::load('includes.mvc.Controller', true, _SBC_SYS_);
+Loader::load('includes.mvc.DAO',        true, _SBC_SYS_);
 Loader::load('includes.mvc.XmlDAO',     true, _SBC_SYS_);
 
 defined('DB_TYPE') or define('DB_TYPE', 'sqlite');
