@@ -127,7 +127,7 @@ $(function() {
         $.scrollTo($(this).attr("href"), 600);
     });
     
-    doInitSlider({feed: "http://127.0.0.1/sbc-mysql/webroot/skins/paper-aeroplane/photos.xml"});
+    doInitSlider({feed: "/skins/paper-aeroplane/photos.xml"});
     doInitSearch();
 });
 
