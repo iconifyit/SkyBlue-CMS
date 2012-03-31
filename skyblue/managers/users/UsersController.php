@@ -278,23 +278,50 @@ class UsersController extends Controller {
     }
     
     function doDelete($Request) {
-        if (intval($Request->get('id')) === 0) {
+//        if (intval($Request->get('id')) === 0) {
+//            $this->_setMessage(
+//                'error',
+//                __('GLOBAL.ERROR', 'Error', 1),
+//                __('USERS.DEFAULTUSERREQUIRED', 'You cannot delete the default user', 1)
+//            );
+//            Utils::redirect("admin.php?com=users");
+//        }
+//        else if (intval($Request->get('id')) === 1) {
+//            $this->_setMessage(
+//                'error',
+//                __('GLOBAL.ERROR', 'Error', 1),
+//                __('USERS.ADMINUSERREQUIRED', 'You cannot delete the Admin user', 1)
+//            );
+//            Utils::redirect("admin.php?com=users");
+//        }
+//        else if (count($this->dao->index()) == 1) {
+//            $this->_setMessage(
+//                'error',
+//                __('GLOBAL.ERROR', 'Error', 1),
+//                __('USERS.ONEUSERREQUIRED', 'You must have at least one User', 1)
+//            );
+//            Utils::redirect("admin.php?com=users");
+//        }
+//        else {
+//            parent::doDelete($Request, "admin.php?com=users");
+//        }
+        if (intval($Request->get('id')) === 1) {
             $this->_setMessage(
                 'error',
                 __('GLOBAL.ERROR', 'Error', 1),
-                __('USERS.DEFAULTUSERREQUIRED', 'You cannot delete the default user', 1)
+                __('USERS.DEFAULTUSERREQUIRED', 'The Anonymous User cannot be deleted', 1)
             );
             Utils::redirect("admin.php?com=users");
         }
-        else if (intval($Request->get('id')) === 1) {
+        else if (intval($Request->get('id')) === 2) {
             $this->_setMessage(
                 'error',
                 __('GLOBAL.ERROR', 'Error', 1),
-                __('USERS.ADMINUSERREQUIRED', 'You cannot delete the Admin user', 1)
+                __('USERS.ADMINUSERREQUIRED', 'The Admin User cannot be deleted', 1)
             );
             Utils::redirect("admin.php?com=users");
         }
-        else if (count($this->dao->index()) == 1) {
+        else if (count($this->dao->index()) === 1) {
             $this->_setMessage(
                 'error',
                 __('GLOBAL.ERROR', 'Error', 1),
