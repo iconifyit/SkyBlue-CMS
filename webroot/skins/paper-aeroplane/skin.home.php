@@ -24,7 +24,7 @@
                 <div class="grid_8 no_margin_left scrollable" id="slider">
                     <div class="items">
                         <div class="noscript">
-                            <img src="[[skin.path]]images/grace_street.jpg" alt="Grace Street" />
+                            <img src="[[skin.path]]images/image-01.png" alt="Grace Street" />
                             <h4 class="title">Grace Street</h4>
                             <p class="description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</p>
                         </div>
