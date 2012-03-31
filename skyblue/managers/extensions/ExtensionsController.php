@@ -93,8 +93,8 @@ class ExtensionsController extends Controller {
         $this->view->assign('request', $Request);
         
         $Bean = $this->dao->getItem($Request->get('name'));
-
-        if (! $Bean->getName()) {
+        
+        if (! $Bean) {
             $Bean = new Extension($Request);
             $this->view->assign('is_new', '1');
         }
