@@ -80,6 +80,7 @@ class Session extends Publisher {
         if (is_callable('ini_set')) {
             ini_set('session.save_path', SB_SESSION_SAVE_PATH);
             ini_set('session.cookie_path', SB_COOKIE_PATH);
+            ini_set('session.gc_maxlifetime', 86400);
         }
         
         session_set_cookie_params(
