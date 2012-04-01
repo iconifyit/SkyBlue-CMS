@@ -24,6 +24,8 @@ if (function_exists('ini_set') && is_callable('ini_set')) {
         'include_path', 
         ini_get('include_path') . ':' . dirname(_SBC_ROOT_) . ':'
     );
+    session_set_cookie_params(86400, '/');
+    session_start();
 }
 
 /**
@@ -87,11 +89,9 @@ require_once(_INC_ . 'JSON.php');
 require_once(_INC_ . 'MailMessage.php');
 require_once(_INC_ . 'Archive_Zip.php');
 require_once(_INC_ . 'class.JavaScriptPacker.php');
-# require_once(_INC_ . 'adodb5/adodb.inc.php');
 
 /**
  * Load the MVC classes
  */
-
 Loader::load('config.configuration', true, _SBC_APP_);
 Loader::load('includes.mvc.MVC', true, _SBC_SYS_);
