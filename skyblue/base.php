@@ -24,9 +24,10 @@ if (function_exists('ini_set') && is_callable('ini_set')) {
         'include_path', 
         ini_get('include_path') . ':' . dirname(_SBC_ROOT_) . ':'
     );
-    session_set_cookie_params(86400, '/');
-    session_start();
 }
+
+session_set_cookie_params(3600, '/');
+session_start();
 
 /**
  * I hate to have to do this, but PHP 5.1 + requires that the default timezone be explicitly set.
