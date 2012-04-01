@@ -158,8 +158,8 @@ sb_conf('SB_LANGUAGE', 'en');
 # a login is timed out.  A timeout of 0 means, the login never expires.
 # ###################################################################################
 
-sb_conf('SB_ADMIN_TIMEOUT', 30*60);
-sb_conf('SB_USER_TIMEOUT', 24*60*60);
+sb_conf('SB_ADMIN_TIMEOUT', 86400);
+sb_conf('SB_USER_TIMEOUT', 86400);
 
 # ###################################################################################
 # SB_DIALOG_TIMEOUT sets the number of microseconds a dialog is displayed before 
