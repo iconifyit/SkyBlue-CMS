@@ -37,7 +37,6 @@ class Authenticate extends Publisher {
     function __construct($config=array()) {
     
         require_once(SB_MANAGERS_DIR . "users/UsersHelper.php");
-        # require_once(SB_MANAGERS_DIR . "users/helpers/users.php");
 
         $Session = Singleton::getInstance('Session');
         
@@ -46,10 +45,10 @@ class Authenticate extends Publisher {
         
         $this->_load();
         
-        /** 
-        * Make sure the user authentication is still valid.
-        * (e.g. it may have timed out)
-        */
+        /*
+         * Make sure the user authentication is still valid.
+         * (e.g. it may have timed out)
+         */
         
         if (! $this->isValidSession()) {
             $this->InvalidateUser();
@@ -140,18 +139,18 @@ class Authenticate extends Publisher {
 
     function ValidateUser($username, $password) {
     
-        /**
-        * Find the user object for the current login.
-        */
+        /*
+         * Find the user object for the current login.
+         */
         $User = Utils::findObjByKey($this->users, 'username', $username);
         if (!$User) {
             $this->InvalidateUser();
             return false;
         }
 
-        /**
-        * Check the password.
-        */
+        /*
+         * Check the password.
+         */
         if ($User->getPassword() != Utils::fingerprint($password)) {
             $this->InvalidateUser();
             return false;
@@ -160,9 +159,7 @@ class Authenticate extends Publisher {
         $gids = $User->getGroups();
         
         $Session = Singleton::getInstance('Session');
-        $Session->set('TIMEOUT', time() + (
-            $this->_containsAdmin($gids) ? SB_ADMIN_TIMEOUT : SB_USER_TIMEOUT
-        ));
+        $Session->set('TIMEOUT', time() + SB_SESSION_LIFETIME);
         $Session->set('User', $User);
         return true;
     }
@@ -170,7 +167,6 @@ class Authenticate extends Publisher {
     /*
      * Private methods
      */
-
     function _containsAdmin($gids) {
         foreach ($gids as $gid) {
             $Group = $this->_getGroup($gid);
@@ -204,7 +200,6 @@ class Authenticate extends Publisher {
      * Gets an anonymous (not logged-in) User
      * @return User
      */
-    
     function getAnonymousUser() {
         static $User;
         if (!is_object($User)) {
@@ -224,19 +219,16 @@ class Authenticate extends Publisher {
     }
 
     function isValidSession() {
+    
         $Session = Singleton::getInstance('Session');
         $User = $Session->getUser('User');
         
-        if (!$Session->is_empty('User') &&
-            !$User->getBlock() && 
-            !$Session->is_empty('TIMEOUT') && 
-            $Session->get('TIMEOUT') > time()) {
+        if (! $Session->is_empty('User') &&
+            ! $User->getBlock()) {
                 
             return true;
         }
-        else if (! $Session->is_empty('TIMEOUT') && 
-                   $Session->get('TIMEOUT') < time()) {
-            
+        else {
             $Session->addMessage(
                 'warning',
                 'Warning',
@@ -258,8 +250,6 @@ class Authenticate extends Publisher {
     function _refreshUser() {
         $User = $this->user();
         $gids = $User->getGroups();
-        $timeout = $this->_containsAdmin($gids) ? SB_ADMIN_TIMEOUT : SB_USER_TIMEOUT ;
         $Session =& Singleton::getInstance('Session');
-        $Session->set('TIMEOUT', time() + $timeout);
     }
 }
