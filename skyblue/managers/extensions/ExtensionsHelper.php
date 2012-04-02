@@ -20,15 +20,15 @@
 class ExtensionsHelper {
 
     function initialize() {
-    	if (file_exists(_SBC_APP_ . "daos/ExtensionsDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/ExtensionsDAO.php");
-    	}
-    	else {
-    		require_once(SB_MANAGERS_DIR . "extensions/ExtensionsDAO.php");
-    	}
-    	require_once(SB_MANAGERS_DIR . "extensions/Extension.php");
-    	require_once(SB_MANAGERS_DIR . "extensions/Package.php");
-    	require_once(SB_MANAGERS_DIR . "extensions/ExtensionsController.php");
+        if (file_exists(_SBC_APP_ . "daos/ExtensionsDAO.php")) {
+            require_once(_SBC_APP_ . "daos/ExtensionsDAO.php");
+        }
+        else {
+            require_once(SB_MANAGERS_DIR . "extensions/ExtensionsDAO.php");
+        }
+        require_once(SB_MANAGERS_DIR . "extensions/Extension.php");
+        require_once(SB_MANAGERS_DIR . "extensions/Package.php");
+        require_once(SB_MANAGERS_DIR . "extensions/ExtensionsController.php");
     }
     
     function getComponentsFile() {
