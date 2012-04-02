@@ -31,15 +31,26 @@ class DAO extends PDO {
      */
     var $source;
 
+    /**
+     * Class constructor
+     * @param string $dsn
+     * @param string $user
+     * @param string $pass
+     * @throws Exception 
+     */
     function __construct($dsn, $user, $pass) { 
         try {
             parent::__construct($dsn, $user, $pass);
         }
         catch (PDOException $e) {
-			die($e->getMessage());
-		}
+            throw new Exception($e->getMessage());
+        }
     }
     
+    /**
+     * Gets a reference to the data source
+     * @return string 
+     */
     function getSource() {
         return $this->source;
     }
@@ -48,18 +59,36 @@ class DAO extends PDO {
         $this->source = $source;
     }
     
+    /**
+     * Gets the name of the bean class
+     * @return string 
+     */
     function getBeanClass() {
         return $this->beanClass;
     }
     
+    /**
+     * Sets the name of the bean class
+     * @param string $beanClass  The bean class
+     */
     function setBeanClass($beanClass) {
         $this->beanClass = $beanClass;
     }
     
+    /**
+     * Counts the number of data objects
+     * @return int 
+     */
     function countItems() {
         return count($this->index());
     }
     
+    /**
+     * Gets a single Bean object
+     * @param string $query    The query to get one object
+     * @return TransferObject  The data transfer object
+     * @throws Exception 
+     */
     function getItem($query) {
         $result = null;
         try {
@@ -69,11 +98,17 @@ class DAO extends PDO {
             }
         }
         catch (PDOException $e) {
-			die($e->getMessage());
-		}
+            throw new Exception($e->getMessage());
+        }
         return $result;
     }
     
+    /**
+     * Lists all the data objects of the class
+     * @param string $query  The query to list all data objects
+     * @return array         An array of data transfer objects
+     * @throws Exception 
+     */
     function index($query) {
         $result = null;
         try {
@@ -83,42 +118,60 @@ class DAO extends PDO {
             }
         }
         catch (PDOException $e) {
-			die($e->getMessage());
-		}
+            throw new Exception($e->getMessage());
+        }
         return $result;
     }
     
+    /**
+     * Deletes a data object
+     * @param string $query  The delete query
+     * @return int           The number of affected rows
+     * @throws Exception 
+     */
     function delete($query) {
         $result = false;
         try {
             $result = $this->exec($query);
         }
         catch (PDOException $e) {
-			die($e->getMessage());
-		}
-		return $result;
+            throw new Exception($e->getMessage());
+        }
+        return $result;
     }
     
+    /**
+     * Inserts a data object
+     * @param string $query  The query to insert a data object
+     * @return boolean
+     * @throws Exception 
+     */
     function insert($query) {
         $result = false;
         try {
             $result = $this->exec($query);
         }
         catch (PDOException $e) {
-			die($e->getMessage());
-		}
-		return $result;
+            throw new Exception($e->getMessage());
+        }
+        return $result;
     }
     
+    /**
+     * Updates a data object
+     * @param string $query  The query to update a data object
+     * @return int           The number of affected rows
+     * @throws Exception 
+     */
     function update($query) {
         $result = false;
         try {
             $result = $this->exec($query);
         }
         catch (PDOException $e) {
-			die($e->getMessage());
-		}
-		return $result;
+            throw new Exception($e->getMessage());
+        }
+        return $result;
     }
 
     function save() { return false; }
