@@ -587,15 +587,7 @@ class PageController extends Controller {
             }
             
             if ($success) {
-            
-                $doc  = PageHelper::parseStructureXml();
-                $node = PageHelper::getElementById($doc, $Page->getId());
-                $node->setAttribute('name',      $Page->getName());
-                $node->setAttribute('published', $Page->getPublished());
-                $node->setAttribute('url',       $Page->getPermalink());
-                $node->setAttribute('show_in_navigation', $Page->getShow_in_navigation());
-                PageHelper::saveStructureXml($doc->saveXml());
-            
+                
                 $this->checkIn($Page);
                 $this->_setMessage(
                     'success',
@@ -610,7 +602,6 @@ class PageController extends Controller {
                     __('GLOBAL.CHANGES_NOT_SAVED', 'Your changes could not be saved.', 1)
                 );
             }
-            # Utils::redirect("admin.php?com=page&pageNum={$Request->get('pageNum', 1)}");
         }
         $this->showEditForm(new Page($Request));
     }
