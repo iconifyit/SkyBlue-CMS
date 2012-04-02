@@ -90,28 +90,59 @@ class PageDAO extends SqliteDAO {
         );
     }
     
+    function dump($doc) {
+        ob_start();
+        print $doc->saveHTML();
+        $buffer = ob_get_contents();
+        ob_end_clean();
+        die($buffer);
+    }
+    
     function insert($Page) {
+        $result = false;
         if ($Page->getStory_content()) {
             $Page->setStory_content(base64_encode($Page->getStory_content()));
         }
-        return parent::insert($Page);
+        if (parent::insert($Page)) {
+            $lastInsertId = PDO::lastInsertId();
+            $doc  = PageHelper::parseStructureXml();
+            $node = $doc->createElement("page");
+            $node->setAttribute('id',        $lastInsertId);
+            $node->setAttribute('name',      $Page->getName());
+            $node->setAttribute('published', $Page->getPublished());
+            $node->setAttribute('url',       $Page->getPermalink());
+            $node->setAttribute('show_in_navigation', $Page->getShow_in_navigation());
+            $newnode = $doc->getElementsByTagName('site')->item(0)->appendChild($node);
+            if ($newnode instanceof DOMNode) {
+                $result = PageHelper::saveStructureXml($doc->saveXml());
+            }
+        }
+        return $result;
     }
     
     function update($Page) {
+        $result = false;
         if ($Page->getStory_content()) {
             $Page->setStory_content(base64_encode($Page->getStory_content()));
         }
-        return parent::update($Page);
+        if (parent::update($Page)) {
+            $doc  = PageHelper::parseStructureXml();
+            $node = PageHelper::getElementById($doc, $Page->getId());
+            if (! ($node instanceof DOMNode)) {
+                $result = $this->insert($Page);
+            }
+            else {
+                $node->setAttribute('id',        $Page->getId());
+                $node->setAttribute('name',      $Page->getName());
+	            $node->setAttribute('published', $Page->getPublished());
+	            $node->setAttribute('url',       $Page->getPermalink());
+	            $node->setAttribute('show_in_navigation', $Page->getShow_in_navigation());
+	            $result = PageHelper::saveStructureXml($doc->saveXml());
+            }
+        }
+        return $result;
     }
-
-    function saveStoryContent($Page) { return false; }
-    
-    /**
-     * TODO: Not sure how to implement this yet
-     */
-    function reorder($id, $direction) {
-        return false;
-    }
+       
     
     function copy($id) {
         $pages = $this->index();
@@ -136,5 +167,36 @@ class PageDAO extends SqliteDAO {
         $Page->setName($pageName);
         $Page->setIsdefault(0);
         return $this->insert($Page);
+    }
+    
+    function delete($id) {
+        $result = false;
+        if (parent::delete($id)) {
+        	try {
+                $dom = PageHelper::parseStructureXml();
+                if ($dom instanceof DOMDocument) {
+	                $doc = $dom->documentElement;
+	                if ($node = PageHelper::getElementById($dom, $id)) {
+	                    $oldnode = $doc->removeChild($node);
+		                if ($oldnode instanceof DOMNode) {
+		                    $result = PageHelper::saveStructureXml($dom->saveXml());
+		                }
+	                }
+                }
+            }
+            catch (Exception $e) {
+                throw new Exception($e);
+            }
+        }
+        return $result;
+    }
+
+    function saveStoryContent($Page) { return false; }
+    
+    /**
+     * TODO: Not sure how to implement this yet
+     */
+    function reorder($id, $direction) {
+        return false;
     }
 }
