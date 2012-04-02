@@ -354,7 +354,7 @@ class PageController extends Controller {
             }
         }
         catch (PDOException $e) {
-            die($e->getMessage());
+            throw new Exception($e->getMessage());
         }
         return $result;
     }
@@ -491,19 +491,9 @@ class PageController extends Controller {
         else {
             $itemId = $Request->get('id');
             if (! is_null($itemId)) {
-                $this->checkIn(
-                    $this->dao->getItem($itemId)
-                );
+                $this->checkIn($this->dao->getItem($itemId));
             }
-
             if ($this->dao->delete($itemId)) {
-            
-                $dom  = PageHelper::parseStructureXml();
-                $doc  = $dom->documentElement;
-                $node = PageHelper::getElementById($dom, $Page->getId());
-                $doc->removeChild($node);
-                PageHelper::saveStructureXml($dom->saveXml());
-            
                 $this->_setMessage(
                     'success',
                     __('GLOBAL.SUCCESS', 'Success', 1),
@@ -549,15 +539,6 @@ class PageController extends Controller {
             }
 
             if ($success) {
-            
-                $doc  = PageHelper::parseStructureXml();
-                $node = PageHelper::getElementById($doc, $Page->getId());
-                $node->setAttribute('name',      $Page->getName());
-                $node->setAttribute('published', $Page->getPublished());
-                $node->setAttribute('url',       $Page->getPermalink());
-                $node->setAttribute('show_in_navigation', $Page->getShow_in_navigation());
-                PageHelper::saveStructureXml($doc->saveXml());
-            
                 $this->checkIn($Page);
                 $this->_setMessage(
                     'success',

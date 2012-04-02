@@ -15,15 +15,15 @@
 class PageHelper {
     
     function initialize() {
-    	if (file_exists(_SBC_APP_ . "daos/PageDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/PageDAO.php");
-    	}
-    	else {
-    		require_once(SB_MANAGERS_DIR . "page/PageDAO.php");
-    	}
-    	require_once(SB_MANAGERS_DIR . "page/Page.php");
-    	require_once(SB_MANAGERS_DIR . "page/PageView.php");
-    	require_once(SB_MANAGERS_DIR . "page/PageController.php");
+        if (file_exists(_SBC_APP_ . "daos/PageDAO.php")) {
+            require_once(_SBC_APP_ . "daos/PageDAO.php");
+        }
+        else {
+            require_once(SB_MANAGERS_DIR . "page/PageDAO.php");
+        }
+        require_once(SB_MANAGERS_DIR . "page/Page.php");
+        require_once(SB_MANAGERS_DIR . "page/PageView.php");
+        require_once(SB_MANAGERS_DIR . "page/PageController.php");
     }
     
     function getPageDao($refresh=false) {
@@ -57,73 +57,73 @@ class PageHelper {
     
     function html2xml($html) {
         $Dom = new DOMDocument("1.0", "UTF-8");
-		$Dom->loadXML($html);
-		$tree  = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-		$tree .= "<site>\n";
-		$tree .= PageHelper::buildXmlTree(
-		    $Dom->getElementsByTagName('ul')->item(1)->childNodes
-		);
-		$tree .= "</site>\n";
-		return $tree;
+        $Dom->loadXML($html);
+        $tree  = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+        $tree .= "<site>\n";
+        $tree .= PageHelper::buildXmlTree(
+            $Dom->getElementsByTagName('ul')->item(1)->childNodes
+        );
+        $tree .= "</site>\n";
+        return $tree;
     }
     
     function buildXmlTree($nodes) {
         $tree = "";
         if ($nodes->length) {
-			foreach ($nodes as $node) {
-			    if ($node->nodeType != XML_ELEMENT_NODE) continue;
-			    if ($node->nodeName == "li") {
-			        $a = $node->getElementsByTagName('a')->item(0);
-			        $PageName = $a->nodeValue;
-			        $url = Utils::parseQuery($a->attributes->getNamedItem('href')->nodeValue);
-			        $PageId    = Filter::get($url, 'id');
-					$PageUrl   = $a->attributes->getNamedItem('rel')->nodeValue;
-					$published = $a->attributes->getNamedItem('published')->nodeValue;
-					$showInNav = $a->attributes->getNamedItem('show_in_navigation')->nodeValue;
-					$tree .= "<page id=\"{$PageId}\" url=\"{$PageUrl}\" name=\"{$PageName}\"";
-					$tree .= " published=\"{$published}\" show_in_navigation=\"{$showInNav}\"";
-					if ($node->getElementsByTagName('ul')->length) {
-					    $tree .= ">";
-						$tree .= PageHelper::buildXmlTree(
-							$node->getElementsByTagName('ul')->item(0)->childNodes
-						);
-						$tree .= "</page>\n";
-					}
-					else {
-						$tree .= " />\n";
-					}
-				}
-			}
-		}
+            foreach ($nodes as $node) {
+                if ($node->nodeType != XML_ELEMENT_NODE) continue;
+                if ($node->nodeName == "li") {
+                    $a = $node->getElementsByTagName('a')->item(0);
+                    $PageName = $a->nodeValue;
+                    $url = Utils::parseQuery($a->attributes->getNamedItem('href')->nodeValue);
+                    $PageId    = Filter::get($url, 'id');
+                    $PageUrl   = $a->attributes->getNamedItem('rel')->nodeValue;
+                    $published = $a->attributes->getNamedItem('published')->nodeValue;
+                    $showInNav = $a->attributes->getNamedItem('show_in_navigation')->nodeValue;
+                    $tree .= "<page id=\"{$PageId}\" url=\"{$PageUrl}\" name=\"{$PageName}\"";
+                    $tree .= " published=\"{$published}\" show_in_navigation=\"{$showInNav}\"";
+                    if ($node->getElementsByTagName('ul')->length) {
+                        $tree .= ">";
+                        $tree .= PageHelper::buildXmlTree(
+                            $node->getElementsByTagName('ul')->item(0)->childNodes
+                        );
+                        $tree .= "</page>\n";
+                    }
+                    else {
+                        $tree .= " />\n";
+                    }
+                }
+            }
+        }
         return $tree;
     }
     
     function buildHtmlTree($pages) {
         $tree = "";
         if ($pages->length) {
-			foreach ($pages as $Page) {
-			    if ($Page->nodeType != XML_ELEMENT_NODE) continue;
-			    $PageId   = $Page->attributes->getNamedItem('id')->nodeValue;
-			    $PageName = $Page->attributes->getNamedItem('name')->nodeValue;
-			    $PageUrl  = $Page->attributes->getNamedItem('url')->nodeValue;
-			    
-			    $Dao = PageHelper::getPageDao();
-			    $Published = $Dao->getValue('published', $PageId);
-			    $show_in_navigation = $Dao->getValue('show_in_navigation', $PageId);
-			    
-				$tree .= "<li>\n";
-				$tree .= "<a";
-				$tree .= " href=\"admin.php?com=page&action=edit&id={$PageId}\""; 
-				$tree .= " rel=\"{$PageUrl}\"";
-				$tree .= " published=\"{$Published}\""; 
-				$tree .= " show_in_navigation=\"{$show_in_navigation}\""; 
-				$tree .= ">{$PageName}</a>\n";
-				if ($Page->childNodes->length) {
-					$tree .= PageHelper::buildHtmlTree($Page->childNodes);
-				}
-				$tree .= "</li>\n";
-			}
-		}
+            foreach ($pages as $Page) {
+                if ($Page->nodeType != XML_ELEMENT_NODE) continue;
+                $PageId   = $Page->attributes->getNamedItem('id')->nodeValue;
+                $PageName = $Page->attributes->getNamedItem('name')->nodeValue;
+                $PageUrl  = $Page->attributes->getNamedItem('url')->nodeValue;
+                
+                $Dao = PageHelper::getPageDao();
+                $Published = $Dao->getValue('published', $PageId);
+                $show_in_navigation = $Dao->getValue('show_in_navigation', $PageId);
+                
+                $tree .= "<li>\n";
+                $tree .= "<a";
+                $tree .= " href=\"admin.php?com=page&action=edit&id={$PageId}\""; 
+                $tree .= " rel=\"{$PageUrl}\"";
+                $tree .= " published=\"{$Published}\""; 
+                $tree .= " show_in_navigation=\"{$show_in_navigation}\""; 
+                $tree .= ">{$PageName}</a>\n";
+                if ($Page->childNodes->length) {
+                    $tree .= PageHelper::buildHtmlTree($Page->childNodes);
+                }
+                $tree .= "</li>\n";
+            }
+        }
         return (trim($tree) != "" ? "<ul>{$tree}</ul>" : $tree);
     }
     
@@ -131,9 +131,9 @@ class PageHelper {
         try {
             $DaoClass = ucwords(DB_TYPE) . "DAO";
             $Dao = new $DaoClass(array(
-				'type' => 'structure', 
-				'bean_class' => 'Structure'
-			));
+                'type' => 'structure', 
+                'bean_class' => 'Structure'
+            ));
             $Statement = $Dao->query("select structure from Structure where site_id = 'sbc'");
             if ($result = $Statement->fetch()) {
                 $Dom = load_xml_string(Filter::getRaw($result, 'structure'));
@@ -143,20 +143,20 @@ class PageHelper {
             }
         }
         catch (PDOException $e) {
-			die($e->getMessage());
-		}
-		$block_id = "";
-		if ($block_id = Filter::get($options, 'block_id', '')) {
-		    $block_id = " id=\"{$block_id}\"";
-		}
+            die($e->getMessage());
+        }
+        $block_id = "";
+        if ($block_id = Filter::get($options, 'block_id', '')) {
+            $block_id = " id=\"{$block_id}\"";
+        }
     ?>
     <div<?php echo $block_id; ?>>
         <ul>
             <li id="root">
                 <a href="#"><?php echo Config::get('site_name'); ?></a>
-		        <?php echo $tree; ?>
-		    </li>
-		</li>
+                <?php echo $tree; ?>
+            </li>
+        </li>
     </div>
     <?php
     }
@@ -195,57 +195,57 @@ class PageHelper {
         $tree = "";
         if ($pages->length) {
             
-			foreach ($pages as $Page) {
-			    if ($Page->nodeType != XML_ELEMENT_NODE) continue;
-			    
-			    $PageId   = $Page->attributes->getNamedItem('id')->nodeValue;
-			    $PageName = $Page->attributes->getNamedItem('name')->nodeValue;
-			    $PageUrl  = $Page->attributes->getNamedItem('url')->nodeValue;
-			    
-			    $class = "";
-			    $classes = array();
-			    if (! PageHelper::getPreviousPage($Page)) {
-			        array_push($classes, 'firstChild');
-			    }
-			    else if (! PageHelper::getNextPage($Page)) {
-			        array_push($classes, 'lastChild');
-			    }
-			    
-				if ($li_class = Filter::get($options, 'li_class')) {
-					array_push($classes, $li_class);
-				}
+            foreach ($pages as $Page) {
+                if ($Page->nodeType != XML_ELEMENT_NODE) continue;
+                
+                $PageId   = $Page->attributes->getNamedItem('id')->nodeValue;
+                $PageName = $Page->attributes->getNamedItem('name')->nodeValue;
+                $PageUrl  = $Page->attributes->getNamedItem('url')->nodeValue;
+                
+                $class = "";
+                $classes = array();
+                if (! PageHelper::getPreviousPage($Page)) {
+                    array_push($classes, 'firstChild');
+                }
+                else if (! PageHelper::getNextPage($Page)) {
+                    array_push($classes, 'lastChild');
+                }
+                
+                if ($li_class = Filter::get($options, 'li_class')) {
+                    array_push($classes, $li_class);
+                }
 
-			    if (count($classes)) {
-			        $class = implode(" ", $classes);
-			        $class = " class=\"{$class}\"";
-			    }
-			    
-				$tree .= "<li{$class}>\n";
-				$a_class = "";
-				if ($a_class = Filter::get($options, 'a_class')) {
-					$a_class = " class=\"{$a_class}\"";
-				}
-				$tree .= "<a href=\"{$PageUrl}\"{$a_class}>{$PageName}</a>\n";
-				if ($Page->childNodes->length) {
-					$tree .= PageHelper::buildSiteTree(
-					    $Page->childNodes, array(
-					        'ul_class'=>'submenu', 
-					        'li_class'=>'', 
-					        'a_class'=>''
-					    )
-					);
-				}
-				$tree .= "</li>\n";
-			}
-		}
-		$ul_id = "";
-		if ($ul_id = Filter::get($options, 'ul_id', '')) {
-		    $ul_id = " id=\"{$ul_id}\"";
-		}
-		$ul_class = "";
-		if ($ul_class = Filter::get($options, 'ul_class')) {
-		    $ul_class = " class=\"{$ul_class}\"";
-		}
+                if (count($classes)) {
+                    $class = implode(" ", $classes);
+                    $class = " class=\"{$class}\"";
+                }
+                
+                $tree .= "<li{$class}>\n";
+                $a_class = "";
+                if ($a_class = Filter::get($options, 'a_class')) {
+                    $a_class = " class=\"{$a_class}\"";
+                }
+                $tree .= "<a href=\"{$PageUrl}\"{$a_class}>{$PageName}</a>\n";
+                if ($Page->childNodes->length) {
+                    $tree .= PageHelper::buildSiteTree(
+                        $Page->childNodes, array(
+                            'ul_class'=>'submenu', 
+                            'li_class'=>'', 
+                            'a_class'=>''
+                        )
+                    );
+                }
+                $tree .= "</li>\n";
+            }
+        }
+        $ul_id = "";
+        if ($ul_id = Filter::get($options, 'ul_id', '')) {
+            $ul_id = " id=\"{$ul_id}\"";
+        }
+        $ul_class = "";
+        if ($ul_class = Filter::get($options, 'ul_class')) {
+            $ul_class = " class=\"{$ul_class}\"";
+        }
         return (trim($tree) != "" ? "<ul{$ul_id}{$ul_class}>{$tree}</ul>" : $tree);
     }
     
@@ -254,9 +254,9 @@ class PageHelper {
         try {
             $DaoClass = ucwords(DB_TYPE) . "DAO";
             $Dao = new $DaoClass(array(
-				'type' => 'structure', 
-				'bean_class' => 'Structure'
-			));
+                'type' => 'structure', 
+                'bean_class' => 'Structure'
+            ));
             $Statement = $Dao->query("select structure from Structure where site_id = 'sbc'");
             if ($result = $Statement->fetch()) {
                 $Dom = load_xml_string(Filter::getRaw($result, 'structure'));
@@ -273,47 +273,52 @@ class PageHelper {
             $navigation = $Dom->getElementsByTagName('site')->item(0)->childNodes;
         }
         catch (PDOException $e) {
-			die($e->getMessage());
-		}
-		return $navigation;
+            die($e->getMessage());
+        }
+        return $navigation;
     }
     
     function getElementById($doc, $id) {
-		$xpath = new DOMXPath($doc);
-		return $xpath->query("//*[@id='$id']")->item(0);
-	}
+        $xpath = new DOMXPath($doc);
+        return $xpath->query("//*[@id='$id']")->item(0);
+    }
     
     function parseStructureXml() {
         $Dom = null;
         try {
             $DaoClass = ucwords(DB_TYPE) . "DAO";
             $Dao = new $DaoClass(array(
-				'type' => 'structure', 
-				'bean_class' => 'Structure'
-			));
+                'type' => 'structure', 
+                'bean_class' => 'Structure'
+            ));
             $Statement = $Dao->query("select structure from Structure where site_id = 'sbc'");
             if ($result = $Statement->fetch()) {
                 $Dom = load_xml_string(Filter::getRaw($result, 'structure'));
             }
         }
         catch (PDOException $e) {
-			die($e->getMessage());
-		}
-		return $Dom;
+            throw new Exception($e->getMessage());
+        }
+        return $Dom;
     }
     
     function saveStructureXml($xml) {
+        $result = false;
         try {
             $DaoClass = ucwords(DB_TYPE) . "DAO";
             $Dao = new $DaoClass(array(
-				'type' => 'structure', 
-				'bean_class' => 'Structure'
-			));
-            $Dao->exec("UPDATE Structure SET structure = '$xml' WHERE site_id = 'sbc'");
+                'type' => 'structure', 
+                'bean_class' => 'Structure'
+            ));
+            
+            $sql    = "UPDATE Structure SET structure = :xml WHERE site_id = :site_id";
+            $sth    = $Dao->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+            $result = $sth->execute(array(':xml' => $xml, ':site_id' => 'sbc'));
         }
         catch (PDOException $e) {
-			die($e->getMessage());
-		}
+            throw new Exception($e->getMessage());
+        }
+        return $result;
     }
 
     /**
@@ -583,5 +588,4 @@ class PageHelper {
         $selector .= '</ul>'."\r\n";
         return  $selector;
     }
-
 }
