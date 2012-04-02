@@ -26,13 +26,14 @@ class UsersController extends Controller {
 
     function __construct($Request) {
         parent::__construct($Request);
-        $this->setHandler('index',       'doListUsers',  true);
-        $this->setHandler('list',        'doListUsers',  true);
-        $this->setHandler('add',         'doAdd',        true);
-        $this->setHandler('edit',        'doEdit',       true);
-        $this->setHandler('save',        'doSave',       true);
-        $this->setHandler('cancel',      'doCancel',     true);
-        $this->setHandler('delete',      'doDelete',     true);
+        $this->setHandler('index',       'doListUsers',   true);
+        $this->setHandler('list',        'doListUsers',   true);
+        $this->setHandler('add',         'doAdd',         true);
+        $this->setHandler('edit',        'doEdit',        true);
+        $this->setHandler('apply',       'doApply',       true);
+        $this->setHandler('save',        'doSave',        true);
+        $this->setHandler('cancel',      'doCancel',      true);
+        $this->setHandler('delete',      'doDelete',      true);
         
         $this->setHandler('listgroups',  'doListGroups',  true);
         $this->setHandler('editgroup',   'doEditGroup',   true);
@@ -272,39 +273,76 @@ class UsersController extends Controller {
         }
     }
     
+    function doApply($Request) {
+        
+        $User = $this->dao->getByKey('username', $Request->get('username'));
+        
+        $this->addValidation('username', 'notnull', 'USERS.VALIDATE.USERNAME');
+        $this->addValidation('email', 'email', 'USERS.VALIDATE.EMAIL');
+        
+        /**
+         * If this is a new User, make sure we have a password
+         */
+        if (empty($User)) {
+            $this->addValidation('password', 'notnull', 'USERS.VALIDATE.PASSWORD');
+        }
+        
+        $this->addValidation('groups', 'notnull', 'USERS.VALIDATE.GROUPS');
+
+        if ($this->validateUser($Request)) {
+            
+            Utils::fingerprint($Request->get('password'));
+            
+            $password = $Request->get('password');
+            if (empty($password)) {
+                $password = $User->getPassword();
+            }
+            else {
+                if (! UsersHelper::validPassword($password)) {
+                    $this->_setMessage(
+                        'error',
+                        __('GLOBAL.ERROR', 'Error', 1),
+                        __('USERS.MSG.PASSWORD_RULES', 'Your password must contain XXX and must be X-XX characters long.', 1)
+                    );
+                    $this->showEditForm(new User($Request));
+                }
+                $password = Utils::fingerprint($password);
+            }
+            
+            $newUser = new User($Request);
+            $newUser->setPassword($password);
+            
+            if ($Request->get('is_new')) {
+                $success = $this->dao->insert($newUser);
+            }
+            else {
+                $success = $this->dao->update($newUser);
+            }
+            
+            if ($success) {
+                $this->_setMessage(
+                    'success',
+                    __('GLOBAL.SUCCESS', 'Success', 1),
+                    __('GLOBAL.SAVE_SUCCESS', 'Your changes were saved successfully.', 1)
+                );
+            }
+            else {
+                $this->_setMessage(
+                    'error',
+                    __('GLOBAL.ERROR', 'Error', 1),
+                    __('GLOBAL.CHANGES_NOT_SAVED', 'Your changes could not be saved.', 1)
+                );
+            }
+        }
+        $this->showEditForm(new User($Request));
+    }
+    
     function doSaveGroup($Request) {
         $this->addValidation('name', 'notnull', 'USERS.VALIDATE.NAME');
         parent::doSave($Request, "admin.php?com=users&action=listgroups");
     }
     
     function doDelete($Request) {
-//        if (intval($Request->get('id')) === 0) {
-//            $this->_setMessage(
-//                'error',
-//                __('GLOBAL.ERROR', 'Error', 1),
-//                __('USERS.DEFAULTUSERREQUIRED', 'You cannot delete the default user', 1)
-//            );
-//            Utils::redirect("admin.php?com=users");
-//        }
-//        else if (intval($Request->get('id')) === 1) {
-//            $this->_setMessage(
-//                'error',
-//                __('GLOBAL.ERROR', 'Error', 1),
-//                __('USERS.ADMINUSERREQUIRED', 'You cannot delete the Admin user', 1)
-//            );
-//            Utils::redirect("admin.php?com=users");
-//        }
-//        else if (count($this->dao->index()) == 1) {
-//            $this->_setMessage(
-//                'error',
-//                __('GLOBAL.ERROR', 'Error', 1),
-//                __('USERS.ONEUSERREQUIRED', 'You must have at least one User', 1)
-//            );
-//            Utils::redirect("admin.php?com=users");
-//        }
-//        else {
-//            parent::doDelete($Request, "admin.php?com=users");
-//        }
         if (intval($Request->get('id')) === 1) {
             $this->_setMessage(
                 'error',

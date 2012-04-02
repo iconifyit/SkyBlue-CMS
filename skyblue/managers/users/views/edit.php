@@ -42,6 +42,7 @@ $groups = $this->getVar('groups');
 
         <p class="buttons-top">
             <?php HtmlUtils::mgrButton('BTN.CANCEL', 'cancel'); ?>
+            <?php HtmlUtils::mgrButton('BTN.APPLY', 'apply'); ?>
             <?php HtmlUtils::mgrButton('BTN.SAVE', 'save'); ?>
         </p>
         
@@ -110,6 +111,7 @@ $groups = $this->getVar('groups');
         </div>
         <p class="buttons-bottom">
             <?php HtmlUtils::mgrButton('BTN.CANCEL', 'cancel'); ?>
+            <?php HtmlUtils::mgrButton('BTN.APPLY', 'apply'); ?>
             <?php HtmlUtils::mgrButton('BTN.SAVE', 'save'); ?>
         </p>     
         
