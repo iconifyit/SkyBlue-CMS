@@ -82,7 +82,7 @@ class AdminaclController extends Controller {
     }
     
     function doCancel($Request) {
-        parent::doCancel("admin.php?com=adminacl&pageNum=" . $Request->get('pageNum'));
+        parent::doCancel("admin.php?com=adminacl&pageNum={$Request->get('pageNum', 1)}");
     }
     
     function doSave($Request) {
@@ -108,7 +108,7 @@ class AdminaclController extends Controller {
                 __('GLOBAL.CHANGES_NOT_SAVED', 'Your changes could not be saved.', 1)
             );
         }
-        Utils::redirect("admin.php?com=adminacl");
+        Utils::redirect("admin.php?com=adminacl&pageNum={$Request->get('pageNum', 1)}");
     }
     
     function doApply($Request) {
@@ -136,7 +136,7 @@ class AdminaclController extends Controller {
         }
         Utils::redirect(
             "admin.php?com=adminacl&action=edit" 
-            . "&id={$Request->get('id')}&pageNum={$Request->get('pageNum')}"
+            . "&id={$Request->get('id')}&pageNum={$Request->get('pageNum', 1)}"
         );
     }
 
