@@ -41,4 +41,23 @@ class UsersDAO extends SqliteDAO {
         }
         return $User;
     }
+    
+    /**
+     * Updates the last login of the User
+     * @param User $User  The User object to update
+     * @return boolean
+     * @throws Exception 
+     */
+    function updateLastLogin($User) {
+        $result = false;
+        try {
+            $sql    = "UPDATE User SET lastlogin = :lastlogin WHERE id = :id";
+            $sth    = $this->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+            $result = $sth->execute(array(':lastlogin' => time(), ':id' => $User->getId()));
+        }
+        catch (PDOException $e) {
+            throw new Exception($e->getMessage());
+        }
+        return $result;
+    }
 }

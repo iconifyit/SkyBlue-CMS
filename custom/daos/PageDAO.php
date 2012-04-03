@@ -46,8 +46,8 @@ class PageDAO extends SqliteDAO {
             }
         }
         catch (PDOException $e) {
-			die($e->getMessage());
-		}
+            die($e->getMessage());
+        }
     }
 
     function getItem($id) {
@@ -134,10 +134,10 @@ class PageDAO extends SqliteDAO {
             else {
                 $node->setAttribute('id',        $Page->getId());
                 $node->setAttribute('name',      $Page->getName());
-	            $node->setAttribute('published', $Page->getPublished());
-	            $node->setAttribute('url',       $Page->getPermalink());
-	            $node->setAttribute('show_in_navigation', $Page->getShow_in_navigation());
-	            $result = PageHelper::saveStructureXml($doc->saveXml());
+                $node->setAttribute('published', $Page->getPublished());
+                $node->setAttribute('url',       $Page->getPermalink());
+                $node->setAttribute('show_in_navigation', $Page->getShow_in_navigation());
+                $result = PageHelper::saveStructureXml($doc->saveXml());
             }
         }
         return $result;
@@ -172,16 +172,16 @@ class PageDAO extends SqliteDAO {
     function delete($id) {
         $result = false;
         if (parent::delete($id)) {
-        	try {
+            try {
                 $dom = PageHelper::parseStructureXml();
                 if ($dom instanceof DOMDocument) {
-	                $doc = $dom->documentElement;
-	                if ($node = PageHelper::getElementById($dom, $id)) {
-	                    $oldnode = $doc->removeChild($node);
-		                if ($oldnode instanceof DOMNode) {
-		                    $result = PageHelper::saveStructureXml($dom->saveXml());
-		                }
-	                }
+                    $doc = $dom->documentElement;
+                    if ($node = PageHelper::getElementById($dom, $id)) {
+                        $oldnode = $doc->removeChild($node);
+                        if ($oldnode instanceof DOMNode) {
+                            $result = PageHelper::saveStructureXml($dom->saveXml());
+                        }
+                    }
                 }
             }
             catch (Exception $e) {
