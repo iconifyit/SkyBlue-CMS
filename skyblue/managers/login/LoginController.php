@@ -88,7 +88,7 @@ class LoginController extends Controller {
             $Session->set('User', $User);
             $Session->set('user.username', $User->getUsername());
             $Session->set('TIMEOUT', time() + SB_ADMIN_TIMEOUT);
-            // LoginHelper::updateLastLogin($User);
+            LoginHelper::updateLastLogin($User);
             Utils::redirect("admin.php?com=console");        
         }
     }

@@ -20,20 +20,19 @@
 class LoginHelper {
     
     function initialize() {
-    	if (file_exists(_SBC_APP_ . "daos/LoginDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/LoginDAO.php");
-    	}
-    	else {
-    		require_once(SB_MANAGERS_DIR . "login/LoginDAO.php");
-    	}
-    	require_once(SB_MANAGERS_DIR . "login/Login.php");
-    	require_once(SB_MANAGERS_DIR . "login/LoginController.php");
+        if (file_exists(_SBC_APP_ . "daos/LoginDAO.php")) {
+            require_once(_SBC_APP_ . "daos/LoginDAO.php");
+        }
+        else {
+            require_once(SB_MANAGERS_DIR . "login/LoginDAO.php");
+        }
+        require_once(SB_MANAGERS_DIR . "login/Login.php");
+        require_once(SB_MANAGERS_DIR . "login/LoginController.php");
     }
     
     function updateLastLogin($User) {
         $Dao = LoginHelper::getUsersDao();
-        $Dao->insert($User);
-        $Dao->save();
+        $Dao->updateLastLogin($User);
     }
     
     function fingerprint($password) {
