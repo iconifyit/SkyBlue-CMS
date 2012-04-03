@@ -226,6 +226,17 @@ function the_page_title() {
 }
 
 /**
+ * Gets the referring page. If empty, uses $default
+ * @param string $default    The default URL to use if referrer is empty
+ * @return void
+ */
+function get_referrer($default="") {
+    $default = trim($default) == "" ? BASE_PAGE : $default ;
+    $referrer = Filter::get($_SERVER, 'HTTP_REFERER');
+    return (trim($referrer) == "" ? $default : $referrer);
+}
+
+/**
  * This function is a universal accessor to the Language class. You do not need to 
  * create a new instance of the Language class. Just call the _() funciton and pass 
  * in the string you wish to translate. The function will search the $chars, $entities and 
