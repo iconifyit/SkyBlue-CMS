@@ -28,49 +28,48 @@ $folders = $this->getVar('folders');
 
 ?>
 <script type="text/javascript">
-(function($) {
-    $(function() {
-        $("#uploadButton_top, #uploadButton_bottom").bind("click", function(e) {
-            window.uploadCount = 0;
-            $("input[type='file']").each(function() {
-                if ($(this).val().trim() != "") window.uploadCount++;
-            });
-            if (window.uploadCount == 0) {
-                e.preventDefault();
-                alert("<?php __('MEDIA.NO_FILES_SELECTED', 'You have not selected a file for upload'); ?>");
-            }
+function init_upload() {
+    $("#uploadButton_top, #uploadButton_bottom").bind("click", function(e) {
+        window.uploadCount = 0;
+        $("input[type='file']").each(function() {
+            if ($(this).val().trim() != "") window.uploadCount++;
         });
-        $(".add_row").bind("click", function(e) {
+        if (window.uploadCount == 0) {
             e.preventDefault();
-            var rows = $("#rows").find(".row");
-            if (rows.length && rows[rows.length-1].cloneNode) {
-                var newRow = rows[0].cloneNode(true);
-                var rowId = $.uniqueId('row');
-                $(newRow).appendTo("#rows")
-                    .css('display', 'none')
-                    .attr('id', rowId);
-                $(newRow).find('input[type="file"]').val('');
-                var data = {"rowId": rowId}
-                $("<p style=\"text-align: right;\"><a href=\"#delete-row\"><?php __('GLOBAL.REMOVE', 'Remove'); ?></a></p>")
-                    .appendTo(newRow)
-                    .find('A')
-                    .bind("click", data, function(e) {
-                        confirm_action(e, 
-                            "<?php __('GLOBAL.PLEASE_CONFIRM',    'Please Confirm'); ?>",
-                            "<?php __('MEDIA.CONFIRM_DELETE_ROW', 'Are you sure you want to remove this row?'); ?>",
-                            function() {
-                                $("#"+e.data.rowId).fadeOut(300, function() {
-                                    $("#"+e.data.rowId).remove();
-                                });
-                            }
-                        );
-                });                
-                $(newRow).fadeIn(1500);
-            }
-        });
+            alert("<?php __('MEDIA.NO_FILES_SELECTED', 'You have not selected a file for upload'); ?>");
+        }
     });
-})(jQuery);
+    $(".add_row").bind("click", function(e) {
+        e.preventDefault();
+        var rows = $("#rows").find(".row");
+        if (rows.length && rows[rows.length-1].cloneNode) {
+            var newRow = rows[0].cloneNode(true);
+            var rowId = $.uniqueId('row');
+            $(newRow).appendTo("#rows")
+                .css('display', 'none')
+                .attr('id', rowId);
+            $(newRow).find('input[type="file"]').val('');
+            var data = {"rowId": rowId}
+            $("<p style=\"text-align: right;\"><a href=\"#delete-row\"><?php __('GLOBAL.REMOVE', 'Remove'); ?></a></p>")
+                .appendTo(newRow)
+                .find('A')
+                .bind("click", data, function(e) {
+                    confirm_action(e, 
+                        "<?php __('GLOBAL.PLEASE_CONFIRM',    'Please Confirm'); ?>",
+                        "<?php __('MEDIA.CONFIRM_DELETE_ROW', 'Are you sure you want to remove this row?'); ?>",
+                        function() {
+                            $("#"+e.data.rowId).fadeOut(300, function() {
+                                $("#"+e.data.rowId).remove();
+                            });
+                        }
+                    );
+            });                
+            $(newRow).fadeIn(1500);
+        }
+    });
+};
 </script>
+<?php add_onload_scriptlet('init_upload', "init_upload();"); ?>
 <div class="jquery_tab">
     <div class="content">
         <h2>
