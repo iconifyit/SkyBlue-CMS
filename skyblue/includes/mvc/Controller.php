@@ -528,7 +528,12 @@ class Controller extends Publisher {
                     __('CONTROLLER.LABEL.PERMISSION_DENIED', '', 1), 
                     __('CONTROLLER.MSG.NOT_ENOUGH_PRIVILEGES', '', 1)
                 );
-                Utils::redirect(get_referrer(BASE_PAGE));
+                if (is_logged_in()) {
+                    Utils::redirect(get_referrer("admin.php?com=login"));
+                }
+                else {
+                    Utils::redirect("admin.php?com=login");
+                }
             }
             $this->view->setMessage($this->getMessage());
         }
