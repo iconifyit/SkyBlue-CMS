@@ -12,7 +12,7 @@ Set-up:
 It is important to note that the root of the SkyBlue code is not the web root. For security, the web root is /skyblue/webroot/. If http://yoursite.com currently points to /var/www/html/, the htaccess.txt file, when modifed per the instructions below, should redirect requests to http://yoursite.com to /var/www/html/skyblue/webroot/. This is done so the majority of the executable PHP files are outside the web path. Follow the instructions below to get started.
 
 - Download SkyBlue to your web server. 
-- Unzip/untar the download into your web server root. For instance, on Linux this will probably be something like /ver/www/html. Place the un-compressed SkyBlue source code folder in this directory.
+- Unzip/untar the download into your web server root. For instance, on Linux this will probably be something like /var/www/html. Place the un-compressed SkyBlue source code folder in this directory.
 - Open htaccess.txt in a text editor
 - Search/replace skybluecanvas.com with your web URL
 - Save the file to .htaccess
