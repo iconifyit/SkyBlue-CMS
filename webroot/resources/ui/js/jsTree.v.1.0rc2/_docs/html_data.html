@@ -3,16 +3,16 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>jsTree v.1.0 - html_data documentation</title>
-	<script type="text/javascript" src="../_lib/jquery.js"></script>
-	<script type="text/javascript" src="../_lib/jquery.cookie.js"></script>
-	<script type="text/javascript" src="../_lib/jquery.hotkeys.js"></script>
-	<script type="text/javascript" src="../jquery.jstree.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jsTree v.1.0 - html_data documentation</title>
+    <script type="text/javascript" src="../_lib/jquery.js"></script>
+    <script type="text/javascript" src="../_lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_lib/jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="../jquery.jstree.js"></script>
 
-	<link type="text/css" rel="stylesheet" href="syntax/!style.css"/>
-	<link type="text/css" rel="stylesheet" href="!style.css"/>
-	<script type="text/javascript" src="syntax/!script.js"></script>
+    <link type="text/css" rel="stylesheet" href="syntax/!style.css"/>
+    <link type="text/css" rel="stylesheet" href="!style.css"/>
+    <script type="text/javascript" src="syntax/!script.js"></script>
 </head>
 <body>
 <div id="container">
@@ -25,11 +25,11 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <div class="code_f">
 <pre class="brush:xml;">
 &lt;li&gt;
-	&lt;a href="some_value_here"&gt;Node title&lt;/a&gt;
-	&lt;!-- UL node only needed for children - omit if there are no children --&gt;
-	&lt;ul&gt;
-		&lt;!-- Children LI nodes here --&gt;
-	&lt;/ul&gt;
+    &lt;a href="some_value_here"&gt;Node title&lt;/a&gt;
+    &lt;!-- UL node only needed for children - omit if there are no children --&gt;
+    &lt;ul&gt;
+        &lt;!-- Children LI nodes here --&gt;
+    &lt;/ul&gt;
 &lt;/li&gt;
 </pre>
 </div>
@@ -38,13 +38,13 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <pre class="brush:xml;">
 &lt;!-- one of the three classes will be applied depending on node structure --&gt;
 &lt;li class="[ jstree-open | jstree-closed | jstree-leaf ]"&gt;
-	&lt;!-- an INS element is inserted --&gt;
-	&lt;ins class="jstree-icon"&gt;&amp;#160;&lt;/ins&gt;
-	&lt;a href="some_value_here"&gt;
-		&lt;!-- another INS element is inserted --&gt;
-		&lt;ins class="jstree-icon"&gt;&amp;#160;&lt;/ins&gt;
-		Node title
-	&lt;/a&gt;
+    &lt;!-- an INS element is inserted --&gt;
+    &lt;ins class="jstree-icon"&gt;&amp;#160;&lt;/ins&gt;
+    &lt;a href="some_value_here"&gt;
+        &lt;!-- another INS element is inserted --&gt;
+        &lt;ins class="jstree-icon"&gt;&amp;#160;&lt;/ins&gt;
+        Node title
+    &lt;/a&gt;
 &lt;/li&gt;
 </pre>
 </div>
@@ -74,28 +74,28 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
 <h3>Using initial content (convert an existing list)</h3>
 <div id="demo1" class="demo">
-	<ul>
-		<li id="phtml_1">
-			<a href="#">Root node 1</a>
-			<ul>
-				<li id="phtml_2">
-					<a href="#">Child node 1</a>
-				</li>
-				<li id="phtml_3">
-					<a href="#">Child node 2</a>
-				</li>
-			</ul>
-		</li>
-		<li id="phtml_4">
-			<a href="#">Root node 2</a>
-		</li>
-	</ul>
+    <ul>
+        <li id="phtml_1">
+            <a href="#">Root node 1</a>
+            <ul>
+                <li id="phtml_2">
+                    <a href="#">Child node 1</a>
+                </li>
+                <li id="phtml_3">
+                    <a href="#">Child node 2</a>
+                </li>
+            </ul>
+        </li>
+        <li id="phtml_4">
+            <a href="#">Root node 2</a>
+        </li>
+    </ul>
 </div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#demo1").jstree({ 
-		"plugins" : [ "themes", "html_data" ]
-	});
+    $("#demo1").jstree({ 
+        "plugins" : [ "themes", "html_data" ]
+    });
 });
 </script>
 
@@ -103,13 +103,13 @@ $(function () {
 <div id="demo2" class="demo"></div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#demo2").jstree({ 
-		"core" : { "initially_open" : [ "root" ] },
-		"html_data" : {
-			"data" : "<li id='root'><a href='#'>Root node</a><ul><li><a href='#'>Child node</a></li></ul></li>"
-		},
-		"plugins" : [ "themes", "html_data" ]
-	});
+    $("#demo2").jstree({ 
+        "core" : { "initially_open" : [ "root" ] },
+        "html_data" : {
+            "data" : "<li id='root'><a href='#'>Root node</a><ul><li><a href='#'>Child node</a></li></ul></li>"
+        },
+        "plugins" : [ "themes", "html_data" ]
+    });
 });
 </script>
 
@@ -117,17 +117,17 @@ $(function () {
 <div id="demo3" class="demo"></div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#demo3").jstree({ 
-		"html_data" : {
-			"ajax" : {
-				"url" : "_html_data.html",
-				"data" : function (n) { 
-					return { id : n.attr ? n.attr("id") : 0 }; 
-				}
-			}
-		},
-		"plugins" : [ "themes", "html_data" ]
-	});
+    $("#demo3").jstree({ 
+        "html_data" : {
+            "ajax" : {
+                "url" : "_html_data.html",
+                "data" : function (n) { 
+                    return { id : n.attr ? n.attr("id") : 0 }; 
+                }
+            }
+        },
+        "plugins" : [ "themes", "html_data" ]
+    });
 });
 </script>
 
@@ -135,14 +135,14 @@ $(function () {
 <div id="demo4" class="demo"></div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#demo4").jstree({ 
-		"core" : { "initially_open" : [ "root2" ] },
-		"html_data" : {
-			"data" : "<li class='jstree-closed' id='root2'><a href='#'>Root node</a></li>",
-			"ajax" : { "url" : "_html_data.html" }
-		},
-		"plugins" : [ "themes", "html_data" ]
-	});
+    $("#demo4").jstree({ 
+        "core" : { "initially_open" : [ "root2" ] },
+        "html_data" : {
+            "data" : "<li class='jstree-closed' id='root2'><a href='#'>Root node</a></li>",
+            "ajax" : { "url" : "_html_data.html" }
+        },
+        "plugins" : [ "themes", "html_data" ]
+    });
 });
 </script>
 </div>
@@ -153,18 +153,18 @@ $(function () {
 <h3 id="load_node_html">.load_node_html ( node , success_callback , error_callback )</h3>
 <p>This function is called instead of <code>load_node</code>.</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">mixed</code> <strong>node</strong>
-		<p>This can be a DOM node, jQuery node or selector pointing to an element you want loaded. Use <code>-1</code> for root nodes.</p>
-	</li>
-	<li>
-		<code class="tp">function</code> <strong>success_callback</strong>
-		<p>A function to be executed once the node is loaded successfully - used internally. You should wait for the <code>load_node</code> event.</p>
-	</li>
-	<li>
-		<code class="tp">function</code> <strong>error_callback</strong>
-		<p>A function to be executed if the node is not loaded due to an error - used internally. You should wait for the <code>load_node</code> event.</p>
-	</li>
+    <li>
+        <code class="tp">mixed</code> <strong>node</strong>
+        <p>This can be a DOM node, jQuery node or selector pointing to an element you want loaded. Use <code>-1</code> for root nodes.</p>
+    </li>
+    <li>
+        <code class="tp">function</code> <strong>success_callback</strong>
+        <p>A function to be executed once the node is loaded successfully - used internally. You should wait for the <code>load_node</code> event.</p>
+    </li>
+    <li>
+        <code class="tp">function</code> <strong>error_callback</strong>
+        <p>A function to be executed if the node is not loaded due to an error - used internally. You should wait for the <code>load_node</code> event.</p>
+    </li>
 </ul>
 
 </div>

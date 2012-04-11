@@ -3,16 +3,16 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>jsTree v.1.0 - Search documentation</title>
-	<script type="text/javascript" src="../_lib/jquery.js"></script>
-	<script type="text/javascript" src="../_lib/jquery.cookie.js"></script>
-	<script type="text/javascript" src="../_lib/jquery.hotkeys.js"></script>
-	<script type="text/javascript" src="../jquery.jstree.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jsTree v.1.0 - Search documentation</title>
+    <script type="text/javascript" src="../_lib/jquery.js"></script>
+    <script type="text/javascript" src="../_lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_lib/jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="../jquery.jstree.js"></script>
 
-	<link type="text/css" rel="stylesheet" href="syntax/!style.css"/>
-	<link type="text/css" rel="stylesheet" href="!style.css"/>
-	<script type="text/javascript" src="syntax/!script.js"></script>
+    <link type="text/css" rel="stylesheet" href="syntax/!style.css"/>
+    <link type="text/css" rel="stylesheet" href="!style.css"/>
+    <script type="text/javascript" src="syntax/!script.js"></script>
 </head>
 <body>
 <div id="container">
@@ -49,37 +49,37 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <div id="demo1" class="demo"></div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#search").click(function () {
-		$("#demo1").jstree("search","TARGEt");
-	});
-	$("#demo1")
-		.jstree({ 
-			"json_data" : {
-				"data" : [
-					{ 
-						"attr" : { "id" : "root_node" },
-						"data" : "A closed node", 
-						"state" : "closed"
-					}
-				],
-				"ajax" : {
-					"url" : "_search_data.json",
-					"data" : function (n) { 
-						return { id : n.attr ? n.attr("id") : 0 }; 
-					}
-				}
-			},
-			"search" : {
-				"case_insensitive" : true,
-				"ajax" : {
-					"url" : "_search_result.json"
-				}
-			},
-			"plugins" : [ "themes", "json_data", "search" ]
-		})
-		.bind("search.jstree", function (e, data) {
-			alert("Found " + data.rslt.nodes.length + " nodes matching '" + data.rslt.str + "'.");
-		});
+    $("#search").click(function () {
+        $("#demo1").jstree("search","TARGEt");
+    });
+    $("#demo1")
+        .jstree({ 
+            "json_data" : {
+                "data" : [
+                    { 
+                        "attr" : { "id" : "root_node" },
+                        "data" : "A closed node", 
+                        "state" : "closed"
+                    }
+                ],
+                "ajax" : {
+                    "url" : "_search_data.json",
+                    "data" : function (n) { 
+                        return { id : n.attr ? n.attr("id") : 0 }; 
+                    }
+                }
+            },
+            "search" : {
+                "case_insensitive" : true,
+                "ajax" : {
+                    "url" : "_search_result.json"
+                }
+            },
+            "plugins" : [ "themes", "json_data", "search" ]
+        })
+        .bind("search.jstree", function (e, data) {
+            alert("Found " + data.rslt.nodes.length + " nodes matching '" + data.rslt.str + "'.");
+        });
 });
 </script>
 
@@ -91,14 +91,14 @@ $(function () {
 <h3 id="search">.search ( str , skip_async )</h3>
 <p>Searches for nodes matching the supplied string. Triggers an event.</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">string</code> <strong>str</strong>
-		<p>The string to search for.</p>
-	</li>
-	<li>
-		<code class="tp">boolean</code> <strong>skip_async</strong>
-		<p>If set to <code>true</code> - skip the async search (if setup in the config). This is used mostly internally.</p>
-	</li>
+    <li>
+        <code class="tp">string</code> <strong>str</strong>
+        <p>The string to search for.</p>
+    </li>
+    <li>
+        <code class="tp">boolean</code> <strong>skip_async</strong>
+        <p>If set to <code>true</code> - skip the async search (if setup in the config). This is used mostly internally.</p>
+    </li>
 </ul>
 
 <h3 id="clear_search">.clear_search ( )</h3>

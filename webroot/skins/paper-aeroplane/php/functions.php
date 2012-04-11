@@ -67,12 +67,12 @@ function httpHeaderCss() {
  */
 function compressSource($source) {
     return preg_replace(
-		'!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', 
-		str_replace(
-		    array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', 
-		    $source
-		)
-	);
+        '!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', 
+        str_replace(
+            array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', 
+            $source
+        )
+    );
 }
 
 /**

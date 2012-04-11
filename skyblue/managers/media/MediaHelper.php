@@ -20,14 +20,14 @@
 class MediaHelper {
 
     function initialize() {
-    	if (file_exists(_SBC_APP_ . "daos/MediaDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/MediaDAO.php");
-    	}
-    	else {
-    		require_once(SB_MANAGERS_DIR . "media/MediaDAO.php");
-    	}
-    	require_once(SB_MANAGERS_DIR . "media/Media.php");
-    	require_once(SB_MANAGERS_DIR . "media/MediaController.php");
+        if (file_exists(_SBC_APP_ . "daos/MediaDAO.php")) {
+            require_once(_SBC_APP_ . "daos/MediaDAO.php");
+        }
+        else {
+            require_once(SB_MANAGERS_DIR . "media/MediaDAO.php");
+        }
+        require_once(SB_MANAGERS_DIR . "media/Media.php");
+        require_once(SB_MANAGERS_DIR . "media/MediaController.php");
     }
 
     function getUniqueId($Bean) {

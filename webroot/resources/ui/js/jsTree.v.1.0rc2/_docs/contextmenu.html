@@ -3,16 +3,16 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>jsTree v.1.0 - contextmenu documentation</title>
-	<script type="text/javascript" src="../_lib/jquery.js"></script>
-	<script type="text/javascript" src="../_lib/jquery.cookie.js"></script>
-	<script type="text/javascript" src="../_lib/jquery.hotkeys.js"></script>
-	<script type="text/javascript" src="../jquery.jstree.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jsTree v.1.0 - contextmenu documentation</title>
+    <script type="text/javascript" src="../_lib/jquery.js"></script>
+    <script type="text/javascript" src="../_lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_lib/jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="../jquery.jstree.js"></script>
 
-	<link type="text/css" rel="stylesheet" href="syntax/!style.css"/>
-	<link type="text/css" rel="stylesheet" href="!style.css"/>
-	<script type="text/javascript" src="syntax/!script.js"></script>
+    <link type="text/css" rel="stylesheet" href="syntax/!style.css"/>
+    <link type="text/css" rel="stylesheet" href="!style.css"/>
+    <script type="text/javascript" src="syntax/!script.js"></script>
 </head>
 <body>
 <div id="container">
@@ -40,20 +40,20 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 {
 // Some key
 "rename" : {
-	// The item label
-	"label"				: "Rename",
-	// The function to execute upon a click
-	"action"			: function (obj) { this.rename(obj); },
-	// All below are optional 
-	"_disabled"			: true,		// clicking the item won't do a thing
-	"_class"			: "class",	// class is applied to the item LI node
-	"separator_before"	: false,	// Insert a separator before the item
-	"separator_after"	: true,		// Insert a separator after the item
-	// false or string - if does not contain `/` - used as classname
-	"icon"				: false,
-	"submenu"			: { 
-		/* Collection of objects (the same structure) */
-	}
+    // The item label
+    "label"                : "Rename",
+    // The function to execute upon a click
+    "action"            : function (obj) { this.rename(obj); },
+    // All below are optional 
+    "_disabled"            : true,        // clicking the item won't do a thing
+    "_class"            : "class",    // class is applied to the item LI node
+    "separator_before"    : false,    // Insert a separator before the item
+    "separator_after"    : true,        // Insert a separator after the item
+    // false or string - if does not contain `/` - used as classname
+    "icon"                : false,
+    "submenu"            : { 
+        /* Collection of objects (the same structure) */
+    }
 }
 /* MORE ENTRIES ... */
 }
@@ -66,28 +66,28 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
 <h3>Using the contextmenu</h3>
 <div id="demo1" class="demo">
-	<ul>
-		<li id="phtml_1">
-			<a href="#">Root node 1</a>
-			<ul>
-				<li id="phtml_2">
-					<a href="#">Child node 1</a>
-				</li>
-				<li id="phtml_3">
-					<a href="#">Child node 2</a>
-				</li>
-			</ul>
-		</li>
-		<li id="phtml_4">
-			<a href="#">Root node 2</a>
-		</li>
-	</ul>
+    <ul>
+        <li id="phtml_1">
+            <a href="#">Root node 1</a>
+            <ul>
+                <li id="phtml_2">
+                    <a href="#">Child node 1</a>
+                </li>
+                <li id="phtml_3">
+                    <a href="#">Child node 2</a>
+                </li>
+            </ul>
+        </li>
+        <li id="phtml_4">
+            <a href="#">Root node 2</a>
+        </li>
+    </ul>
 </div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#demo1").jstree({ 
-		"plugins" : [ "themes", "html_data", "ui", "crrm", "contextmenu" ]
-	});
+    $("#demo1").jstree({ 
+        "plugins" : [ "themes", "html_data", "ui", "crrm", "contextmenu" ]
+    });
 });
 </script>
 
@@ -99,18 +99,18 @@ $(function () {
 <h3 id="show_contextmenu">.show_contextmenu ( node , x, y )</h3>
 <p>Shows the contextmenu next to a node. Triggered automatically when right-clicking a node.</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">mixed</code> <strong>node</strong>
-		<p>This can be a DOM node, jQuery node or selector pointing to an element within the tree.</p>
-	</li>
-	<li>
-		<code class="tp">number</code> <strong>x</strong>
-		<p>The X-coordinate to show the menu at - may be overwritten by <code>show_at_node</code>. If you omit this the menu is shown aligned with the left of the node.</p>
-	</li>
-	<li>
-		<code class="tp">number</code> <strong>y</strong>
-		<p>The Y-coordinate to show the menu at - may be overwritten by <code>show_at_node</code>. If you omit this the menu is shown just below the node.</p>
-	</li>
+    <li>
+        <code class="tp">mixed</code> <strong>node</strong>
+        <p>This can be a DOM node, jQuery node or selector pointing to an element within the tree.</p>
+    </li>
+    <li>
+        <code class="tp">number</code> <strong>x</strong>
+        <p>The X-coordinate to show the menu at - may be overwritten by <code>show_at_node</code>. If you omit this the menu is shown aligned with the left of the node.</p>
+    </li>
+    <li>
+        <code class="tp">number</code> <strong>y</strong>
+        <p>The Y-coordinate to show the menu at - may be overwritten by <code>show_at_node</code>. If you omit this the menu is shown just below the node.</p>
+    </li>
 </ul>
 
 </div>

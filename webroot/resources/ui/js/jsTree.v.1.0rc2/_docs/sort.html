@@ -3,16 +3,16 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>jsTree v.1.0 - sort documentation</title>
-	<script type="text/javascript" src="../_lib/jquery.js"></script>
-	<script type="text/javascript" src="../_lib/jquery.cookie.js"></script>
-	<script type="text/javascript" src="../_lib/jquery.hotkeys.js"></script>
-	<script type="text/javascript" src="../jquery.jstree.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jsTree v.1.0 - sort documentation</title>
+    <script type="text/javascript" src="../_lib/jquery.js"></script>
+    <script type="text/javascript" src="../_lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_lib/jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="../jquery.jstree.js"></script>
 
-	<link type="text/css" rel="stylesheet" href="syntax/!style.css"/>
-	<link type="text/css" rel="stylesheet" href="!style.css"/>
-	<script type="text/javascript" src="syntax/!script.js"></script>
+    <link type="text/css" rel="stylesheet" href="syntax/!style.css"/>
+    <link type="text/css" rel="stylesheet" href="!style.css"/>
+    <script type="text/javascript" src="syntax/!script.js"></script>
 </head>
 <body>
 <div id="container">
@@ -36,31 +36,31 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <h3>Using the sort plugin</h3>
 <input type="button" class="button" value="rename" id="rename" style="" />
 <div id="demo1" class="demo">
-	<ul>
-		<li id="phtml_1">
-			<a href="#">Root node 1</a>
-			<ul>
-				<li id="phtml_2">
-					<a href="#">Child node 1</a>
-				</li>
-				<li id="phtml_3">
-					<a href="#">Child node 2</a>
-				</li>
-			</ul>
-		</li>
-		<li id="phtml_4">
-			<a href="#">Root node 2</a>
-		</li>
-	</ul>
+    <ul>
+        <li id="phtml_1">
+            <a href="#">Root node 1</a>
+            <ul>
+                <li id="phtml_2">
+                    <a href="#">Child node 1</a>
+                </li>
+                <li id="phtml_3">
+                    <a href="#">Child node 2</a>
+                </li>
+            </ul>
+        </li>
+        <li id="phtml_4">
+            <a href="#">Root node 2</a>
+        </li>
+    </ul>
 </div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#rename").click(function () { 
-		$("#demo1").jstree("rename");
-	});
-	$("#demo1").jstree({ 
-		"plugins" : [ "themes", "html_data", "ui", "crrm", "sort" ]
-	});
+    $("#rename").click(function () { 
+        $("#demo1").jstree("rename");
+    });
+    $("#demo1").jstree({ 
+        "plugins" : [ "themes", "html_data", "ui", "crrm", "sort" ]
+    });
 });
 </script>
 
@@ -72,10 +72,10 @@ $(function () {
 <h3 id="sort">.sort ( node )</h3>
 <p>Sorts the children of the specified node - this function is called automatically.</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">mixed</code> <strong>node</strong>
-		<p>This can be a DOM node, jQuery node or selector pointing to the element.</p>
-	</li>
+    <li>
+        <code class="tp">mixed</code> <strong>node</strong>
+        <p>This can be a DOM node, jQuery node or selector pointing to the element.</p>
+    </li>
 </ul>
 </div>
 

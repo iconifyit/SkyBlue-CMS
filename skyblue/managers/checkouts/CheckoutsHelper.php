@@ -20,14 +20,14 @@
 class CheckoutsHelper {
 
     function initialize() {
-    	if (file_exists(_SBC_APP_ . "daos/CheckoutsDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/CheckoutsDAO.php");
-    	}
-    	else {
-    		require_once(SB_MANAGERS_DIR . "checkouts/CheckoutsDAO.php");
-    	}
-    	require_once(SB_MANAGERS_DIR . "checkouts/Checkout.php");
-    	require_once(SB_MANAGERS_DIR . "checkouts/CheckoutsController.php");
+        if (file_exists(_SBC_APP_ . "daos/CheckoutsDAO.php")) {
+            require_once(_SBC_APP_ . "daos/CheckoutsDAO.php");
+        }
+        else {
+            require_once(SB_MANAGERS_DIR . "checkouts/CheckoutsDAO.php");
+        }
+        require_once(SB_MANAGERS_DIR . "checkouts/Checkout.php");
+        require_once(SB_MANAGERS_DIR . "checkouts/CheckoutsController.php");
     }
 
     function getDao($refresh=false) {

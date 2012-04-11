@@ -18,30 +18,30 @@ function doMyVarsPlugin($html) {
     try {
         if (trim($html) == "") return $html;
     
-		if (! class_exists('MyvarsHelper')) {
-			Loader::load("managers.myvars.MyvarsHelper", true, _SBC_APP_);
-		}
-		
-		if ($Dao = MyvarsHelper::getDAO()) {
-			$myvars = $Dao->index();
-			
-			if (count($myvars) == 0) return $html;
-			
-			foreach ($myvars as $Bean) {
-				$variable = $Bean->getName();
-				$value    = $Bean->getValue();
-				
-				if (strcasecmp($Bean->getVartype(), "variable") == 0) {
-					$html = str_replace("[[" . trim($variable) . "]]", $value, $html);
-				}
-				else if (strcasecmp($Bean->getVartype(), "string") == 0) {
-					$html = str_replace($variable, $value, $html);
-				}
-				else if (strcasecmp($Bean->getVartype(), "regex") == 0) {
-					$html = preg_replace("$variable", "$value", $html);
-				}
-			}
-		}
+        if (! class_exists('MyvarsHelper')) {
+            Loader::load("managers.myvars.MyvarsHelper", true, _SBC_APP_);
+        }
+        
+        if ($Dao = MyvarsHelper::getDAO()) {
+            $myvars = $Dao->index();
+            
+            if (count($myvars) == 0) return $html;
+            
+            foreach ($myvars as $Bean) {
+                $variable = $Bean->getName();
+                $value    = $Bean->getValue();
+                
+                if (strcasecmp($Bean->getVartype(), "variable") == 0) {
+                    $html = str_replace("[[" . trim($variable) . "]]", $value, $html);
+                }
+                else if (strcasecmp($Bean->getVartype(), "string") == 0) {
+                    $html = str_replace($variable, $value, $html);
+                }
+                else if (strcasecmp($Bean->getVartype(), "regex") == 0) {
+                    $html = preg_replace("$variable", "$value", $html);
+                }
+            }
+        }
     }
     catch (Exception $e) {
         /*Exit Gracefully*/

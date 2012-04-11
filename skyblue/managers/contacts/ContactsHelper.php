@@ -20,14 +20,14 @@
 class ContactsHelper {
 
     function initialize() {
-    	if (file_exists(_SBC_APP_ . "daos/ContactsDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/ContactsDAO.php");
-    	}
-    	else {
-    		require_once(SB_MANAGERS_DIR . "contacts/ContactsDAO.php");
-    	}
-    	require_once(SB_MANAGERS_DIR . "contacts/Contact.php");
-    	require_once(SB_MANAGERS_DIR . "contacts/ContactsController.php");
+        if (file_exists(_SBC_APP_ . "daos/ContactsDAO.php")) {
+            require_once(_SBC_APP_ . "daos/ContactsDAO.php");
+        }
+        else {
+            require_once(SB_MANAGERS_DIR . "contacts/ContactsDAO.php");
+        }
+        require_once(SB_MANAGERS_DIR . "contacts/Contact.php");
+        require_once(SB_MANAGERS_DIR . "contacts/ContactsController.php");
     }
 
     function getContactsDAO($refresh=false) {

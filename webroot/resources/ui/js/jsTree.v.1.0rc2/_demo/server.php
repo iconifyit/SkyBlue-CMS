@@ -6,22 +6,22 @@ $jstree = new json_tree();
 //die();
 
 if(isset($_GET["reconstruct"])) {
-	$jstree->_reconstruct();
-	die();
+    $jstree->_reconstruct();
+    die();
 }
 if(isset($_GET["analyze"])) {
-	echo $jstree->_analyze();
-	die();
+    echo $jstree->_analyze();
+    die();
 }
 
 if($_REQUEST["operation"] && strpos("_", $_REQUEST["operation"]) !== 0 && method_exists($jstree, $_REQUEST["operation"])) {
-	header("HTTP/1.0 200 OK");
-	header('Content-type: text/json; charset=utf-8');
-	header("Cache-Control: no-cache, must-revalidate");
-	header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-	header("Pragma: no-cache");
-	echo $jstree->{$_REQUEST["operation"]}($_REQUEST);
-	die();
+    header("HTTP/1.0 200 OK");
+    header('Content-type: text/json; charset=utf-8');
+    header("Cache-Control: no-cache, must-revalidate");
+    header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+    header("Pragma: no-cache");
+    echo $jstree->{$_REQUEST["operation"]}($_REQUEST);
+    die();
 }
 header("HTTP/1.0 404 Not Found"); 
 ?>

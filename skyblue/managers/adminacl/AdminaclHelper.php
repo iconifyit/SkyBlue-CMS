@@ -20,14 +20,14 @@
 class AdminaclHelper {
 
     function initialize() {
-    	if (file_exists(_SBC_APP_ . "daos/AdminaclDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/AdminaclDAO.php");
-    	}
-    	else {
-    		require_once(SB_MANAGERS_DIR . "adminacl/AdminaclDAO.php");
-    	}
-    	require_once(SB_MANAGERS_DIR . "adminacl/Adminacl.php");
-    	require_once(SB_MANAGERS_DIR . "adminacl/AdminaclController.php");
+        if (file_exists(_SBC_APP_ . "daos/AdminaclDAO.php")) {
+            require_once(_SBC_APP_ . "daos/AdminaclDAO.php");
+        }
+        else {
+            require_once(SB_MANAGERS_DIR . "adminacl/AdminaclDAO.php");
+        }
+        require_once(SB_MANAGERS_DIR . "adminacl/Adminacl.php");
+        require_once(SB_MANAGERS_DIR . "adminacl/AdminaclController.php");
     }
 
     function hasAdmin($User, $Groups) {

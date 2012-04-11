@@ -32,27 +32,27 @@ class SkinDAO extends SqliteDAO {
     function setActiveSkin($id) {
         $result = false;
         if ($Skin = $this->getItem($id)) {
-			$result = $this->query(
-				"UPDATE {$this->getBeanClass()} SET published = 0 WHERE published <> 0"
-			);
-			if ($result) {
-				$result = $this->query(
-					"UPDATE {$this->getBeanClass()} SET published = 1 WHERE id = '{$id}'"
-				);
-			}
-		}
+            $result = $this->query(
+                "UPDATE {$this->getBeanClass()} SET published = 0 WHERE published <> 0"
+            );
+            if ($result) {
+                $result = $this->query(
+                    "UPDATE {$this->getBeanClass()} SET published = 1 WHERE id = '{$id}'"
+                );
+            }
+        }
         return $result;
     }
     
     function insert($Bean) {
         $result = false;
         if (! $this->getItem($Bean->getId())) {
-			if ($info = $this->getColumns()) {
-				$result = $this->exec(
-					$this->buildInsertQuery($info, $Bean)
-				);
-			}
-		}
+            if ($info = $this->getColumns()) {
+                $result = $this->exec(
+                    $this->buildInsertQuery($info, $Bean)
+                );
+            }
+        }
         return $result;
     }
     

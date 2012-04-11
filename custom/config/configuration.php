@@ -12,27 +12,27 @@ $type = "sqlite";
 if ($type == "mysql") {
 
     # ###################################################################################
-	# MYSQL DB SETTINGS
-	# ###################################################################################
+    # MYSQL DB SETTINGS
+    # ###################################################################################
 
-	sb_conf('DB_TYPE', 'mysql');
-	sb_conf('DB_NAME', 'sbc');
-	sb_conf('DB_USER', 'root');
-	sb_conf('DB_PASS', '');
-	sb_conf('DB_HOST', 'localhost');
-	sb_conf('DB_PORT', '3306');
+    sb_conf('DB_TYPE', 'mysql');
+    sb_conf('DB_NAME', 'sbc');
+    sb_conf('DB_USER', 'root');
+    sb_conf('DB_PASS', '');
+    sb_conf('DB_HOST', 'localhost');
+    sb_conf('DB_PORT', '3306');
 
 } 
 else {
 
-	# ###################################################################################
-	# SQLITE DB SETTINGS
-	# ###################################################################################
-	
-	sb_conf('DB_TYPE', 'sqlite');
-	sb_conf('DB_HOST', _SBC_APP_ . 'data/data.sqlite');
-	sb_conf('DB_NAME', 'sbc.sqlite');
-	sb_conf('DB_USER', 'root');
-	sb_conf('DB_PASS', 'password');
+    # ###################################################################################
+    # SQLITE DB SETTINGS
+    # ###################################################################################
+    
+    sb_conf('DB_TYPE', 'sqlite');
+    sb_conf('DB_HOST', _SBC_APP_ . 'data/data.sqlite');
+    sb_conf('DB_NAME', 'sbc.sqlite');
+    sb_conf('DB_USER', 'root');
+    sb_conf('DB_PASS', 'password');
 
 }

@@ -3,16 +3,16 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>jsTree v.1.0 - json_data documentation</title>
-	<script type="text/javascript" src="../_lib/jquery.js"></script>
-	<script type="text/javascript" src="../_lib/jquery.cookie.js"></script>
-	<script type="text/javascript" src="../_lib/jquery.hotkeys.js"></script>
-	<script type="text/javascript" src="../jquery.jstree.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jsTree v.1.0 - json_data documentation</title>
+    <script type="text/javascript" src="../_lib/jquery.js"></script>
+    <script type="text/javascript" src="../_lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_lib/jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="../jquery.jstree.js"></script>
 
-	<link type="text/css" rel="stylesheet" href="syntax/!style.css"/>
-	<link type="text/css" rel="stylesheet" href="!style.css"/>
-	<script type="text/javascript" src="syntax/!script.js"></script>
+    <link type="text/css" rel="stylesheet" href="syntax/!style.css"/>
+    <link type="text/css" rel="stylesheet" href="!style.css"/>
+    <script type="text/javascript" src="syntax/!script.js"></script>
 </head>
 <body>
 <div id="container">
@@ -25,12 +25,12 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <div class="code_f">
 <pre class="brush:js;">
 { 
-	data : "node_title", 
-	// omit `attr` if not needed; the `attr` object gets passed to the jQuery `attr` function
-	attr : { id : "node_identificator", some-other-attribute : "attribute_value" }, 
-	// `state` and `children` are only used for NON-leaf nodes
-	state: "closed", // or "open", defaults to "closed"
-	children: [ /* an array of child nodes objects */ ]
+    data : "node_title", 
+    // omit `attr` if not needed; the `attr` object gets passed to the jQuery `attr` function
+    attr : { id : "node_identificator", some-other-attribute : "attribute_value" }, 
+    // `state` and `children` are only used for NON-leaf nodes
+    state: "closed", // or "open", defaults to "closed"
+    children: [ /* an array of child nodes objects */ ]
 }
 </pre>
 </div>
@@ -39,22 +39,22 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <div class="code_f">
 <pre class="brush:js;">
 {
-	// `data` can also be an object
-	data : { 
-		title : "The node title", 
-		// omit when not needed
-		attr : {}, 
-		// if `icon` contains a slash <code>/</code> it is treated as a file, used for background
-		// otherwise - it is added as a class to the &lt;ins&gt; node
-		icon : "folder"
-	},
+    // `data` can also be an object
+    data : { 
+        title : "The node title", 
+        // omit when not needed
+        attr : {}, 
+        // if `icon` contains a slash <code>/</code> it is treated as a file, used for background
+        // otherwise - it is added as a class to the &lt;ins&gt; node
+        icon : "folder"
+    },
 
-	// the `metadata` property will be saved using the jQuery `data` function on the `li` node
-	metadata : "a string, array, object, etc",
+    // the `metadata` property will be saved using the jQuery `data` function on the `li` node
+    metadata : "a string, array, object, etc",
 
-	// if you use the language plugin - just set this property
-	// also make sure that `data` is an array of objects
-	language : "en" // any code you are using
+    // if you use the language plugin - just set this property
+    // also make sure that `data` is an array of objects
+    language : "en" // any code you are using
 }
 </pre>
 </div>
@@ -89,24 +89,24 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <div id="demo1" class="demo"></div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#demo1").jstree({ 
-		"json_data" : {
-			"data" : [
-				{ 
-					"data" : "A node", 
-					"children" : [ "Child 1", "Child 2" ]
-				},
-				{ 
-					"attr" : { "id" : "li.node.id" }, 
-					"data" : { 
-						"title" : "Long format demo", 
-						"attr" : { "href" : "#" } 
-					} 
-				}
-			]
-		},
-		"plugins" : [ "themes", "json_data" ]
-	});
+    $("#demo1").jstree({ 
+        "json_data" : {
+            "data" : [
+                { 
+                    "data" : "A node", 
+                    "children" : [ "Child 1", "Child 2" ]
+                },
+                { 
+                    "attr" : { "id" : "li.node.id" }, 
+                    "data" : { 
+                        "title" : "Long format demo", 
+                        "attr" : { "href" : "#" } 
+                    } 
+                }
+            ]
+        },
+        "plugins" : [ "themes", "json_data" ]
+    });
 });
 </script>
 
@@ -114,17 +114,17 @@ $(function () {
 <div id="demo2" class="demo"></div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#demo2").jstree({ 
-		"json_data" : {
-			"ajax" : {
-				"url" : "_json_data.json",
-				"data" : function (n) { 
-					return { id : n.attr ? n.attr("id") : 0 }; 
-				}
-			}
-		},
-		"plugins" : [ "themes", "json_data" ]
-	});
+    $("#demo2").jstree({ 
+        "json_data" : {
+            "ajax" : {
+                "url" : "_json_data.json",
+                "data" : function (n) { 
+                    return { id : n.attr ? n.attr("id") : 0 }; 
+                }
+            }
+        },
+        "plugins" : [ "themes", "json_data" ]
+    });
 });
 </script>
 
@@ -132,25 +132,25 @@ $(function () {
 <div id="demo3" class="demo"></div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#demo3").jstree({ 
-		"json_data" : {
-			"data" : [
-				{ 
-					"data" : "A node", 
-					"children" : [ "Child 1", "Child 2" ]
-				},
-				{ 
-					"attr" : { "id" : "li.node.id" }, 
-					"data" : { 
-						"title" : "Long format demo", 
-						"attr" : { "href" : "#" } 
-					} 
-				}
-			],
-			"progressive_render" : true
-		},
-		"plugins" : [ "themes", "json_data" ]
-	});
+    $("#demo3").jstree({ 
+        "json_data" : {
+            "data" : [
+                { 
+                    "data" : "A node", 
+                    "children" : [ "Child 1", "Child 2" ]
+                },
+                { 
+                    "attr" : { "id" : "li.node.id" }, 
+                    "data" : { 
+                        "title" : "Long format demo", 
+                        "attr" : { "href" : "#" } 
+                    } 
+                }
+            ],
+            "progressive_render" : true
+        },
+        "plugins" : [ "themes", "json_data" ]
+    });
 });
 </script>
 
@@ -158,25 +158,25 @@ $(function () {
 <div id="demo4" class="demo"></div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#demo4").jstree({ 
-		"json_data" : {
-			"data" : [
-				{ 
-					"data" : "A node", 
-					"state" : "closed"
-				},
-				{ 
-					"attr" : { "id" : "li.node.id" }, 
-					"data" : { 
-						"title" : "Long format demo", 
-						"attr" : { "href" : "#" } 
-					} 
-				}
-			],
-			"ajax" : { "url" : "_json_data.json" }
-		},
-		"plugins" : [ "themes", "json_data" ]
-	});
+    $("#demo4").jstree({ 
+        "json_data" : {
+            "data" : [
+                { 
+                    "data" : "A node", 
+                    "state" : "closed"
+                },
+                { 
+                    "attr" : { "id" : "li.node.id" }, 
+                    "data" : { 
+                        "title" : "Long format demo", 
+                        "attr" : { "href" : "#" } 
+                    } 
+                }
+            ],
+            "ajax" : { "url" : "_json_data.json" }
+        },
+        "plugins" : [ "themes", "json_data" ]
+    });
 });
 </script>
 </div>
@@ -187,50 +187,50 @@ $(function () {
 <h3 id="load_node_json">.load_node_json ( node , success_callback , error_callback )</h3>
 <p>This function is called instead of <code>load_node</code>.</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">mixed</code> <strong>node</strong>
-		<p>This can be a DOM node, jQuery node or selector pointing to an element you want loaded. Use <code>-1</code> for root nodes.</p>
-	</li>
-	<li>
-		<code class="tp">function</code> <strong>success_callback</strong>
-		<p>A function to be executed once the node is loaded successfully - used internally. You should wait for the <code>load_node</code> event.</p>
-	</li>
-	<li>
-		<code class="tp">function</code> <strong>error_callback</strong>
-		<p>A function to be executed if the node is not loaded due to an error - used internally. You should wait for the <code>load_node</code> event.</p>
-	</li>
+    <li>
+        <code class="tp">mixed</code> <strong>node</strong>
+        <p>This can be a DOM node, jQuery node or selector pointing to an element you want loaded. Use <code>-1</code> for root nodes.</p>
+    </li>
+    <li>
+        <code class="tp">function</code> <strong>success_callback</strong>
+        <p>A function to be executed once the node is loaded successfully - used internally. You should wait for the <code>load_node</code> event.</p>
+    </li>
+    <li>
+        <code class="tp">function</code> <strong>error_callback</strong>
+        <p>A function to be executed if the node is not loaded due to an error - used internally. You should wait for the <code>load_node</code> event.</p>
+    </li>
 </ul>
 <h3 id="_parse_json">._parse_json ( data , is_callback )</h3>
 <p>This function converts JSON nodes to the DOM structure required by jstree. Returns a jQuery object.</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">mixed</code> <strong>node</strong>
-		<p>This can be a tree node in the JSON format described above, or an array of such JSON nodes, may also be a string.</p>
-	</li>
-	<li>
-		<code class="tp">bool</code> <strong>is_callback</strong>
-		<p>Specifies if the function is called recursively - used ONLY internally.</p>
-	</li>
+    <li>
+        <code class="tp">mixed</code> <strong>node</strong>
+        <p>This can be a tree node in the JSON format described above, or an array of such JSON nodes, may also be a string.</p>
+    </li>
+    <li>
+        <code class="tp">bool</code> <strong>is_callback</strong>
+        <p>Specifies if the function is called recursively - used ONLY internally.</p>
+    </li>
 </ul>
 <h3 id="get_json">.get_json ( node , li_attr , a_attr )</h3>
 <p>This function returns an array of tree nodes converted back to JSON.</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">mixed</code> <strong>node</strong>
-		<p>This can be a DOM node, jQuery node or selector pointing to an element you want returned. Use <code>-1</code> or omit to get the whole tree.</p>
-	</li>
-	<li>
-		<code class="tp">array</code> <strong>li_attr</strong>
-		<p>The attributes to collect from the <code>LI</code> node. Defaults to <code>[ "id" , "class" ]</p>
-	</li>
-	<li>
-		<code class="tp">array</code> <strong>a_attr</strong>
-		<p>The attributes to collect from the <code>A</code> node. Defaults to <code>[ ]</p>
-	</li>
-	<li>
-		<code class="tp">boolean</code> <strong>is_callback</strong>
-		<p>Used internally.</p>
-	</li>
+    <li>
+        <code class="tp">mixed</code> <strong>node</strong>
+        <p>This can be a DOM node, jQuery node or selector pointing to an element you want returned. Use <code>-1</code> or omit to get the whole tree.</p>
+    </li>
+    <li>
+        <code class="tp">array</code> <strong>li_attr</strong>
+        <p>The attributes to collect from the <code>LI</code> node. Defaults to <code>[ "id" , "class" ]</p>
+    </li>
+    <li>
+        <code class="tp">array</code> <strong>a_attr</strong>
+        <p>The attributes to collect from the <code>A</code> node. Defaults to <code>[ ]</p>
+    </li>
+    <li>
+        <code class="tp">boolean</code> <strong>is_callback</strong>
+        <p>Used internally.</p>
+    </li>
 </ul>
 
 </div>

@@ -20,28 +20,28 @@
 class LinksHelper {
 
     function initialize() {
-    	if (file_exists(_SBC_APP_ . "daos/LinksDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/LinksDAO.php");
-    	}
-    	else {
-    		require_once(SB_APP_MANAGERS_DIR . "links/LinksDAO.php");
-    	}
-    	if (file_exists(_SBC_APP_ . "daos/LinksgroupsDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/LinksgroupsDAO.php");
-    	}
-    	else {
-    		require_once(SB_APP_MANAGERS_DIR . "links/LinksgroupsDAO.php");
-    	}
-    	require_once(SB_APP_MANAGERS_DIR . "links/Link.php");
-    	require_once(SB_APP_MANAGERS_DIR . "links/Linksgroup.php");
-    	require_once(SB_APP_MANAGERS_DIR . "links/LinksController.php");
+        if (file_exists(_SBC_APP_ . "daos/LinksDAO.php")) {
+            require_once(_SBC_APP_ . "daos/LinksDAO.php");
+        }
+        else {
+            require_once(SB_APP_MANAGERS_DIR . "links/LinksDAO.php");
+        }
+        if (file_exists(_SBC_APP_ . "daos/LinksgroupsDAO.php")) {
+            require_once(_SBC_APP_ . "daos/LinksgroupsDAO.php");
+        }
+        else {
+            require_once(SB_APP_MANAGERS_DIR . "links/LinksgroupsDAO.php");
+        }
+        require_once(SB_APP_MANAGERS_DIR . "links/Link.php");
+        require_once(SB_APP_MANAGERS_DIR . "links/Linksgroup.php");
+        require_once(SB_APP_MANAGERS_DIR . "links/LinksController.php");
     }
 
     function getLinkDAO($refresh=false) {
         static $Dao;
         if (! is_object($Dao) || $refresh) {
             if (! class_exists('LinksDAO')) {
-            	LinksHelper::initialize();
+                LinksHelper::initialize();
             }
             $Dao = new LinksDAO();
         }
@@ -52,7 +52,7 @@ class LinksHelper {
         static $Dao;
         if (! is_object($Dao) || $refresh) {
             if (! class_exists('LinksgroupsDAO')) {
-            	LinksHelper::initialize();
+                LinksHelper::initialize();
             }
             $Dao = new LinksgroupsDAO();
         }

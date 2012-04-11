@@ -3,16 +3,16 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>jsTree v.1.0 - xml_data documentation</title>
-	<script type="text/javascript" src="../_lib/jquery.js"></script>
-	<script type="text/javascript" src="../_lib/jquery.cookie.js"></script>
-	<script type="text/javascript" src="../_lib/jquery.hotkeys.js"></script>
-	<script type="text/javascript" src="../jquery.jstree.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jsTree v.1.0 - xml_data documentation</title>
+    <script type="text/javascript" src="../_lib/jquery.js"></script>
+    <script type="text/javascript" src="../_lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_lib/jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="../jquery.jstree.js"></script>
 
-	<link type="text/css" rel="stylesheet" href="syntax/!style.css"/>
-	<link type="text/css" rel="stylesheet" href="!style.css"/>
-	<script type="text/javascript" src="syntax/!script.js"></script>
+    <link type="text/css" rel="stylesheet" href="syntax/!style.css"/>
+    <link type="text/css" rel="stylesheet" href="!style.css"/>
+    <script type="text/javascript" src="syntax/!script.js"></script>
 </head>
 <body>
 <div id="container">
@@ -26,26 +26,26 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <pre class="brush:xml;">
 &lt;!-- FLAT --&gt;
 &lt;root&gt;
-	&lt;item id="root_1" parent_id="0" state="closed"&gt;
-		&lt;content&gt;
-			&lt;name&gt;&lt;![CDATA[Node 1]]&gt;&lt;/name&gt;
-		&lt;/content&gt;
-	&lt;/item&gt;
-	&lt;item id="node_2" parent_id="root_1"&gt;
-		&lt;content&gt;
-			&lt;name&gt;&lt;![CDATA[Node 2]]&gt;&lt;/name&gt;
-		&lt;/content&gt;
-	&lt;/item&gt;
+    &lt;item id="root_1" parent_id="0" state="closed"&gt;
+        &lt;content&gt;
+            &lt;name&gt;&lt;![CDATA[Node 1]]&gt;&lt;/name&gt;
+        &lt;/content&gt;
+    &lt;/item&gt;
+    &lt;item id="node_2" parent_id="root_1"&gt;
+        &lt;content&gt;
+            &lt;name&gt;&lt;![CDATA[Node 2]]&gt;&lt;/name&gt;
+        &lt;/content&gt;
+    &lt;/item&gt;
 &lt;/root&gt;
 
 &lt;!-- NESTED --&gt;
 &lt;root&gt;
-	&lt;item id="xml_1"&gt;
-		&lt;content&gt;&lt;name&gt;&lt;![CDATA[Root node 1]]&gt;&lt;/name&gt;&lt;/content&gt;
-		&lt;item id="xml_2"&gt;
-			&lt;content&gt;&lt;name&gt;&lt;![CDATA[Child node 1]]&gt;&lt;/name&gt;&lt;/content&gt;
-		&lt;/item&gt;
-	&lt;/item&gt;
+    &lt;item id="xml_1"&gt;
+        &lt;content&gt;&lt;name&gt;&lt;![CDATA[Root node 1]]&gt;&lt;/name&gt;&lt;/content&gt;
+        &lt;item id="xml_2"&gt;
+            &lt;content&gt;&lt;name&gt;&lt;![CDATA[Child node 1]]&gt;&lt;/name&gt;&lt;/content&gt;
+        &lt;/item&gt;
+    &lt;/item&gt;
 &lt;/root&gt;
 </pre>
 </div>
@@ -88,23 +88,23 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <div id="demo1" class="demo"></div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#demo1").jstree({ 
-		"xml_data" : {
-			"data" : "" + 
+    $("#demo1").jstree({ 
+        "xml_data" : {
+            "data" : "" + 
 "<root>" + 
-	"<item id='node_1'>" + 
-		"<content><name>Root node 1</name></content>" + 
-	"</item>" + 
-	"<item>" + 
-		"<content><name>Root node 2</name></content>" + 
-	"</item>" + 
-	"<item parent_id='node_1'>" + 
-		"<content><name>Child node</name></content>" + 
-	"</item>" + 
+    "<item id='node_1'>" + 
+        "<content><name>Root node 1</name></content>" + 
+    "</item>" + 
+    "<item>" + 
+        "<content><name>Root node 2</name></content>" + 
+    "</item>" + 
+    "<item parent_id='node_1'>" + 
+        "<content><name>Child node</name></content>" + 
+    "</item>" + 
 "</root>"
-		},
-		"plugins" : [ "themes", "xml_data" ]
-	});
+        },
+        "plugins" : [ "themes", "xml_data" ]
+    });
 });
 </script>
 
@@ -112,15 +112,15 @@ $(function () {
 <div id="demo2" class="demo"></div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#demo2").jstree({ 
-		"xml_data" : {
-			"ajax" : {
-				"url" : "_xml_nest.xml"
-			},
-			"xsl" : "nest"
-		},
-		"plugins" : [ "themes", "xml_data" ]
-	});
+    $("#demo2").jstree({ 
+        "xml_data" : {
+            "ajax" : {
+                "url" : "_xml_nest.xml"
+            },
+            "xsl" : "nest"
+        },
+        "plugins" : [ "themes", "xml_data" ]
+    });
 });
 </script>
 
@@ -128,29 +128,29 @@ $(function () {
 <div id="demo4" class="demo"></div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#demo4").jstree({ 
-		"xml_data" : {
-			"data" : "" + 
+    $("#demo4").jstree({ 
+        "xml_data" : {
+            "data" : "" + 
 "<root>" + 
-	"<item id='node_1' state='closed'>" + 
-		"<content><name>Root node 1</name></content>" + 
-	"</item>" + 
-	"<item>" + 
-		"<content><name>Root node 2</name></content>" + 
-	"</item>" + 
+    "<item id='node_1' state='closed'>" + 
+        "<content><name>Root node 1</name></content>" + 
+    "</item>" + 
+    "<item>" + 
+        "<content><name>Root node 2</name></content>" + 
+    "</item>" + 
 "</root>",
-			"ajax" : {
-				"url" : "_xml_flat.xml",
-				"data" : function (n) { 
-					return { 
-						id : n.attr ? n.attr("id") : 0, 
-						rand : new Date().getTime()
-					}; 
-				}
-			}
-		},
-		"plugins" : [ "themes", "xml_data" ]
-	});
+            "ajax" : {
+                "url" : "_xml_flat.xml",
+                "data" : function (n) { 
+                    return { 
+                        id : n.attr ? n.attr("id") : 0, 
+                        rand : new Date().getTime()
+                    }; 
+                }
+            }
+        },
+        "plugins" : [ "themes", "xml_data" ]
+    });
 });
 </script>
 </div>
@@ -161,50 +161,50 @@ $(function () {
 <h3 id="load_node_xml">.load_node_xml ( node , success_callback , error_callback )</h3>
 <p>This function is called instead of <code>load_node</code>.</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">mixed</code> <strong>node</strong>
-		<p>This can be a DOM node, jQuery node or selector pointing to an element you want loaded. Use <code>-1</code> for root nodes.</p>
-	</li>
-	<li>
-		<code class="tp">function</code> <strong>success_callback</strong>
-		<p>A function to be executed once the node is loaded successfully - used internally. You should wait for the <code>load_node</code> event.</p>
-	</li>
-	<li>
-		<code class="tp">function</code> <strong>error_callback</strong>
-		<p>A function to be executed if the node is not loaded due to an error - used internally. You should wait for the <code>load_node</code> event.</p>
-	</li>
+    <li>
+        <code class="tp">mixed</code> <strong>node</strong>
+        <p>This can be a DOM node, jQuery node or selector pointing to an element you want loaded. Use <code>-1</code> for root nodes.</p>
+    </li>
+    <li>
+        <code class="tp">function</code> <strong>success_callback</strong>
+        <p>A function to be executed once the node is loaded successfully - used internally. You should wait for the <code>load_node</code> event.</p>
+    </li>
+    <li>
+        <code class="tp">function</code> <strong>error_callback</strong>
+        <p>A function to be executed if the node is not loaded due to an error - used internally. You should wait for the <code>load_node</code> event.</p>
+    </li>
 </ul>
 <h3 id="parse_xml">.parse_xml ( data )</h3>
 <p>This function converts XML strings or objects to the DOM structure required by jstree. Returns a jQuery object.</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">mixed</code> <strong>data</strong>
-		<p>The XML string/object.</p>
-	</li>
+    <li>
+        <code class="tp">mixed</code> <strong>data</strong>
+        <p>The XML string/object.</p>
+    </li>
 </ul>
 <h3 id="get_xml">.get_xml ( type , node , li_attr , a_attr , is_callback )</h3>
 <p>This function returns an array of tree nodes converted back to XML.</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">string</code> <strong>type</strong>
-		<p>Either <code>"flat"</code> or <code>"nest"</code>. Default is <code>"flat"</code>.</p>
-	</li>
-	<li>
-		<code class="tp">mixed</code> <strong>node</strong>
-		<p>This can be a DOM node, jQuery node or selector pointing to an element you want returned. Use <code>-1</code> or omit to get the whole tree.</p>
-	</li>
-	<li>
-		<code class="tp">array</code> <strong>li_attr</strong>
-		<p>The attributes to collect from the <code>LI</code> node. Defaults to <code>[ "id" , "class" ]</p>
-	</li>
-	<li>
-		<code class="tp">array</code> <strong>a_attr</strong>
-		<p>The attributes to collect from the <code>A</code> node. Defaults to <code>[ ]</p>
-	</li>
-	<li>
-		<code class="tp">string</code> <strong>is_callback</strong>
-		<p>Used internally.</p>
-	</li>
+    <li>
+        <code class="tp">string</code> <strong>type</strong>
+        <p>Either <code>"flat"</code> or <code>"nest"</code>. Default is <code>"flat"</code>.</p>
+    </li>
+    <li>
+        <code class="tp">mixed</code> <strong>node</strong>
+        <p>This can be a DOM node, jQuery node or selector pointing to an element you want returned. Use <code>-1</code> or omit to get the whole tree.</p>
+    </li>
+    <li>
+        <code class="tp">array</code> <strong>li_attr</strong>
+        <p>The attributes to collect from the <code>LI</code> node. Defaults to <code>[ "id" , "class" ]</p>
+    </li>
+    <li>
+        <code class="tp">array</code> <strong>a_attr</strong>
+        <p>The attributes to collect from the <code>A</code> node. Defaults to <code>[ ]</p>
+    </li>
+    <li>
+        <code class="tp">string</code> <strong>is_callback</strong>
+        <p>Used internally.</p>
+    </li>
 </ul>
 
 </div>

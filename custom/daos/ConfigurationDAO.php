@@ -29,20 +29,20 @@ class ConfigurationDAO extends SqliteDAO {
     function getConfigBean() {
         $Bean = new Configuration();
         if ($Statement = $this->query("SELECT * FROM {$this->getBeanClass()}")) {
-        	if ($result = $Statement->fetchAll(PDO::FETCH_ASSOC)) {
-        	    foreach ($result as $field) {
-					$key = Filter::get($field, 'name');
-					$key = ucwords(strtolower($key));
-					$method = "set{$key}";
-					if (is_callable(array($Bean, $method))) {
-						$Bean->$method(Filter::get($field, 'value'));
-					}
-				}
-				$Bean->setName("configuration");
-				$Bean->setId(1);
-				$Bean->setType("configuration");
-				$Bean->setObjtype("configuration");
-        	}
+            if ($result = $Statement->fetchAll(PDO::FETCH_ASSOC)) {
+                foreach ($result as $field) {
+                    $key = Filter::get($field, 'name');
+                    $key = ucwords(strtolower($key));
+                    $method = "set{$key}";
+                    if (is_callable(array($Bean, $method))) {
+                        $Bean->$method(Filter::get($field, 'value'));
+                    }
+                }
+                $Bean->setName("configuration");
+                $Bean->setId(1);
+                $Bean->setType("configuration");
+                $Bean->setObjtype("configuration");
+            }
         }
         return $Bean;
     }

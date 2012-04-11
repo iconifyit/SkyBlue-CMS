@@ -3,16 +3,16 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>jsTree v.1.0 - themes documentation</title>
-	<script type="text/javascript" src="../_lib/jquery.js"></script>
-	<script type="text/javascript" src="../_lib/jquery.cookie.js"></script>
-	<script type="text/javascript" src="../_lib/jquery.hotkeys.js"></script>
-	<script type="text/javascript" src="../jquery.jstree.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jsTree v.1.0 - themes documentation</title>
+    <script type="text/javascript" src="../_lib/jquery.js"></script>
+    <script type="text/javascript" src="../_lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_lib/jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="../jquery.jstree.js"></script>
 
-	<link type="text/css" rel="stylesheet" href="syntax/!style.css"/>
-	<link type="text/css" rel="stylesheet" href="!style.css"/>
-	<script type="text/javascript" src="syntax/!script.js"></script>
+    <link type="text/css" rel="stylesheet" href="syntax/!style.css"/>
+    <link type="text/css" rel="stylesheet" href="!style.css"/>
+    <script type="text/javascript" src="syntax/!script.js"></script>
 </head>
 <body>
 <div id="container">
@@ -52,42 +52,42 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <input type="button" class="button" value="set_theme1" id="set_theme1" style="float:left;" />
 <input type="button" class="button" value="set_theme2" id="set_theme2" style="" />
 <div id="demo1" class="demo">
-	<ul>
-		<li id="phtml_1">
-			<a href="#">Root node 1</a>
-			<ul>
-				<li id="phtml_2">
-					<a href="#">Child node 1</a>
-				</li>
-				<li id="phtml_3">
-					<a href="#">Child node 2</a>
-				</li>
-			</ul>
-		</li>
-		<li id="phtml_4">
-			<a href="#">Root node 2</a>
-		</li>
-	</ul>
+    <ul>
+        <li id="phtml_1">
+            <a href="#">Root node 1</a>
+            <ul>
+                <li id="phtml_2">
+                    <a href="#">Child node 1</a>
+                </li>
+                <li id="phtml_3">
+                    <a href="#">Child node 2</a>
+                </li>
+            </ul>
+        </li>
+        <li id="phtml_4">
+            <a href="#">Root node 2</a>
+        </li>
+    </ul>
 </div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#toggle_dots, #toggle_icons").click(function () { 
-		$("#demo1").jstree(this.value);
-	});
-	$("#set_theme1").click(function () { 
-		$("#demo1").jstree("set_theme","apple");
-	});
-	$("#set_theme2").click(function () { 
-		$("#demo1").jstree("set_theme","default");
-	});
-	$("#demo1").jstree({ 
-		"themes" : {
-			"theme" : "default",
-			"dots" : false,
-			"icons" : false
-		},
-		"plugins" : [ "themes", "html_data" ]
-	});
+    $("#toggle_dots, #toggle_icons").click(function () { 
+        $("#demo1").jstree(this.value);
+    });
+    $("#set_theme1").click(function () { 
+        $("#demo1").jstree("set_theme","apple");
+    });
+    $("#set_theme2").click(function () { 
+        $("#demo1").jstree("set_theme","default");
+    });
+    $("#demo1").jstree({ 
+        "themes" : {
+            "theme" : "default",
+            "dots" : false,
+            "icons" : false
+        },
+        "plugins" : [ "themes", "html_data" ]
+    });
 });
 </script>
 
@@ -99,14 +99,14 @@ $(function () {
 <h3 id="set_theme">.set_theme ( name , url )</h3>
 <p>Set the tree's theme. Triggers an event.</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">string</code> <strong>name</strong>
-		<p>The name of the theme to use to style the tree.</p>
-	</li>
-	<li>
-		<code class="tp">string</code> <strong>url</strong>
-		<p>The location of the theme's CSS file, if omitted jstree will look for the file in:<br /><code><em>&lt; theme folder &gt;</em>/themes/<em>&lt; name &gt;</em>/style.css</code>.<br />You can set the theme folder using:<br /><code>$.jstree._themes = "PATH/TO/FOLDER/";</code>, otherwise it is autodetected as <code><em>&lt;jquery.tree.js location&gt;</em>/themes/</code>.</p>
-	</li>
+    <li>
+        <code class="tp">string</code> <strong>name</strong>
+        <p>The name of the theme to use to style the tree.</p>
+    </li>
+    <li>
+        <code class="tp">string</code> <strong>url</strong>
+        <p>The location of the theme's CSS file, if omitted jstree will look for the file in:<br /><code><em>&lt; theme folder &gt;</em>/themes/<em>&lt; name &gt;</em>/style.css</code>.<br />You can set the theme folder using:<br /><code>$.jstree._themes = "PATH/TO/FOLDER/";</code>, otherwise it is autodetected as <code><em>&lt;jquery.tree.js location&gt;</em>/themes/</code>.</p>
+    </li>
 </ul>
 <h3 id="get_theme">.get_theme ( )</h3>
 <p>Returns the name of the currently active theme.</p>

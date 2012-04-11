@@ -19,13 +19,13 @@
 
 class HelpHelper {
     function initialize() {
-    	if (file_exists(_SBC_APP_ . "daos/HelpDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/HelpDAO.php");
-    	}
-    	else {
-    		require_once(SB_MANAGERS_DIR . "help/HelpDAO.php");
-    	}
-    	require_once(SB_MANAGERS_DIR . "help/Help.php");
-    	require_once(SB_MANAGERS_DIR . "help/HelpController.php");
+        if (file_exists(_SBC_APP_ . "daos/HelpDAO.php")) {
+            require_once(_SBC_APP_ . "daos/HelpDAO.php");
+        }
+        else {
+            require_once(SB_MANAGERS_DIR . "help/HelpDAO.php");
+        }
+        require_once(SB_MANAGERS_DIR . "help/Help.php");
+        require_once(SB_MANAGERS_DIR . "help/HelpController.php");
     }
 }

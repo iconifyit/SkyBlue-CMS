@@ -181,10 +181,10 @@ function show_alert(e, dialogTitle, dialogMessage, theCallback) {
     var myButtons = {};
     
     if (typeof(theCallback) == "function") {
-		myButtons[window.TERMS.OKAY] = function() {
-			theCallback();
-			$(this).dialog('close');
-		};
+        myButtons[window.TERMS.OKAY] = function() {
+            theCallback();
+            $(this).dialog('close');
+        };
     }
     
     // Display the dialog

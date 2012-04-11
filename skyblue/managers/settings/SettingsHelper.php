@@ -19,13 +19,13 @@
 
 class SettingsHelper {
     function initialize() {
-    	if (file_exists(_SBC_APP_ . "daos/SettingsDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/SettingsDAO.php");
-    	}
-    	else {
-    		require_once(SB_MANAGERS_DIR . "settings/SettingsDAO.php");
-    	}
-    	require_once(SB_MANAGERS_DIR . "settings/Settings.php");
-    	require_once(SB_MANAGERS_DIR . "settings/SettingsController.php");
+        if (file_exists(_SBC_APP_ . "daos/SettingsDAO.php")) {
+            require_once(_SBC_APP_ . "daos/SettingsDAO.php");
+        }
+        else {
+            require_once(SB_MANAGERS_DIR . "settings/SettingsDAO.php");
+        }
+        require_once(SB_MANAGERS_DIR . "settings/Settings.php");
+        require_once(SB_MANAGERS_DIR . "settings/SettingsController.php");
     }
 }

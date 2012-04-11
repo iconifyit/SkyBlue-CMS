@@ -3,16 +3,16 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>jsTree v.1.0 - CRRM documentation</title>
-	<script type="text/javascript" src="../_lib/jquery.js"></script>
-	<script type="text/javascript" src="../_lib/jquery.cookie.js"></script>
-	<script type="text/javascript" src="../_lib/jquery.hotkeys.js"></script>
-	<script type="text/javascript" src="../jquery.jstree.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jsTree v.1.0 - CRRM documentation</title>
+    <script type="text/javascript" src="../_lib/jquery.js"></script>
+    <script type="text/javascript" src="../_lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_lib/jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="../jquery.jstree.js"></script>
 
-	<link type="text/css" rel="stylesheet" href="syntax/!style.css"/>
-	<link type="text/css" rel="stylesheet" href="!style.css"/>
-	<script type="text/javascript" src="syntax/!script.js"></script>
+    <link type="text/css" rel="stylesheet" href="syntax/!style.css"/>
+    <link type="text/css" rel="stylesheet" href="!style.css"/>
+    <script type="text/javascript" src="syntax/!script.js"></script>
 </head>
 <body>
 <div id="container">
@@ -58,41 +58,41 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <input type="button" class="button" value="create_2" id="create_2" style="float:left;" />
 <input type="button" class="button" value="create_3" id="create_3" style="" />
 <div id="demo1" class="demo">
-	<ul>
-		<li id="phtml_1">
-			<a href="#">Root node 1</a>
-			<ul>
-				<li id="phtml_2">
-					<a href="#">Child node 1</a>
-				</li>
-				<li id="phtml_3">
-					<a href="#">Child node 2</a>
-				</li>
-			</ul>
-		</li>
-		<li id="phtml_4">
-			<a href="#">Root node 2</a>
-		</li>
-	</ul>
+    <ul>
+        <li id="phtml_1">
+            <a href="#">Root node 1</a>
+            <ul>
+                <li id="phtml_2">
+                    <a href="#">Child node 1</a>
+                </li>
+                <li id="phtml_3">
+                    <a href="#">Child node 2</a>
+                </li>
+            </ul>
+        </li>
+        <li id="phtml_4">
+            <a href="#">Root node 2</a>
+        </li>
+    </ul>
 </div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#create_1").click(function () { 
-		$("#demo1").jstree("create"); 
-	});
-	$("#create_2").click(function () { 
-		$("#demo1").jstree("create","#phtml_1","first","Enter a new name"); 
-	});
-	$("#create_3").click(function () { 
-		$("#demo1").jstree("create",-1,false,"No rename",false,true); 
-	});
-	$("#demo1").jstree({ 
-		"ui" : {
-			"initially_select" : [ "phtml_2" ]
-		},
-		"core" : { "initially_open" : [ "phtml_1" ] },
-		"plugins" : [ "themes", "html_data", "ui", "crrm" ]
-	});
+    $("#create_1").click(function () { 
+        $("#demo1").jstree("create"); 
+    });
+    $("#create_2").click(function () { 
+        $("#demo1").jstree("create","#phtml_1","first","Enter a new name"); 
+    });
+    $("#create_3").click(function () { 
+        $("#demo1").jstree("create",-1,false,"No rename",false,true); 
+    });
+    $("#demo1").jstree({ 
+        "ui" : {
+            "initially_select" : [ "phtml_2" ]
+        },
+        "core" : { "initially_open" : [ "phtml_1" ] },
+        "plugins" : [ "themes", "html_data", "ui", "crrm" ]
+    });
 });
 </script>
 
@@ -100,38 +100,38 @@ $(function () {
 <input type="button" class="button" value="remove_1" id="remove_1" style="float:left;" />
 <input type="button" class="button" value="remove_2" id="remove_2" style="" />
 <div id="demo2" class="demo">
-	<ul>
-		<li id="rhtml_1">
-			<a href="#">Root node 1</a>
-			<ul>
-				<li id="rhtml_2">
-					<a href="#">Child node 1</a>
-				</li>
-				<li id="rhtml_3">
-					<a href="#">Child node 2</a>
-				</li>
-			</ul>
-		</li>
-		<li id="rhtml_4">
-			<a href="#">Root node 2</a>
-		</li>
-	</ul>
+    <ul>
+        <li id="rhtml_1">
+            <a href="#">Root node 1</a>
+            <ul>
+                <li id="rhtml_2">
+                    <a href="#">Child node 1</a>
+                </li>
+                <li id="rhtml_3">
+                    <a href="#">Child node 2</a>
+                </li>
+            </ul>
+        </li>
+        <li id="rhtml_4">
+            <a href="#">Root node 2</a>
+        </li>
+    </ul>
 </div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#remove_1").click(function () { 
-		$("#demo2").jstree("remove"); 
-	});
-	$("#remove_2").click(function () { 
-		$("#demo2").jstree("remove","#rhtml_1"); 
-	});
-	$("#demo2").jstree({ 
-		"ui" : {
-			"initially_select" : [ "rhtml_2" ]
-		},
-		"core" : { "initially_open" : [ "rhtml_1" ] },
-		"plugins" : [ "themes", "html_data", "ui", "crrm" ]
-	});
+    $("#remove_1").click(function () { 
+        $("#demo2").jstree("remove"); 
+    });
+    $("#remove_2").click(function () { 
+        $("#demo2").jstree("remove","#rhtml_1"); 
+    });
+    $("#demo2").jstree({ 
+        "ui" : {
+            "initially_select" : [ "rhtml_2" ]
+        },
+        "core" : { "initially_open" : [ "rhtml_1" ] },
+        "plugins" : [ "themes", "html_data", "ui", "crrm" ]
+    });
 });
 </script>
 
@@ -139,38 +139,38 @@ $(function () {
 <input type="button" class="button" value="rename_1" id="rename_1" style="float:left;" />
 <input type="button" class="button" value="rename_2" id="rename_2" style="" />
 <div id="demo3" class="demo">
-	<ul>
-		<li id="shtml_1">
-			<a href="#">Root node 1</a>
-			<ul>
-				<li id="shtml_2">
-					<a href="#">Child node 1</a>
-				</li>
-				<li id="shtml_3">
-					<a href="#">Child node 2</a>
-				</li>
-			</ul>
-		</li>
-		<li id="shtml_4">
-			<a href="#">Root node 2</a>
-		</li>
-	</ul>
+    <ul>
+        <li id="shtml_1">
+            <a href="#">Root node 1</a>
+            <ul>
+                <li id="shtml_2">
+                    <a href="#">Child node 1</a>
+                </li>
+                <li id="shtml_3">
+                    <a href="#">Child node 2</a>
+                </li>
+            </ul>
+        </li>
+        <li id="shtml_4">
+            <a href="#">Root node 2</a>
+        </li>
+    </ul>
 </div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#rename_1").click(function () { 
-		$("#demo3").jstree("rename"); 
-	});
-	$("#rename_2").click(function () { 
-		$("#demo3").jstree("rename","#shtml_1"); 
-	});
-	$("#demo3").jstree({ 
-		"ui" : {
-			"initially_select" : [ "shtml_2" ]
-		},
-		"core" : { "initially_open" : [ "shtml_1" ] },
-		"plugins" : [ "themes", "html_data", "ui", "crrm" ]
-	});
+    $("#rename_1").click(function () { 
+        $("#demo3").jstree("rename"); 
+    });
+    $("#rename_2").click(function () { 
+        $("#demo3").jstree("rename","#shtml_1"); 
+    });
+    $("#demo3").jstree({ 
+        "ui" : {
+            "initially_select" : [ "shtml_2" ]
+        },
+        "core" : { "initially_open" : [ "shtml_1" ] },
+        "plugins" : [ "themes", "html_data", "ui", "crrm" ]
+    });
 });
 </script>
 
@@ -182,47 +182,47 @@ $(function () {
 <input type="button" class="button" value="move_2" id="move_2" style="float:left;" />
 <input type="button" class="button" value="move_3" id="move_3" style="" />
 <div id="demo4" class="demo">
-	<ul>
-		<li id="thtml_1">
-			<a href="#">Root node 1</a>
-			<ul>
-				<li id="thtml_2">
-					<a href="#">Child node 1</a>
-				</li>
-				<li id="thtml_3">
-					<a href="#">Child node 2</a>
-				</li>
-			</ul>
-		</li>
-		<li id="thtml_4">
-			<a href="#">Root node 2</a>
-		</li>
-	</ul>
+    <ul>
+        <li id="thtml_1">
+            <a href="#">Root node 1</a>
+            <ul>
+                <li id="thtml_2">
+                    <a href="#">Child node 1</a>
+                </li>
+                <li id="thtml_3">
+                    <a href="#">Child node 2</a>
+                </li>
+            </ul>
+        </li>
+        <li id="thtml_4">
+            <a href="#">Root node 2</a>
+        </li>
+    </ul>
 </div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#move_1").click(function () { 
-		$("#demo4").jstree("move_node","#thtml_4","#thtml_1"); 
-	});
-	$("#move_2").click(function () { 
-		$("#demo4").jstree("move_node","#thtml_4","#thtml_1", "before"); 
-	});
-	$("#move_3").click(function () { 
-		$("#demo4").jstree("move_node","#thtml_1","#thtml_4"); 
-	});
-	$("#demo4").jstree({ 
-		"crrm" : {
-			"move" : {
-				"default_position" : "first",
-				"check_move" : function (m) { return (m.o[0].id === "thtml_1") ? false : true;  }
-			}
-		},
-		"ui" : {
-			"initially_select" : [ "thtml_2" ]
-		},
-		"core" : { "initially_open" : [ "thtml_1" ] },
-		"plugins" : [ "themes", "html_data", "ui", "crrm" ]
-	});
+    $("#move_1").click(function () { 
+        $("#demo4").jstree("move_node","#thtml_4","#thtml_1"); 
+    });
+    $("#move_2").click(function () { 
+        $("#demo4").jstree("move_node","#thtml_4","#thtml_1", "before"); 
+    });
+    $("#move_3").click(function () { 
+        $("#demo4").jstree("move_node","#thtml_1","#thtml_4"); 
+    });
+    $("#demo4").jstree({ 
+        "crrm" : {
+            "move" : {
+                "default_position" : "first",
+                "check_move" : function (m) { return (m.o[0].id === "thtml_1") ? false : true;  }
+            }
+        },
+        "ui" : {
+            "initially_select" : [ "thtml_2" ]
+        },
+        "core" : { "initially_open" : [ "thtml_1" ] },
+        "plugins" : [ "themes", "html_data", "ui", "crrm" ]
+    });
 });
 </script>
 
@@ -237,44 +237,44 @@ $(function () {
 <h3 id="rename">.rename ( node )</h3>
 <p>Sets a node in rename mode and when the user has entered changes, an event is triggered.</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">mixed</code> <strong>node</strong>
-		<p>This can be a DOM node, jQuery node or selector pointing to an element within the tree. If you use the UI plugin - pass <code>null</code> to use the currently selected item.</p>
-	</li>
+    <li>
+        <code class="tp">mixed</code> <strong>node</strong>
+        <p>This can be a DOM node, jQuery node or selector pointing to an element within the tree. If you use the UI plugin - pass <code>null</code> to use the currently selected item.</p>
+    </li>
 </ul>
 
 <h3 id="create">.create ( node , position , js , callback , skip_rename )</h3>
 <p>Creates a new node. Triggers an event.</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">mixed</code> <strong>node</strong>
-		<p>This can be a DOM node, jQuery node or selector pointing to the element you want to create in (or next to). If you use the UI plugin - pass <code>null</code> to use the currently selected item.</p>
-	</li>
-	<li>
-		<code class="tp">mixed</code> <strong>position</strong>
-		<p>The position of the newly created node. This can be a zero based index to position the element at a specific point among the current children. You can also pass in one of those strings: <code>"before"</code>, <code>"after"</code>, <code>"inside"</code>, <code>"first"</code>, <code>"last"</code>.</p>
-	</li>
-	<li>
-		<code class="tp">object</code> <strong>js</strong>
-		<p>The data for the newly created node. Consists of three keys:</p><p style="margin-left:25px;"><code class="tp">attr</code> - an object of attributes (same used for <code>jQuery.attr()</code>. You can omit this key;<br /><code class="tp">state</code> - a string - either <code>"open"</code> or <code>"closed"</code>, for a leaf node - omit this key;<br /><code class="tp">data</code> - a string or an object - if a string is passed it is used for the title of the node, if an object is passed there are two keys you can specify: <code>attr</code> and <code>title</code>;</p>
-	</li>
-	<li>
-		<code class="tp">function</code> <strong>callback</strong>
-		<p>A function to be executed once the node is created. You'd be better off waiting for the event.</p>
-	</li>
-	<li>
-		<code class="tp">bool</code> <strong>skip_rename</strong>
-		<p>Skips the user input step. The node is created with the data you have supplied.</p>
-	</li>
+    <li>
+        <code class="tp">mixed</code> <strong>node</strong>
+        <p>This can be a DOM node, jQuery node or selector pointing to the element you want to create in (or next to). If you use the UI plugin - pass <code>null</code> to use the currently selected item.</p>
+    </li>
+    <li>
+        <code class="tp">mixed</code> <strong>position</strong>
+        <p>The position of the newly created node. This can be a zero based index to position the element at a specific point among the current children. You can also pass in one of those strings: <code>"before"</code>, <code>"after"</code>, <code>"inside"</code>, <code>"first"</code>, <code>"last"</code>.</p>
+    </li>
+    <li>
+        <code class="tp">object</code> <strong>js</strong>
+        <p>The data for the newly created node. Consists of three keys:</p><p style="margin-left:25px;"><code class="tp">attr</code> - an object of attributes (same used for <code>jQuery.attr()</code>. You can omit this key;<br /><code class="tp">state</code> - a string - either <code>"open"</code> or <code>"closed"</code>, for a leaf node - omit this key;<br /><code class="tp">data</code> - a string or an object - if a string is passed it is used for the title of the node, if an object is passed there are two keys you can specify: <code>attr</code> and <code>title</code>;</p>
+    </li>
+    <li>
+        <code class="tp">function</code> <strong>callback</strong>
+        <p>A function to be executed once the node is created. You'd be better off waiting for the event.</p>
+    </li>
+    <li>
+        <code class="tp">bool</code> <strong>skip_rename</strong>
+        <p>Skips the user input step. The node is created with the data you have supplied.</p>
+    </li>
 </ul>
 
 <h3 id="remove">.remove ( node )</h3>
 <p>Removes a node. Triggers an event.</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">mixed</code> <strong>node</strong>
-		<p>This can be a DOM node, jQuery node or selector pointing to an element within the tree. If you use the UI plugin - pass <code>null</code> to use the currently selected items.</p>
-	</li>
+    <li>
+        <code class="tp">mixed</code> <strong>node</strong>
+        <p>This can be a DOM node, jQuery node or selector pointing to an element within the tree. If you use the UI plugin - pass <code>null</code> to use the currently selected items.</p>
+    </li>
 </ul>
 
 <div style="height:1px; visibility:hidden; overflow:hidden;"><span id="check_move">&#160;</span></div>
@@ -284,28 +284,28 @@ $(function () {
 <h3 id="cut">.cut ( node )</h3>
 <p>Cuts a node (prepares it for pasting).</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">mixed</code> <strong>node</strong>
-		<p>This can be a DOM node, jQuery node or selector pointing to an element within the tree. If you use the UI plugin - pass <code>null</code> to use the currently selected item.</p>
-	</li>
+    <li>
+        <code class="tp">mixed</code> <strong>node</strong>
+        <p>This can be a DOM node, jQuery node or selector pointing to an element within the tree. If you use the UI plugin - pass <code>null</code> to use the currently selected item.</p>
+    </li>
 </ul>
 
 <h3 id="copy">.copy ( node )</h3>
 <p>Copies a node (prepares it for pasting).</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">mixed</code> <strong>node</strong>
-		<p>This can be a DOM node, jQuery node or selector pointing to an element within the tree. If you use the UI plugin - pass <code>null</code> to use the currently selected item.</p>
-	</li>
+    <li>
+        <code class="tp">mixed</code> <strong>node</strong>
+        <p>This can be a DOM node, jQuery node or selector pointing to an element within the tree. If you use the UI plugin - pass <code>null</code> to use the currently selected item.</p>
+    </li>
 </ul>
 
 <h3 id="paste">.paste ( node )</h3>
 <p>Pastes copied or cut nodes inside a node.</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">mixed</code> <strong>node</strong>
-		<p>This can be a DOM node, jQuery node or selector pointing to an element within the tree. If you use the UI plugin - pass <code>null</code> to use the currently selected item.</p>
-	</li>
+    <li>
+        <code class="tp">mixed</code> <strong>node</strong>
+        <p>This can be a DOM node, jQuery node or selector pointing to an element within the tree. If you use the UI plugin - pass <code>null</code> to use the currently selected item.</p>
+    </li>
 </ul>
 
 </div>

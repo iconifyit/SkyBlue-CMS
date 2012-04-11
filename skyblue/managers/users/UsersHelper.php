@@ -20,21 +20,21 @@
 class UsersHelper {
     
     function initialize() {
-    	if (file_exists(_SBC_APP_ . "daos/UsersDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/UsersDAO.php");
-    	}
-    	else {
-    		require_once(SB_MANAGERS_DIR . "users/UsersDAO.php");
-    	}
-    	if (file_exists(_SBC_APP_ . "daos/UsergroupsDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/UsergroupsDAO.php");
-    	}
-    	else {
-    		require_once(SB_MANAGERS_DIR . "users/UsergroupsDAO.php");
-    	}
-    	require_once(SB_MANAGERS_DIR . "users/User.php");
-    	require_once(SB_MANAGERS_DIR . "users/Usergroup.php");
-    	require_once(SB_MANAGERS_DIR . "users/UsersController.php");
+        if (file_exists(_SBC_APP_ . "daos/UsersDAO.php")) {
+            require_once(_SBC_APP_ . "daos/UsersDAO.php");
+        }
+        else {
+            require_once(SB_MANAGERS_DIR . "users/UsersDAO.php");
+        }
+        if (file_exists(_SBC_APP_ . "daos/UsergroupsDAO.php")) {
+            require_once(_SBC_APP_ . "daos/UsergroupsDAO.php");
+        }
+        else {
+            require_once(SB_MANAGERS_DIR . "users/UsergroupsDAO.php");
+        }
+        require_once(SB_MANAGERS_DIR . "users/User.php");
+        require_once(SB_MANAGERS_DIR . "users/Usergroup.php");
+        require_once(SB_MANAGERS_DIR . "users/UsersController.php");
     }
 
     function getUserBean() {
@@ -46,7 +46,7 @@ class UsersHelper {
         static $Dao;
         if (! is_object($Dao) || $refresh) {
             if (! class_exists('UsersDAO')) {
-            	UsersHelper::initialize();
+                UsersHelper::initialize();
             }
             $Dao = new UsersDAO();
         }
@@ -57,7 +57,7 @@ class UsersHelper {
         static $Dao;
         if (! is_object($Dao) || $refresh) {
             if (! class_exists('UsergroupsDAO')) {
-            	UsersHelper::initialize();
+                UsersHelper::initialize();
             }
             $Dao = new UsergroupsDAO();
         }

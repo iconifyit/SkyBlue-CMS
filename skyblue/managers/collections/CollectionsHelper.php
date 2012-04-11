@@ -19,13 +19,13 @@
 
 class CollectionsHelper {
     function initialize() {
-    	if (file_exists(_SBC_APP_ . "daos/CollectionsDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/CollectionsDAO.php");
-    	}
-    	else {
-    		require_once(SB_MANAGERS_DIR . "collections/CollectionsDAO.php");
-    	}
-    	require_once(SB_MANAGERS_DIR . "collections/Collections.php");
-    	require_once(SB_MANAGERS_DIR . "collections/CollectionsController.php");
+        if (file_exists(_SBC_APP_ . "daos/CollectionsDAO.php")) {
+            require_once(_SBC_APP_ . "daos/CollectionsDAO.php");
+        }
+        else {
+            require_once(SB_MANAGERS_DIR . "collections/CollectionsDAO.php");
+        }
+        require_once(SB_MANAGERS_DIR . "collections/Collections.php");
+        require_once(SB_MANAGERS_DIR . "collections/CollectionsController.php");
     }
 }

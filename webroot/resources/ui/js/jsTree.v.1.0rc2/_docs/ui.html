@@ -3,16 +3,16 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>jsTree v.1.0 - UI documentation</title>
-	<script type="text/javascript" src="../_lib/jquery.js"></script>
-	<script type="text/javascript" src="../_lib/jquery.cookie.js"></script>
-	<script type="text/javascript" src="../_lib/jquery.hotkeys.js"></script>
-	<script type="text/javascript" src="../jquery.jstree.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jsTree v.1.0 - UI documentation</title>
+    <script type="text/javascript" src="../_lib/jquery.js"></script>
+    <script type="text/javascript" src="../_lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_lib/jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="../jquery.jstree.js"></script>
 
-	<link type="text/css" rel="stylesheet" href="syntax/!style.css"/>
-	<link type="text/css" rel="stylesheet" href="!style.css"/>
-	<script type="text/javascript" src="syntax/!script.js"></script>
+    <link type="text/css" rel="stylesheet" href="syntax/!style.css"/>
+    <link type="text/css" rel="stylesheet" href="!style.css"/>
+    <script type="text/javascript" src="syntax/!script.js"></script>
 </head>
 <body>
 <div id="container">
@@ -56,35 +56,35 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
 <h3>Using the UI plugin</h3>
 <div id="demo1" class="demo">
-	<ul>
-		<li id="phtml_1">
-			<a href="#">Root node 1</a>
-			<ul>
-				<li id="phtml_2">
-					<a href="#">Child node 1</a>
-				</li>
-				<li id="phtml_3">
-					<a href="#">Child node 2</a>
-				</li>
-			</ul>
-		</li>
-		<li id="phtml_4">
-			<a href="#">Root node 2</a>
-		</li>
-	</ul>
+    <ul>
+        <li id="phtml_1">
+            <a href="#">Root node 1</a>
+            <ul>
+                <li id="phtml_2">
+                    <a href="#">Child node 1</a>
+                </li>
+                <li id="phtml_3">
+                    <a href="#">Child node 2</a>
+                </li>
+            </ul>
+        </li>
+        <li id="phtml_4">
+            <a href="#">Root node 2</a>
+        </li>
+    </ul>
 </div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#demo1").jstree({ 
-		"ui" : {
-			"select_limit" : 2,
-			"select_multiple_modifier" : "alt",
-			"selected_parent_close" : "select_parent",
-			"initially_select" : [ "phtml_2" ]
-		},
-		"core" : { "initially_open" : [ "phtml_1" ] },
-		"plugins" : [ "themes", "html_data", "ui" ]
-	});
+    $("#demo1").jstree({ 
+        "ui" : {
+            "select_limit" : 2,
+            "select_multiple_modifier" : "alt",
+            "selected_parent_close" : "select_parent",
+            "initially_select" : [ "phtml_2" ]
+        },
+        "core" : { "initially_open" : [ "phtml_1" ] },
+        "plugins" : [ "themes", "html_data", "ui" ]
+    });
 });
 </script>
 
@@ -96,14 +96,14 @@ $(function () {
 <h3 id="_get_node">._get_node ( node , allow_multiple )</h3>
 <p>Overrides the function form the <a href="core.html#_get_node">core</a> module.<br />if <code>node</code> is <code>undefined</code> or <code>null</code> and <code>allow_multiple</code> is <code>true</code> all the currently selected nodes are returned<br />if <code>node</code> is <code>undefined</code> or <code>null</code> and <code>allow_multiple</code> is NOT <code>true</code> only the last selected node is returned.</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">mixed</code> <strong>node</strong>
-		<p>This can be a DOM node, jQuery node or selector pointing to an element within the tree.</p>
-	</li>
-	<li>
-		<code class="tp">boolean</code> <strong>allow_multiple</strong>
-		<p>Whether to return all selected nodes or only the last selected one if <code>node</code> is <code>null</code>.</p>
-	</li>
+    <li>
+        <code class="tp">mixed</code> <strong>node</strong>
+        <p>This can be a DOM node, jQuery node or selector pointing to an element within the tree.</p>
+    </li>
+    <li>
+        <code class="tp">boolean</code> <strong>allow_multiple</strong>
+        <p>Whether to return all selected nodes or only the last selected one if <code>node</code> is <code>null</code>.</p>
+    </li>
 </ul>
 
 <h3 id="save_selected">.save_selected ( )</h3>
@@ -118,10 +118,10 @@ $(function () {
 <h3 id="hover_node">.hover_node ( node )</h3>
 <p>Sets the specified node as hovered. Triggers an event.</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">mixed</code> <strong>node</strong>
-		<p>This can be a DOM node, jQuery node or selector pointing to an element within the tree.</p>
-	</li>
+    <li>
+        <code class="tp">mixed</code> <strong>node</strong>
+        <p>This can be a DOM node, jQuery node or selector pointing to an element within the tree.</p>
+    </li>
 </ul>
 
 <h3 id="dehover_node">.dehover_node ( )</h3>
@@ -130,55 +130,55 @@ $(function () {
 
 <h3 id="select_node">.select_node ( node , check , event )</h3>
 <ul class="arguments">
-	<li>
-		<code class="tp">mixed</code> <strong>node</strong>
-		<p>This can be a DOM node, jQuery node or selector pointing to an element within the tree.</p>
-	</li>
-	<li>
-		<code class="tp">bool</code> <strong>check</strong>
-		<p>Whether to check the specified rules and do appropriate actions (check <code>select_limit</code>, deselect other nodes respectively, etc) or to just force selection of the node regardless of <code>select_limit</code>.</p>
-	</li>
-	<li>
-		<code class="tp">event</code> <strong>event</strong>
-		<p>Used internally - when a click on a node caused this function to be executed.</p>
-	</li>
+    <li>
+        <code class="tp">mixed</code> <strong>node</strong>
+        <p>This can be a DOM node, jQuery node or selector pointing to an element within the tree.</p>
+    </li>
+    <li>
+        <code class="tp">bool</code> <strong>check</strong>
+        <p>Whether to check the specified rules and do appropriate actions (check <code>select_limit</code>, deselect other nodes respectively, etc) or to just force selection of the node regardless of <code>select_limit</code>.</p>
+    </li>
+    <li>
+        <code class="tp">event</code> <strong>event</strong>
+        <p>Used internally - when a click on a node caused this function to be executed.</p>
+    </li>
 </ul>
 
 <div style="height:1px; visibility:hidden; overflow:hidden;"><span id="toggle_select">&#160;</span></div>
 <h3 id="deselect_node">.deselect_node ( node ), .toggle_select ( node )</h3>
 <p>There functions control the selected state on a node. <code>deselect_node</code> triggers an event.</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">mixed</code> <strong>node</strong>
-		<p>This can be a DOM node, jQuery node or selector pointing to an element within the tree.</p>
-	</li>
+    <li>
+        <code class="tp">mixed</code> <strong>node</strong>
+        <p>This can be a DOM node, jQuery node or selector pointing to an element within the tree.</p>
+    </li>
 </ul>
 
 <h3 id="deselect_all">.deselect_all ( context )</h3>
 <p>Deselects all selected nodes. If context is set - only the selected nodes within that context are deselected. Triggers an event.</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">mixed</code> <strong>context</strong>
-		<p>This can be a DOM node, jQuery node or selector pointing to an element within the tree.</p>
-	</li>
+    <li>
+        <code class="tp">mixed</code> <strong>context</strong>
+        <p>This can be a DOM node, jQuery node or selector pointing to an element within the tree.</p>
+    </li>
 </ul>
 
 <h3 id="get_selected">.get_selected ( context )</h3>
 <p>Returns all selected nodes. If context is set - only the selected nodes within that context are returned.</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">mixed</code> <strong>context</strong>
-		<p>This can be a DOM node, jQuery node or selector pointing to an element within the tree.</p>
-	</li>
+    <li>
+        <code class="tp">mixed</code> <strong>context</strong>
+        <p>This can be a DOM node, jQuery node or selector pointing to an element within the tree.</p>
+    </li>
 </ul>
 
 <h3 id="is_selected">.is_selected ( node )</h3>
 <p>Returns whether the specified node is selected or not.</p>
 <ul class="arguments">
-	<li>
-		<code class="tp">mixed</code> <strong>node</strong>
-		<p>This can be a DOM node, jQuery node or selector pointing to an element within the tree.</p>
-	</li>
+    <li>
+        <code class="tp">mixed</code> <strong>node</strong>
+        <p>This can be a DOM node, jQuery node or selector pointing to an element within the tree.</p>
+    </li>
 </ul>
 
 </div>

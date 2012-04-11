@@ -20,21 +20,21 @@
 class SnippetsHelper {
 
     function initialize() {
-    	if (file_exists(_SBC_APP_ . "daos/SnippetsDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/SnippetsDAO.php");
-    	}
-    	else {
-    		require_once(SB_APP_MANAGERS_DIR . "snippets/SnippetsDAO.php");
-    	}
-    	require_once(SB_APP_MANAGERS_DIR . "snippets/Snippet.php");
-    	require_once(SB_APP_MANAGERS_DIR . "snippets/SnippetsController.php");
+        if (file_exists(_SBC_APP_ . "daos/SnippetsDAO.php")) {
+            require_once(_SBC_APP_ . "daos/SnippetsDAO.php");
+        }
+        else {
+            require_once(SB_APP_MANAGERS_DIR . "snippets/SnippetsDAO.php");
+        }
+        require_once(SB_APP_MANAGERS_DIR . "snippets/Snippet.php");
+        require_once(SB_APP_MANAGERS_DIR . "snippets/SnippetsController.php");
     }
 
     function getDao($refresh=false) {
         static $Dao;
         if (! is_object($Dao) || $refresh) {
             if (! class_exists('SnippetsDAO')) {
-            	SnippetsHelper::initialize();
+                SnippetsHelper::initialize();
             }
             # require_once(_SBC_APP_ . "managers/snippets/beans/snippet.php");
             # require_once(_SBC_APP_ . "managers/snippets/daos/snippets.php");

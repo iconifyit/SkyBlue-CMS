@@ -20,14 +20,14 @@
 class MenusHelper {
 
     function initialize() {
-    	if (file_exists(_SBC_APP_ . "daos/MenusDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/MenusDAO.php");
-    	}
-    	else {
-    		require_once(SB_MANAGERS_DIR . "menus/MenusDAO.php");
-    	}
-    	require_once(SB_MANAGERS_DIR . "menus/Menu.php");
-    	require_once(SB_MANAGERS_DIR . "menus/MenusController.php");
+        if (file_exists(_SBC_APP_ . "daos/MenusDAO.php")) {
+            require_once(_SBC_APP_ . "daos/MenusDAO.php");
+        }
+        else {
+            require_once(SB_MANAGERS_DIR . "menus/MenusDAO.php");
+        }
+        require_once(SB_MANAGERS_DIR . "menus/Menu.php");
+        require_once(SB_MANAGERS_DIR . "menus/MenusController.php");
     }
     
     function getDao($refresh=false) {

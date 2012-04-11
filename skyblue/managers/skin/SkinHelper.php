@@ -20,14 +20,14 @@
 class SkinHelper {
 
     function initialize() {
-    	if (file_exists(_SBC_APP_ . "daos/SkinDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/SkinDAO.php");
-    	}
-    	else {
-    		require_once(SB_MANAGERS_DIR . "skin/SkinDAO.php");
-    	}
-    	require_once(SB_MANAGERS_DIR . "skin/Skin.php");
-    	require_once(SB_MANAGERS_DIR . "skin/SkinController.php");
+        if (file_exists(_SBC_APP_ . "daos/SkinDAO.php")) {
+            require_once(_SBC_APP_ . "daos/SkinDAO.php");
+        }
+        else {
+            require_once(SB_MANAGERS_DIR . "skin/SkinDAO.php");
+        }
+        require_once(SB_MANAGERS_DIR . "skin/Skin.php");
+        require_once(SB_MANAGERS_DIR . "skin/SkinController.php");
     }
     
     function getPages() {
@@ -43,14 +43,14 @@ class SkinHelper {
                 # Loader::load("managers.page.Page", true, _SBC_SYS_);
             }
             if (file_exists(_SBC_APP_ . "daos/PageDAO.php")) {
-				if (! class_exists('PageDAO')) {
-				    require_once(_SBC_APP_ . "daos/PageDAO.php");
-				}
-			}
-			else {
-				# require_once(SB_APP_MANAGERS_DIR . "page/PageDAO.php");
-				require_once(SB_MANAGERS_DIR . "page/daos/page.php");
-			}
+                if (! class_exists('PageDAO')) {
+                    require_once(_SBC_APP_ . "daos/PageDAO.php");
+                }
+            }
+            else {
+                # require_once(SB_APP_MANAGERS_DIR . "page/PageDAO.php");
+                require_once(SB_MANAGERS_DIR . "page/daos/page.php");
+            }
             $Dao = new PageDAO();
         }
         return $Dao;

@@ -20,14 +20,14 @@
 class MyvarsHelper {
 
     function initialize() {
-    	if (file_exists(_SBC_APP_ . "daos/MyvarsDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/MyvarsDAO.php");
-    	}
-    	else {
-    		require_once(SB_APP_MANAGERS_DIR . "myvars/MyvarsDAO.php");
-    	}
-    	require_once(SB_APP_MANAGERS_DIR . "myvars/Myvar.php");
-    	require_once(SB_APP_MANAGERS_DIR . "myvars/MyvarsController.php");
+        if (file_exists(_SBC_APP_ . "daos/MyvarsDAO.php")) {
+            require_once(_SBC_APP_ . "daos/MyvarsDAO.php");
+        }
+        else {
+            require_once(SB_APP_MANAGERS_DIR . "myvars/MyvarsDAO.php");
+        }
+        require_once(SB_APP_MANAGERS_DIR . "myvars/Myvar.php");
+        require_once(SB_APP_MANAGERS_DIR . "myvars/MyvarsController.php");
     }
 
     function getDAO($refresh=false) {

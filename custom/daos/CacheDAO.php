@@ -42,8 +42,8 @@ class CacheDAO extends SqliteDAO {
                 );
             }
             catch (PDOException $e) {
-				die($e->getMessage());
-			}
+                die($e->getMessage());
+            }
         }
     }
     
@@ -81,20 +81,20 @@ class CacheDAO extends SqliteDAO {
         $id     = $this->itemName;
         $time   = time();
         if (! $this->getItem($id)) {
-			$content = base64_encode($content);
-			try {
-			    $this->query(
-					"INSERT INTO Cache (id, content, time) "
-					. " VALUES ('{$id}', '{$content}', '{$time}');"
-				);
-			}
-			catch (PDOException $e) {
-				die($e->getMessage());
-			}
-		}
-		else {
-			$result = $this->touchCache();
-		}
+            $content = base64_encode($content);
+            try {
+                $this->query(
+                    "INSERT INTO Cache (id, content, time) "
+                    . " VALUES ('{$id}', '{$content}', '{$time}');"
+                );
+            }
+            catch (PDOException $e) {
+                die($e->getMessage());
+            }
+        }
+        else {
+            $result = $this->touchCache();
+        }
         return $result;
     }
     
@@ -105,13 +105,13 @@ class CacheDAO extends SqliteDAO {
     function touchCache() {
         $result = false;
         try {
-			$result = $this->query(
-				"UPDATE Cache SET time = '{$time}' WHERE id = '{$id}';" 
-			);
-		}
-		catch (PDOException $e) {
-			die($e->getMessage());
-		}
+            $result = $this->query(
+                "UPDATE Cache SET time = '{$time}' WHERE id = '{$id}';" 
+            );
+        }
+        catch (PDOException $e) {
+            die($e->getMessage());
+        }
         return $result;
     }
     
@@ -122,13 +122,13 @@ class CacheDAO extends SqliteDAO {
     function clearItem($id) {
         $result = false;
         try {
-			$result = $this->query(
-				"DELETE FROM Cache WHERE id = '{$id}'"
-			);
-		}
-		catch (PDOException $e) {
-			die($e->getMessage());
-		}
+            $result = $this->query(
+                "DELETE FROM Cache WHERE id = '{$id}'"
+            );
+        }
+        catch (PDOException $e) {
+            die($e->getMessage());
+        }
         return $result;
     }
     
@@ -139,13 +139,13 @@ class CacheDAO extends SqliteDAO {
     function clearAll() {
        $result = false;
         try {
-			$result = $this->query(
-				"DELETE FROM Cache"
-			);
-		}
-		catch (PDOException $e) {
-			die($e->getMessage());
-		}
+            $result = $this->query(
+                "DELETE FROM Cache"
+            );
+        }
+        catch (PDOException $e) {
+            die($e->getMessage());
+        }
         return $result;
     }
 }

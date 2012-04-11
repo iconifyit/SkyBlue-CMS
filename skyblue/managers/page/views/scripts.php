@@ -13,10 +13,10 @@ Publish
 On Editor form:
 
 Update the XML structure when:
-	- name changes
-	- published changes
-	- permalink changes
-	- page is deleted
+    - name changes
+    - published changes
+    - permalink changes
+    - page is deleted
 */
 
 $Controller = 'sbc.PageController';
@@ -77,29 +77,29 @@ $CODE = <<<CODE
             var thePageId = $.url.setUrl(theObject.context).param("id");
             var theData   = { id: thePageId, nodeId: uniqueId };
                 
-			{$Controller}.doPost({$Controller}.actions.DELETE, theData, function(theData) {
-			
-				var json = eval("(" + theData + ")");
+            {$Controller}.doPost({$Controller}.actions.DELETE, theData, function(theData) {
+            
+                var json = eval("(" + theData + ")");
 
-				var theMessage = "";
-				if (json.message) {
-					theMessage = $.base64Decode(json.message);
-				}
-				
-				var nodeId = json.nodeId;
-				
-				if (json.result) {
-				    $("#"+nodeId).remove();
-					var theTree = $("#page-tree").clone();
-					$("ins", theTree).remove();
-					var theData = {tree: $(theTree).html()};
-					{$Controller}.doPost({$Controller}.actions.UPDATE_TREE, theData);
-				}
-				{$Controller}.doInitTree();
-				$("#action-result").remove();
-				$("#page-tree").before(theMessage);
-				delayedReaction("fadeAndRemove('#action-result')", 5000);
-			});
+                var theMessage = "";
+                if (json.message) {
+                    theMessage = $.base64Decode(json.message);
+                }
+                
+                var nodeId = json.nodeId;
+                
+                if (json.result) {
+                    $("#"+nodeId).remove();
+                    var theTree = $("#page-tree").clone();
+                    $("ins", theTree).remove();
+                    var theData = {tree: $(theTree).html()};
+                    {$Controller}.doPost({$Controller}.actions.UPDATE_TREE, theData);
+                }
+                {$Controller}.doInitTree();
+                $("#action-result").remove();
+                $("#page-tree").before(theMessage);
+                delayedReaction("fadeAndRemove('#action-result')", 5000);
+            });
         }, 
         null
     );
@@ -128,30 +128,30 @@ $CODE = <<<CODE
         
         {$Controller}.doPost({$Controller}.actions.CREATE, theData, function(theData) {
             var json = eval("(" + theData + ")");
-			var newPageId  = json.pageId;
-			var uniqueId   = json.nodeId;
-			var permalink  = json.permalink;
-			
-			$("a[href='"+uniqueId+"']")
-			    .attr("rel", $.trim(permalink))
-			    .attr("published", "0")
-			    .attr("href", "admin.php?com=page&action=edit&id=" + newPageId);
+            var newPageId  = json.pageId;
+            var uniqueId   = json.nodeId;
+            var permalink  = json.permalink;
+            
+            $("a[href='"+uniqueId+"']")
+                .attr("rel", $.trim(permalink))
+                .attr("published", "0")
+                .attr("href", "admin.php?com=page&action=edit&id=" + newPageId);
 
-			var theMessage = "";
-			if (json.message) {
-			    theMessage = $.base64Decode(json.message);
-			}
+            var theMessage = "";
+            if (json.message) {
+                theMessage = $.base64Decode(json.message);
+            }
 
-			var theTree = $("#page-tree").clone();
-			$("ins", theTree).remove();
-			var theData = {tree: $(theTree).html()};
-			{$Controller}.doPost({$Controller}.actions.UPDATE_TREE, theData, function(theData) {
-			    $("#action-result").remove();
-				$("#page-tree").before(theData);
-				delayedReaction("fadeAndRemove('#action-result')", 5000);
-			});
-		});
-	});
+            var theTree = $("#page-tree").clone();
+            $("ins", theTree).remove();
+            var theData = {tree: $(theTree).html()};
+            {$Controller}.doPost({$Controller}.actions.UPDATE_TREE, theData, function(theData) {
+                $("#action-result").remove();
+                $("#page-tree").before(theData);
+                delayedReaction("fadeAndRemove('#action-result')", 5000);
+            });
+        });
+    });
 };
 {$Controller}.doRename = function(e, theObject) { 
 
@@ -160,8 +160,8 @@ $CODE = <<<CODE
     }
     
     var theTree = $("#page-tree").clone();
-	$("ins", theTree).remove();
-			
+    $("ins", theTree).remove();
+            
     var thePageId = $.url.setUrl(theObject.context).param("id");
     var theData   = { 
         id:   $.url.setUrl(theObject.context).param("id"), 
@@ -172,14 +172,14 @@ $CODE = <<<CODE
     {$Controller}.doPost({$Controller}.actions.RENAME, theData, function(theData) {
             var json = eval("(" + theData + ")");
 
-			var theMessage = "";
-			if (json.message) {
-			    theMessage = $.base64Decode(json.message);
-			}
-			$("#action-result").remove();
-			$("#page-tree").before(theMessage);
-			delayedReaction("fadeAndRemove('#action-result')", 5000);
-		});
+            var theMessage = "";
+            if (json.message) {
+                theMessage = $.base64Decode(json.message);
+            }
+            $("#action-result").remove();
+            $("#page-tree").before(theMessage);
+            delayedReaction("fadeAndRemove('#action-result')", 5000);
+        });
 
     $(window).trigger("{$Controller}.doRename");
 };
@@ -188,12 +188,12 @@ $CODE = <<<CODE
     
     var theDirection = 'up';
     if ($("a", theObject).attr("published") == 1) {
-    	theDirection = 'down';
-    	$("a", theObject).attr("published", 0);
+        theDirection = 'down';
+        $("a", theObject).attr("published", 0);
     }
     else {
-    	theDirection = 'up';
-    	$("a", theObject).attr("published", 1);
+        theDirection = 'up';
+        $("a", theObject).attr("published", 1);
     }
     
     var theTree = $("#page-tree").clone();
@@ -215,12 +215,12 @@ $CODE = <<<CODE
     
     var showInNav = 1;
     if ($("a", theObject).attr("show_in_navigation") == 1) {
-    	showInNav = 0;
-    	$("a", theObject).attr("show_in_navigation", 0);
+        showInNav = 0;
+        $("a", theObject).attr("show_in_navigation", 0);
     }
     else {
-    	showInNav = 1;
-    	$("a", theObject).attr("show_in_navigation", 1);
+        showInNav = 1;
+        $("a", theObject).attr("show_in_navigation", 1);
     }
     
     var theTree = $("#page-tree").clone();

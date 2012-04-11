@@ -121,12 +121,12 @@ class PluginDAO extends SqliteDAO {
     function insert($Bean) {
         $result = false;
         if (! $this->getItem($Bean->getId())) {
-			if ($info = $this->getColumns()) {
-				$result = $this->query(
-					$this->buildInsertQuery($info, $Bean)
-				);
-			}
-		}
+            if ($info = $this->getColumns()) {
+                $result = $this->query(
+                    $this->buildInsertQuery($info, $Bean)
+                );
+            }
+        }
         return $result;
     }    
     
@@ -150,27 +150,27 @@ class PluginDAO extends SqliteDAO {
                 if ($index == 0) return false;
                 
                 $Plugin1 = null;
-				if (isset($plugins[$index-1])) {
-					$Plugin1 = $plugins[$index-1];
-				}
-				
-				$Plugin2 = null;
-				if (isset($plugins[$index-2])) {
-					$Plugin2 = $plugins[$index-2];
-				}
-				
-				/*
-				  When determining the order of items, it is not important 
-				  whether or not there are actually items to move the item between.
-				  It is sufficient to guess where items would likely be. So we guess the 
-				  most likely position of items to move between. If no items are found, 
-				  then we can determine the true 'between' spot. Otherwise, we move between 
-				  2 virtual items.
-				*/
-				
+                if (isset($plugins[$index-1])) {
+                    $Plugin1 = $plugins[$index-1];
+                }
+                
+                $Plugin2 = null;
+                if (isset($plugins[$index-2])) {
+                    $Plugin2 = $plugins[$index-2];
+                }
+                
+                /*
+                  When determining the order of items, it is not important 
+                  whether or not there are actually items to move the item between.
+                  It is sufficient to guess where items would likely be. So we guess the 
+                  most likely position of items to move between. If no items are found, 
+                  then we can determine the true 'between' spot. Otherwise, we move between 
+                  2 virtual items.
+                */
+                
                 // $index1 defaults to one ordinal lower than 
-				// the item being moved down
-				
+                // the item being moved down
+                
                 $index1 = $ordinal - 1;
                 
                 // $index2 defaults to one position lower than $index1
@@ -185,18 +185,18 @@ class PluginDAO extends SqliteDAO {
                 if ($index == $count-1) return false;
                 
                 $Plugin1 = null;
-				if (isset($plugins[$index+1])) {
-					$Plugin1 = $plugins[$index+1];
-				}
-				
-				$Plugin2 = null;
-				if (isset($plugins[$index+2])) {
-					$Plugin2 = $plugins[$index+2];
-				}
-				
-				// $index1 defaults to one ordinal higher than 
-				// the item being moved down
-				
+                if (isset($plugins[$index+1])) {
+                    $Plugin1 = $plugins[$index+1];
+                }
+                
+                $Plugin2 = null;
+                if (isset($plugins[$index+2])) {
+                    $Plugin2 = $plugins[$index+2];
+                }
+                
+                // $index1 defaults to one ordinal higher than 
+                // the item being moved down
+                
                 $index1 = $ordinal + 1;
                 
                 // $index2 defaults to one position higher than $index1
@@ -205,9 +205,9 @@ class PluginDAO extends SqliteDAO {
             }
             
             if ($Plugin1 && $Plugin2) {
-				$index1 = $Plugin1->getOrdinal();
-				$index2 = $Plugin2->getOrdinal();
-			}
+                $index1 = $Plugin1->getOrdinal();
+                $index2 = $Plugin2->getOrdinal();
+            }
             $Plugin->setOrdinal(($index1 + $index2)/2);
             $result = $this->update($Plugin);
         }

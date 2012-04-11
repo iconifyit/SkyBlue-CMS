@@ -46,57 +46,57 @@ class MVC {
     function loadHelperClass($className, $rootpath) {
         $ucClassName = ucwords($className) . "Helper";
         if (file_exists($rootpath . "managers/{$className}/{$ucClassName}.php")) {
-        	Loader::load("managers.{$className}.{$ucClassName}", false, $rootpath);
+            Loader::load("managers.{$className}.{$ucClassName}", false, $rootpath);
         }
         else if (is_dir($rootpath . "managers/{$className}/helpers")) {
-        	Loader::load("managers.{$className}.helpers.*", false, $rootpath);
+            Loader::load("managers.{$className}.helpers.*", false, $rootpath);
         }
         if (is_callable(array($ucClassName, 'initialize'))) {
-        	# $ucClassName::initialize();
-        	call_user_func(array($ucClassName, 'initialize'));
+            # $ucClassName::initialize();
+            call_user_func(array($ucClassName, 'initialize'));
         }
     }
     
     function loadBeanClass($className, $rootpath) {
-    	$ucClassName = ucwords($className);
+        $ucClassName = ucwords($className);
         if (file_exists($rootpath . "managers/{$className}/{$ucClassName}.php")) {
-        	Loader::load("managers.{$className}.{$ucClassName}", false, $rootpath);
+            Loader::load("managers.{$className}.{$ucClassName}", false, $rootpath);
         }
         else {
-        	Loader::load("managers.{$className}.beans.*", false, $rootpath);
+            Loader::load("managers.{$className}.beans.*", false, $rootpath);
         }
     }
     
     function loadControllerClass($className, $rootpath) {
-    	$ucClassName = ucwords($className) . "Controller";
+        $ucClassName = ucwords($className) . "Controller";
         if (file_exists($rootpath . "managers/{$className}/{$ucClassName}.php")) {
-        	Loader::load("managers.{$className}.{$ucClassName}", false, $rootpath);
+            Loader::load("managers.{$className}.{$ucClassName}", false, $rootpath);
         }
         else {
-        	Loader::load("managers.{$className}.controllers.*", false, $rootpath);
+            Loader::load("managers.{$className}.controllers.*", false, $rootpath);
         }
     }
     
     function loadDaoClass($className, $rootpath) {
         $ucClassName = ucwords($className) . "DAO";
         if (file_exists(_SBC_APP_ . "daos/{$ucClassName}.php")) {
-    		Loader::load("daos.{$ucClassName}", false, _SBC_APP_);
-    	}
+            Loader::load("daos.{$ucClassName}", false, _SBC_APP_);
+        }
         else if (file_exists($rootpath . "managers/{$className}/{$ucClassName}.php")) {
-        	Loader::load("managers.{$className}.{$ucClassName}", false, $rootpath);
+            Loader::load("managers.{$className}.{$ucClassName}", false, $rootpath);
         }
         else {
-        	Loader::load("managers.{$className}.daos.*", false, $rootpath);
+            Loader::load("managers.{$className}.daos.*", false, $rootpath);
         }
     }
     
     function loadViewClass($className, $rootpath) {
-    	$ucClassName = ucwords($className) . "View";
+        $ucClassName = ucwords($className) . "View";
         if (file_exists($rootpath . "managers/{$className}/{$ucClassName}.php")) {
-        	Loader::load("managers.{$className}.{$ucClassName}", false, $rootpath);
+            Loader::load("managers.{$className}.{$ucClassName}", false, $rootpath);
         }
         else {
-        	Loader::load("managers.{$className}.views", false, $rootpath);
+            Loader::load("managers.{$className}.views", false, $rootpath);
         }
     }
 }

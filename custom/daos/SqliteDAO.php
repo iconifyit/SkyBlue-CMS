@@ -129,23 +129,23 @@ class SqliteDAO extends DAO {
     function getColumns() {
         $columns = array();
         try {
-			$Statement = $this->query(
-				"PRAGMA table_info({$this->getBeanClass()})"
-			);
-			$rows = $Statement->fetchAll(PDO::FETCH_ASSOC);
-			$count = count($rows);
-			for ($i=0; $i<$count; $i++) {
-				$row = $rows[$i];
-				foreach ($row as $key=>$value) {
-					unset($row[$key]);
-					$row[strtolower($key)] = $value;
-				}
-				array_push($columns, $row);
-			}
-		}
-		catch (PDOException $e) {
-			die($e->getMessage());
-		}
+            $Statement = $this->query(
+                "PRAGMA table_info({$this->getBeanClass()})"
+            );
+            $rows = $Statement->fetchAll(PDO::FETCH_ASSOC);
+            $count = count($rows);
+            for ($i=0; $i<$count; $i++) {
+                $row = $rows[$i];
+                foreach ($row as $key=>$value) {
+                    unset($row[$key]);
+                    $row[strtolower($key)] = $value;
+                }
+                array_push($columns, $row);
+            }
+        }
+        catch (PDOException $e) {
+            die($e->getMessage());
+        }
         return $columns;
     }
     
@@ -198,42 +198,42 @@ class SqliteDAO extends DAO {
     
     function getItem($id) {
         $query = "SELECT * FROM {$this->getBeanClass()} WHERE id = {$id} LIMIT 1";
-		if (! is_numeric($id)) {
-			$query = "SELECT * FROM {$this->getBeanClass()} WHERE id = '{$id}' LIMIT 1";
-		}
-		return parent::getItem($query);
+        if (! is_numeric($id)) {
+            $query = "SELECT * FROM {$this->getBeanClass()} WHERE id = '{$id}' LIMIT 1";
+        }
+        return parent::getItem($query);
     }
     
     function getByKey($key, $value) {
         $result = null;
         if ($fields = $this->getColumns()) {
-			$count = count($fields);
-			$query = "SELECT * FROM {$this->getBeanClass()} WHERE {$key} = '{$value}'";
-			for ($i=0; $i<$count; $i++) {
-				if (strcasecmp(Filter::get($fields[$i], 'name'), $key) === 0) {
-					if (strcasecmp(Filter::get($fields[$i], 'type'), 'INTEGER') === 0) {
-						$query = "SELECT * FROM {$this->getBeanClass()} WHERE {$key} = {$value}";
-					}
-				}
-			}
-			$result = parent::getItem($query);
+            $count = count($fields);
+            $query = "SELECT * FROM {$this->getBeanClass()} WHERE {$key} = '{$value}'";
+            for ($i=0; $i<$count; $i++) {
+                if (strcasecmp(Filter::get($fields[$i], 'name'), $key) === 0) {
+                    if (strcasecmp(Filter::get($fields[$i], 'type'), 'INTEGER') === 0) {
+                        $query = "SELECT * FROM {$this->getBeanClass()} WHERE {$key} = {$value}";
+                    }
+                }
+            }
+            $result = parent::getItem($query);
         }
-		return $result;
+        return $result;
     }
     
     function getValue($table, $column, $key, $value) {
         $result = "";
-		try {
-			$query = "SELECT {$column} FROM {$table} WHERE {$key} = {$value}";
-			$Statement = $this->query($query);
-			if ($result = $Statement->fetch()) {
-			    $result = is_array($result) ? $result[0] : $result ;
-			}
-		}
-		catch (PDOException $e) {
-			die($e->getMessage());
-		}
-		return $result;
+        try {
+            $query = "SELECT {$column} FROM {$table} WHERE {$key} = {$value}";
+            $Statement = $this->query($query);
+            if ($result = $Statement->fetch()) {
+                $result = is_array($result) ? $result[0] : $result ;
+            }
+        }
+        catch (PDOException $e) {
+            die($e->getMessage());
+        }
+        return $result;
     }
     
     function countItems() {
@@ -248,9 +248,9 @@ class SqliteDAO extends DAO {
     
     function delete($id) {
         $query = "DELETE FROM {$this->getBeanClass()} WHERE id = {$id};";
-		if (! is_numeric($id)) {
-			$query = "DELETE FROM {$this->getBeanClass()} WHERE id = '{$id}';";
-		}
+        if (! is_numeric($id)) {
+            $query = "DELETE FROM {$this->getBeanClass()} WHERE id = '{$id}';";
+        }
         return parent::delete($query);
     }
     
@@ -258,17 +258,17 @@ class SqliteDAO extends DAO {
         $isFound = false;
 
         if ($Statement = $this->query("SELECT name FROM sqlite_master WHERE type='table'")) {
-			if ($rows = $Statement->fetchAll()) {
-				$count = count($rows);
-				for ($i=0; $i<$count; $i++) {
-				    $row = $rows[$i];
-					if (strcasecmp(Filter::get($row, 'name'), $table) === 0) {
+            if ($rows = $Statement->fetchAll()) {
+                $count = count($rows);
+                for ($i=0; $i<$count; $i++) {
+                    $row = $rows[$i];
+                    if (strcasecmp(Filter::get($row, 'name'), $table) === 0) {
                         $isFound = true;
                     }
-				}
-			}
-		}
-		return $isFound;   
+                }
+            }
+        }
+        return $isFound;   
     }
 
     function save($data=null) { return false; }

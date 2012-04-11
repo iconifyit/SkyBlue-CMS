@@ -20,14 +20,14 @@
 class ConfigurationHelper {
 
     function initialize() {
-    	if (file_exists(_SBC_APP_ . "daos/ConfigurationDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/ConfigurationDAO.php");
-    	}
-    	else {
-    		require_once(SB_MANAGERS_DIR . "configuration/ConfigurationDAO.php");
-    	}
-    	require_once(SB_MANAGERS_DIR . "configuration/Configuration.php");
-    	require_once(SB_MANAGERS_DIR . "configuration/ConfigurationController.php");
+        if (file_exists(_SBC_APP_ . "daos/ConfigurationDAO.php")) {
+            require_once(_SBC_APP_ . "daos/ConfigurationDAO.php");
+        }
+        else {
+            require_once(SB_MANAGERS_DIR . "configuration/ConfigurationDAO.php");
+        }
+        require_once(SB_MANAGERS_DIR . "configuration/Configuration.php");
+        require_once(SB_MANAGERS_DIR . "configuration/ConfigurationController.php");
     }
 
     function getDao($refresh=false) {

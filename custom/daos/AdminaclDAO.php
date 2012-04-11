@@ -32,23 +32,23 @@ class AdminaclDAO extends SqliteDAO {
         return (new ACO($Statement->fetch(PDO::FETCH_ASSOC)));
     }
     
-	function index() {
-		$objects = array();
-		$Statement = $this->query("SELECT * FROM {$this->getBeanClass()}");
-		if ($result = $Statement->fetchAll(PDO::FETCH_ASSOC)) {
-			$count = count($result);
-			for ($i=0; $i<$count; $i++) {
-				$objects[$i] = new ACO(array(
-					'id'      => Filter::get($result[$i], 'id'),
-					'name'    => Filter::get($result[$i], 'name'),
-					'users'   => Filter::get($result[$i], 'users'),
-					'groups'  => Filter::get($result[$i], 'groups'),
-					'acl'     => Filter::get($result[$i], 'acl'),
-					'objtype' => 'adminacl',
-					'type'    => 'adminacl'
-				));
-			}
-		}
+    function index() {
+        $objects = array();
+        $Statement = $this->query("SELECT * FROM {$this->getBeanClass()}");
+        if ($result = $Statement->fetchAll(PDO::FETCH_ASSOC)) {
+            $count = count($result);
+            for ($i=0; $i<$count; $i++) {
+                $objects[$i] = new ACO(array(
+                    'id'      => Filter::get($result[$i], 'id'),
+                    'name'    => Filter::get($result[$i], 'name'),
+                    'users'   => Filter::get($result[$i], 'users'),
+                    'groups'  => Filter::get($result[$i], 'groups'),
+                    'acl'     => Filter::get($result[$i], 'acl'),
+                    'objtype' => 'adminacl',
+                    'type'    => 'adminacl'
+                ));
+            }
+        }
         return $objects;
     }
 }

@@ -19,12 +19,12 @@
 
 class ConsoleHelper {
     function initialize() {
-    	if (file_exists(_SBC_APP_ . "daos/ConsoleDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/ConsoleDAO.php");
-    	}
-    	else {
-    		require_once(SB_MANAGERS_DIR . "console/ConsoleDAO.php");
-    	}
-    	require_once(SB_MANAGERS_DIR . "console/ConsoleController.php");
+        if (file_exists(_SBC_APP_ . "daos/ConsoleDAO.php")) {
+            require_once(_SBC_APP_ . "daos/ConsoleDAO.php");
+        }
+        else {
+            require_once(SB_MANAGERS_DIR . "console/ConsoleDAO.php");
+        }
+        require_once(SB_MANAGERS_DIR . "console/ConsoleController.php");
     }
 }

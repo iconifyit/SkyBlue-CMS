@@ -782,8 +782,8 @@ function http_header($headers=array()) {
         if (count($headers)) {
             try {
                 foreach ($headers as $header=>$value) {
-					header("{$header}: {$value}");
-				}
+                    header("{$header}: {$value}");
+                }
             }
             catch(Exception $ex) {
                 throw new Exception($ex);
@@ -797,12 +797,12 @@ function http_header($headers=array()) {
  */
 function compress_css($source) {
     return preg_replace(
-		'!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', 
-		str_replace(
-		    array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', 
-		    $source
-		)
-	);
+        '!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', 
+        str_replace(
+            array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', 
+            $source
+        )
+    );
 }
 
 /**

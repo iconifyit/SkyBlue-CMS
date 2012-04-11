@@ -20,7 +20,7 @@
 /*
 - Plugins can only be added and deleted manually
 - User installs new plugins by adding the PHP file to the plugins dir, 
-	then adding the plugin name to the plugins config file
+    then adding the plugin name to the plugins config file
 - System reads in plugins config file
 - Compare to Plugins table and update as needed
 - Compare Plugins table to plugins structure XML and update as needed
@@ -31,14 +31,14 @@
 class PluginHelper {
     
     function initialize() {
-    	if (file_exists(_SBC_APP_ . "daos/PluginDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/PluginDAO.php");
-    	}
-    	else {
-    		require_once(SB_MANAGERS_DIR . "plugin/PluginDAO.php");
-    	}
-    	require_once(SB_MANAGERS_DIR . "plugin/Plugin.php");
-    	require_once(SB_MANAGERS_DIR . "plugin/PluginController.php");
+        if (file_exists(_SBC_APP_ . "daos/PluginDAO.php")) {
+            require_once(_SBC_APP_ . "daos/PluginDAO.php");
+        }
+        else {
+            require_once(SB_MANAGERS_DIR . "plugin/PluginDAO.php");
+        }
+        require_once(SB_MANAGERS_DIR . "plugin/Plugin.php");
+        require_once(SB_MANAGERS_DIR . "plugin/PluginController.php");
     }
     
     function getPluginsXml() {
@@ -47,29 +47,29 @@ class PluginHelper {
     
     function getElementById($doc, $id) {
         $xpath = new DOMXPath($doc);
-		return $xpath->query("//*[@id='$id']")->item(0);
-	}
-	
-	function findElement($doc, $key, $value) {
-	    $node = null;
+        return $xpath->query("//*[@id='$id']")->item(0);
+    }
+    
+    function findElement($doc, $key, $value) {
+        $node = null;
         $xpath = new DOMXPath($doc);
-		try {
-		    $node = $xpath->query("//*[@{$key}='$value']")->item(0);
-		}
-		catch (Exception $e) {
-		    $node = null;
-		}
-		return $node;
-	}
+        try {
+            $node = $xpath->query("//*[@{$key}='$value']")->item(0);
+        }
+        catch (Exception $e) {
+            $node = null;
+        }
+        return $node;
+    }
     
     function parseStructure() {
         $Dom = null;
         try {
             $DaoClass = ucwords(DB_TYPE) . "DAO";
             $Dao = new $DaoClass(array(
-				'type' => 'structure', 
-				'bean_class' => 'Structure'
-			));
+                'type' => 'structure', 
+                'bean_class' => 'Structure'
+            ));
             $Statement = $Dao->query("select structure from Structure where site_id = 'plugins'");
             if ($result = $Statement->fetch()) {
                 $Dom = new DOMDocument("1.0", "UTF-8");
@@ -77,23 +77,23 @@ class PluginHelper {
             }
         }
         catch (PDOException $e) {
-			die($e->getMessage());
-		}
-		return $Dom;
+            die($e->getMessage());
+        }
+        return $Dom;
     }
     
     function saveStructure($xml) {
         try {
             $DaoClass = ucwords(DB_TYPE) . "DAO";
             $Dao = new $DaoClass(array(
-				'type' => 'structure', 
-				'bean_class' => 'Structure'
-			));
+                'type' => 'structure', 
+                'bean_class' => 'Structure'
+            ));
             $Dao->exec("UPDATE Structure SET structure = '$xml' WHERE site_id = 'plugins'");
         }
         catch (PDOException $e) {
-			die($e->getMessage());
-		}
+            die($e->getMessage());
+        }
     }
     
     function getDao($refresh=false) {

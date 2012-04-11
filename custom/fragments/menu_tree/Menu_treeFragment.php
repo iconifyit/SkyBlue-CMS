@@ -26,14 +26,14 @@ class Menu_treeFragment {
     function getPublished() {
         static $published;
         if (! is_array($pages) || $refresh) {
-			$Dao = Menu_treeFragment::getPageDao();
-			$pages = $Dao->index();
-			$published = array();
-			foreach ($pages as $Page) {
-				if (intval($Page->getPublished()) == 1) {
-					array_push($published, $Page);
-				}
-			}
+            $Dao = Menu_treeFragment::getPageDao();
+            $pages = $Dao->index();
+            $published = array();
+            foreach ($pages as $Page) {
+                if (intval($Page->getPublished()) == 1) {
+                    array_push($published, $Page);
+                }
+            }
         }
         return $published;
     }

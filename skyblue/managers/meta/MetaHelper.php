@@ -20,21 +20,21 @@
 class MetaHelper {
     
     function initialize() {
-    	if (file_exists(_SBC_APP_ . "daos/MetaDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/MetaDAO.php");
-    	}
-    	else {
-    		require_once(SB_MANAGERS_DIR . "meta/MetaDAO.php");
-    	}
-    	if (file_exists(_SBC_APP_ . "daos/MetagroupsDAO.php")) {
-    		require_once(_SBC_APP_ . "daos/MetagroupsDAO.php");
-    	}
-    	else {
-    		require_once(SB_MANAGERS_DIR . "meta/MetagroupsDAO.php");
-    	}
-    	require_once(SB_MANAGERS_DIR . "meta/Meta.php");
-    	require_once(SB_MANAGERS_DIR . "meta/Metagroup.php");
-    	require_once(SB_MANAGERS_DIR . "meta/MetaController.php");
+        if (file_exists(_SBC_APP_ . "daos/MetaDAO.php")) {
+            require_once(_SBC_APP_ . "daos/MetaDAO.php");
+        }
+        else {
+            require_once(SB_MANAGERS_DIR . "meta/MetaDAO.php");
+        }
+        if (file_exists(_SBC_APP_ . "daos/MetagroupsDAO.php")) {
+            require_once(_SBC_APP_ . "daos/MetagroupsDAO.php");
+        }
+        else {
+            require_once(SB_MANAGERS_DIR . "meta/MetagroupsDAO.php");
+        }
+        require_once(SB_MANAGERS_DIR . "meta/Meta.php");
+        require_once(SB_MANAGERS_DIR . "meta/Metagroup.php");
+        require_once(SB_MANAGERS_DIR . "meta/MetaController.php");
     }
     
     function getMetaData() {

@@ -3,16 +3,16 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>jsTree v.1.0 - dnd documentation</title>
-	<script type="text/javascript" src="../_lib/jquery.js"></script>
-	<script type="text/javascript" src="../_lib/jquery.cookie.js"></script>
-	<script type="text/javascript" src="../_lib/jquery.hotkeys.js"></script>
-	<script type="text/javascript" src="../jquery.jstree.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jsTree v.1.0 - dnd documentation</title>
+    <script type="text/javascript" src="../_lib/jquery.js"></script>
+    <script type="text/javascript" src="../_lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_lib/jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="../jquery.jstree.js"></script>
 
-	<link type="text/css" rel="stylesheet" href="syntax/!style.css"/>
-	<link type="text/css" rel="stylesheet" href="!style.css"/>
-	<script type="text/javascript" src="syntax/!script.js"></script>
+    <link type="text/css" rel="stylesheet" href="syntax/!style.css"/>
+    <link type="text/css" rel="stylesheet" href="!style.css"/>
+    <script type="text/javascript" src="syntax/!script.js"></script>
 </head>
 <body>
 <div id="container">
@@ -80,98 +80,98 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <div class="jstree-drop" style="clear:both; border:5px solid green; background:lime; color:green; height:40px; line-height:40px; text-align:center; font-size:20px;">I have the jstree-drop class</div>
 <div class="jstree-draggable" style="margin:10px 0; clear:both; border:5px solid navy; background:aqua; color:navy; height:40px; line-height:40px; text-align:center; font-size:20px;">I have the jstree-draggable class</div>
 <div id="demo1" class="demo">
-	<ul>
-		<li id="phtml_1">
-			<a href="#">Root node 1</a>
-			<ul>
-				<li id="phtml_2">
-					<a href="#">Child node 1</a>
-				</li>
-				<li id="phtml_3">
-					<a href="#">Child node 2</a>
-				</li>
-			</ul>
-		</li>
-		<li id="phtml_4">
-			<a href="#">Root node 2</a>
-		</li>
-	</ul>
+    <ul>
+        <li id="phtml_1">
+            <a href="#">Root node 1</a>
+            <ul>
+                <li id="phtml_2">
+                    <a href="#">Child node 1</a>
+                </li>
+                <li id="phtml_3">
+                    <a href="#">Child node 2</a>
+                </li>
+            </ul>
+        </li>
+        <li id="phtml_4">
+            <a href="#">Root node 2</a>
+        </li>
+    </ul>
 </div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#demo1").jstree({ 
-		"dnd" : {
-			"drop_finish" : function () { 
-				alert("DROP"); 
-			},
-			"drag_check" : function (data) {
-				if(data.r.attr("id") == "phtml_1") {
-					return false;
-				}
-				return { 
-					after : false, 
-					before : false, 
-					inside : true 
-				};
-			},
-			"drag_finish" : function () { 
-				alert("DRAG OK"); 
-			}
-		},
-		"plugins" : [ "themes", "html_data", "dnd" ]
-	});
+    $("#demo1").jstree({ 
+        "dnd" : {
+            "drop_finish" : function () { 
+                alert("DROP"); 
+            },
+            "drag_check" : function (data) {
+                if(data.r.attr("id") == "phtml_1") {
+                    return false;
+                }
+                return { 
+                    after : false, 
+                    before : false, 
+                    inside : true 
+                };
+            },
+            "drag_finish" : function () { 
+                alert("DRAG OK"); 
+            }
+        },
+        "plugins" : [ "themes", "html_data", "dnd" ]
+    });
 });
 </script>
 
 <h3>Reorder only demo</h3>
 <div id="demo2" class="demo">
-	<ul>
-		<li id="rhtml_1">
-			<a href="#">Root node 1</a>
-			<ul>
-				<li id="rhtml_2">
-					<a href="#">Child node 1</a>
-				</li>
-				<li id="rhtml_3">
-					<a href="#">Child node 2</a>
-				</li>
-				<li id="rhtml_4">
-					<a href="#">Child node 3</a>
-				</li>
-				<li id="rhtml_5">
-					<a href="#">Child node 4</a>
-				</li>
-			</ul>
-		</li>
-		<li id="rhtml_6">
-			<a href="#">Root node 2</a>
-		</li>
-		<li id="rhtml_7">
-			<a href="#">Root node 3</a>
-		</li>
-	</ul>
+    <ul>
+        <li id="rhtml_1">
+            <a href="#">Root node 1</a>
+            <ul>
+                <li id="rhtml_2">
+                    <a href="#">Child node 1</a>
+                </li>
+                <li id="rhtml_3">
+                    <a href="#">Child node 2</a>
+                </li>
+                <li id="rhtml_4">
+                    <a href="#">Child node 3</a>
+                </li>
+                <li id="rhtml_5">
+                    <a href="#">Child node 4</a>
+                </li>
+            </ul>
+        </li>
+        <li id="rhtml_6">
+            <a href="#">Root node 2</a>
+        </li>
+        <li id="rhtml_7">
+            <a href="#">Root node 3</a>
+        </li>
+    </ul>
 </div>
 <script type="text/javascript" class="source">
 $(function () {
-	$("#demo2").jstree({ 
-		"crrm" : { 
-			"move" : {
-				"check_move" : function (m) { 
-					var p = this._get_parent(m.o);
-					if(!p) return false;
-					p = p == -1 ? this.get_container() : p;
-					if(p === m.np) return true;
-					if(p[0] && m.np[0] && p[0] === m.np[0]) return true;
-					return false;
-				}
-			}
-		},
-		"dnd" : {
-			"drop_target" : false,
-			"drag_target" : false
-		},
-		"plugins" : [ "themes", "html_data", "crrm", "dnd" ]
-	});
+    $("#demo2").jstree({ 
+        "crrm" : { 
+            "move" : {
+                "check_move" : function (m) { 
+                    var p = this._get_parent(m.o);
+                    if(!p) return false;
+                    p = p == -1 ? this.get_container() : p;
+                    if(p === m.np) return true;
+                    if(p[0] && m.np[0] && p[0] === m.np[0]) return true;
+                    return false;
+                }
+            }
+        },
+        "dnd" : {
+            "drop_target" : false,
+            "drag_target" : false
+        },
+        "plugins" : [ "themes", "html_data", "crrm", "dnd" ]
+    });
 });
 </script>
 
@@ -181,11 +181,11 @@ $(function () {
 <div class="panel api">
 
 <div style="height:1px; visibility:hidden;">
-	<span id="dnd_show">&nbsp;</span>
-	<span id="dnd_open">&nbsp;</span>
-	<span id="dnd_finish">&nbsp;</span>
-	<span id="dnd_enter">&nbsp;</span>
-	<span id="start_drag">&nbsp;</span>
+    <span id="dnd_show">&nbsp;</span>
+    <span id="dnd_open">&nbsp;</span>
+    <span id="dnd_finish">&nbsp;</span>
+    <span id="dnd_enter">&nbsp;</span>
+    <span id="start_drag">&nbsp;</span>
 </div>
 <h3 id="dnd_prepare">.dnd_prepare ( ), .dnd_show ( ), .dnd_open ( ), .dnd_finish ( ), .dnd_enter ( ), .start_drag ( )</h3>
 <p>All those functions are used internally only. If you want more information - examine the source code.</p>
