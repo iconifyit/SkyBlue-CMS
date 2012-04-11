@@ -8,7 +8,7 @@ SkyBlue CMS version 2.0 is the second generation of the SkyBlueCanvas lightweigh
 
 Set-up:
 
-NOTE: In the explanation below, I refer to the web root /var/www/html/. This is a typical Linux web root, but it can be different depending on your server configuration. If you are using inexpensive shared virtual hosting (most inexpensive hosting is this kind), then the folder may be named something like /public/html/. I am hosting my sites on MediaTemple and so the web root is /domains/mydomain.com/html/. If you are not sure what the path to your web root is, contact your server administrator or your hosting company's technical support.
+NOTE: In the explanation below, I refer to the web root /var/www/html/. This is a typical Linux web root, but it can be different depending on your server configuration. If you are using inexpensive shared virtual hosting (most inexpensive hosting is this kind), then the folder may be named something like /home/USER_NAME/public_html/. I am hosting my sites on MediaTemple and so the web root is /domains/mydomain.com/html/. If you are not sure what the path to your web root is, contact your server administrator or your hosting company's technical support.
 
 The Apache web server allows you to configure where each web site hosted on the server resides via the DocumentRoot directive. On a typical Linux environment, you might find the default DocumentRoot pointing to /var/www/html/. Anything in the 'html' folder is said to be in the web path.
 
