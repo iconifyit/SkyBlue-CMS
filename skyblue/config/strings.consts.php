@@ -206,13 +206,6 @@ sb_conf('CHECK_OUT_NOT_OWNER', -1);
 sb_conf('CHECK_OUT_SYS_ERR',    0);
 
 # ###################################################################################
-# The 'Info' iframe on the main dashboard
-# ###################################################################################
-
-sb_conf('INFO_IFRAME_SRC',   'info.php');
-sb_conf('INFO_IFRAME_TAG',   '<iframe src="info.php" frameborder="no" scrolling="no"></iframe>');
-
-# ###################################################################################
 # DEFAULT_HTML is a default HTML body to use in case the skin HTML file cannot be 
 # found for whatever reason. This avoids an error causing the page build to fail.
 # ###################################################################################
