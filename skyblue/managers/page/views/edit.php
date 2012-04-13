@@ -80,11 +80,6 @@ add_head_element(Config::get('site_editor'), '', 'include');
                     <textarea name="meta_description" id="meta_description"><?php echo $Page->getMeta_description(); ?></textarea>
                 </fieldset>
                 
-                <fieldset>
-                    <label for="keywords"><?php __('PAGE.KEYWORDS', 'Keywords'); ?>:</label>
-                    <textarea name="keywords" id="keywords"><?php echo $Page->getKeywords(); ?></textarea>
-                </fieldset>
-                
                 <fieldset class="three-column">
                     <div class="column">
                         <label for="pagetype"><?php __('PAGE.LAYOUT', 'Template'); ?>:</label>

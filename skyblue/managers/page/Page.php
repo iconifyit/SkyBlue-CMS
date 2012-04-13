@@ -97,12 +97,6 @@ class Page extends TransferObject {
     var $metagroup;
     
     /**
-     * @var string  The page's keywords
-     */
-    
-    var $keywords;
-    
-    /**
      * @var boolean  Whether or not this is the default (home) page
      */
     
@@ -380,23 +374,6 @@ class Page extends TransferObject {
      */
     function setMetagroup($metagroup) {
         $this->metagroup = $metagroup;
-    }
-    
-    /**
-     * Gets a comma-separated list of keywords for this Page
-     * @return string  The Page keywords
-     */
-    function getKeywords() {
-        return $this->keywords;
-    }
-    
-    /**
-     * Sets the keywords for this Page
-     * @param string $keywords a comma-separated list of keywords for this Page
-     * @return void
-     */
-    function setKeywords($keywords) {
-        $this->keywords = $keywords;
     }
     
     /**
