@@ -63,6 +63,7 @@ function doInitWymeditor() {
               + WYMeditor.CONTAINERS
               + WYMeditor.CLASSES
               + "</div>"
+              + "<div class='clear'></div>"
               + "<div class='wym_area_left'></div>"
               + "<div class='wym_area_right'>"
               + "</div>"
