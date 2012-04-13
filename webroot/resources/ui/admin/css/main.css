@@ -123,6 +123,7 @@ textarea {
     line-height:1.5em;
     width: 98%;
     height:100px;
+    resize: none !important;
 }
     
 textarea.auto {
