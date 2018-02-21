@@ -1,3 +1,5 @@
+# SkyBlue CMS
+
 SkyBlue CMS version 2.0 is the second generation of the SkyBlueCanvas lightweight CMS. Before downloading this code, be sure you understand the following:
 
 - The code is not quite finished and is not ready for production web sites. 
@@ -6,7 +8,7 @@ SkyBlue CMS version 2.0 is the second generation of the SkyBlueCanvas lightweigh
 - Support from the developer will be minimal due to time constraints but I will make an effort to help serious developers who want to contribute to the project
 
 
-Set-up:
+## Set-up:
 
 NOTE: In the explanation below, I refer to the web root /var/www/html/. This is a typical Linux web root, but it can be different depending on your server configuration. If you are using inexpensive shared virtual hosting (most inexpensive hosting is this kind), then the folder may be named something like /home/USER_NAME/public_html/. I am hosting my sites on MediaTemple and so the web root is /domains/mydomain.com/html/. If you are not sure what the path to your web root is, contact your server administrator or your hosting company's technical support.
 
@@ -22,7 +24,7 @@ The URL http://yoursite.com/ currently points to /var/www/html/. So if you have 
 
 But we are overriding this setting so that http://yoursite.com/ will now be /var/www/html/skyblue/webroot/. This is accomplished with the htaccess file included with the SkyBlue package. This file must be placed in your domain's default web root (e.g., /var/www/html/).
 
-Installation:
+## Installation:
 
 - Download SkyBlue to your web server. 
 - Unzip/untar the download and copy the entire folder into your web server root.
@@ -31,34 +33,33 @@ Installation:
 - Save the file then rename to .htaccess (note the dot at the beginning of the name. This is crucial)
 - Once you have SkyBlue up and running, log into the admin by going to http://yoursite.com/admin.php. The default login credentials are:
 
+```
 username: admin
 password: admin
+```
 
 
-HTACCESS Contents:
+## HTACCESS Contents:
 
-# Turn on rewrites
+```
+# Turn on rewrites 
 
 RewriteEngine on
 
-# This rule tells Apache to only apply the subsequent rules 
-# to URLs on this domain
+# This rule tells Apache to only apply the subsequent rules to URLs on this domain
 
-RewriteCond %{HTTP_HOST} ^www\.yoursite.com$
+`RewriteCond %{HTTP_HOST} ^www\.yoursite.com$`
 
-# This rule tells Apache to only apply subsequent rules 
-# to URLs that aren't already under the /webroot/ folder
+# This rule tells Apache to only apply subsequent rules to URLs that aren't already under the `/webroot/` folder
 
 RewriteCond %{REQUEST_URI} !^/webroot/
 
-# Now Rewrite all requests to the webroot folder so a request 
-# for http://yoursite.com/index.html will be understood by Apache 
-# to mean /var/www/html/skyblue/webroot/index.html
+# Now Rewrite all requests to the webroot folder so a request for `http://yoursite.com/index.html` will be understood by Apache to mean `/var/www/html/skyblue/webroot/index.html
 
 RewriteRule ^(.*)$ /webroot/$1
 
-# Now tell Apache to reroute all requests for the root domain 
-# to /var/www/html/skyblue/webroot/
+#Now tell Apache to reroute all requests for the root domain to /var/www/html/skyblue/webroot/
 
 RewriteCond %{HTTP_HOST} ^www.yoursite.com$
 RewriteRule ^(/)?$ /webroot/ [L]
+```
