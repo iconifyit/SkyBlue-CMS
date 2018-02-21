@@ -10,19 +10,19 @@ SkyBlue CMS version 2.0 is the second generation of the SkyBlueCanvas lightweigh
 
 ## Set-up:
 
-NOTE: In the explanation below, I refer to the web root /var/www/html/. This is a typical Linux web root, but it can be different depending on your server configuration. If you are using inexpensive shared virtual hosting (most inexpensive hosting is this kind), then the folder may be named something like /home/USER_NAME/public_html/. I am hosting my sites on MediaTemple and so the web root is /domains/mydomain.com/html/. If you are not sure what the path to your web root is, contact your server administrator or your hosting company's technical support.
+NOTE: In the explanation below, I refer to the web root `/var/www/html/`. This is a typical Linux web root, but it can be different depending on your server configuration. If you are using inexpensive shared virtual hosting (most inexpensive hosting is this kind), then the folder may be named something like `/home/USER_NAME/public_html/`. I am hosting my sites on MediaTemple and so the web root is `/domains/mydomain.com/html/`. If you are not sure what the path to your web root is, contact your server administrator or your hosting company's technical support.
 
-The Apache web server allows you to configure where each web site hosted on the server resides via the DocumentRoot directive. On a typical Linux environment, you might find the default DocumentRoot pointing to /var/www/html/. Anything in the 'html' folder is said to be in the web path.
+The Apache web server allows you to configure where each web site hosted on the server resides via the DocumentRoot directive. On a typical Linux environment, you might find the default DocumentRoot pointing to `/var/www/html/`. Anything in the 'html' folder is said to be in the web path.
 
 In order to minimize risk, as much of the executable code in SkyBlue is kept out of the web path. Only the files that absolutely have to be in the web root are placed there.
 
-When setting up your SkyBlue site, you will place the entire 'skyblue' directory in your current web root (e.g., /var/www/html/). However, you are going to override the default web root setting to point to the 'webroot' subdirectory inside the SkyBlue package, thus making it the new web root.
+When setting up your SkyBlue site, you will place the entire _skyblue_ directory in your current web root (e.g., `/var/www/html/`). However, you are going to override the default web root setting to point to the 'webroot' subdirectory inside the SkyBlue package, thus making it the new web root.
 
 The default behavior of your web server is probably something along these lines:
 
-The URL http://yoursite.com/ currently points to /var/www/html/. So if you have a folder of images in your web root that you can access with http://yoursite.com/images/, on your web server you would likely have a folder in /var/www/html/image/. So the server configuration considers http://yoursite.com to be equivalent to /var/www/html/.
+The URL `http://yoursite.com/` currently points to `/var/www/html/`. So if you have a folder of images in your web root that you can access with `http://yoursite.com/images/`, on your web server you would likely have a folder in /var/www/html/image/. So the server configuration considers http://yoursite.com to be equivalent to /var/www/html/.
 
-But we are overriding this setting so that http://yoursite.com/ will now be /var/www/html/skyblue/webroot/. This is accomplished with the htaccess file included with the SkyBlue package. This file must be placed in your domain's default web root (e.g., /var/www/html/).
+But we are overriding this setting so that `http://yoursite.com/` will now be `/var/www/html/skyblue/webroot/`. This is accomplished with the htaccess file included with the SkyBlue package. This file must be placed in your domain's default web root (e.g., /var/www/html/).
 
 ## Installation:
 
