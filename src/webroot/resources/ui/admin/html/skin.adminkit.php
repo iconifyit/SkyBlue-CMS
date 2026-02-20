@@ -76,7 +76,7 @@
         #table_liquid, .table_liquid {
             width: 100%;
         }
-        /* WYMeditor compatibility - use modern CSS instead of floats */
+        /* WYMeditor compatibility - use modern CSS for button toolbar only */
         .wym_skin_silver,
         .wym_skin_silver * {
             box-sizing: content-box;
@@ -87,13 +87,13 @@
             padding: 0;
             list-style: none;
         }
-        /* Use flexbox for button layout instead of floats */
-        .wym_skin_silver .wym_buttons {
+        /* Use flexbox for button toolbar only (wym_tools with wym_buttons class) */
+        .wym_skin_silver .wym_tools.wym_buttons ul {
             display: flex;
             flex-wrap: wrap;
             gap: 2px;
-            margin: 0;
-            padding: 0;
+            margin: 0 !important;
+            padding: 0 !important;
         }
         .wym_skin_silver .wym_buttons li {
             width: 24px;
@@ -137,24 +137,25 @@
             margin: 0 !important;
             padding: 0 !important;
         }
-        .wym_skin_silver .wym_tools,
-        .wym_skin_silver .wym_containers,
-        .wym_skin_silver .wym_classes {
+        /* Tools section uses inline-flex, dropdowns use default block */
+        .wym_skin_silver .wym_tools {
             display: inline-flex;
             margin: 0 !important;
         }
-        .wym_skin_silver .wym_dropdown ul {
+        /* Dropdown sections (containers, classes) - preserve vertical layout */
+        .wym_skin_silver .wym_dropdown {
+            position: relative;
             margin: 0 !important;
         }
-        /* Reset any negative margins from #tabs scoped rules */
-        .wym_skin_silver .wym_tools ul,
-        .wym_skin_silver .wym_containers ul,
-        .wym_skin_silver .wym_classes ul {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2px;
+        .wym_skin_silver .wym_dropdown ul {
+            display: none;
+            position: absolute;
+            flex-direction: column;
             margin: 0 !important;
-            padding: 0 !important;
+            z-index: 100;
+        }
+        .wym_skin_silver .wym_dropdown:hover ul {
+            display: flex;
         }
 
         /* Dashboard controls as Bootstrap cards */
