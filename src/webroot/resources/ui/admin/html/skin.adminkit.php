@@ -39,6 +39,79 @@
 
     <style>
         /* SkyBlue Admin Overrides */
+        .btn {
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+        }
+        .btn:hover {
+            text-decoration: none;
+        }
+        .btn-sm {
+            padding: 0.375rem 0.75rem;
+        }
+        /* Pagination buttons */
+        .pagination .page-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 2rem;
+            min-height: 2rem;
+            padding: 0.25rem 0.5rem;
+            line-height: 1;
+        }
+        /* Media folder tree icons */
+        #folder-tree li.folder {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        #folder-tree .icon {
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+        }
+        #folder-tree .icon svg {
+            width: 20px;
+            height: 20px;
+        }
+        #folder-tree ul {
+            width: 100%;
+            padding-left: 1.5rem;
+        }
+        #folder-tree .folder-label {
+            text-transform: capitalize;
+        }
+        /* Dashboard card sizing */
+        .card.h-100 .card-body {
+            padding: 0.75rem 1rem;
+        }
+        .card.h-100 .card-footer {
+            padding: 0.5rem 1rem;
+        }
+        .card.h-100 .card-title {
+            margin-bottom: 0;
+        }
+        .card.h-100 .row {
+            margin-bottom: 0.25rem;
+        }
+        .card.h-100 .mb-0.text-muted {
+            font-size: 0.8rem;
+            line-height: 1.3;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.5rem;
+            height: 1.5rem;
+            padding: 2px;
+            border-radius: 0.2rem;
+            text-transform: uppercase;
+        }
         .content {
             padding: 1.5rem;
         }

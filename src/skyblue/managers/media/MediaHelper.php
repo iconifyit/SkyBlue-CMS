@@ -50,9 +50,7 @@ class MediaHelper {
             $folderName = basename($folders[$i]);
             $subFolder = str_replace(SB_MEDIA_DIR, "", $folders[$i]);
             $html .= "<li class=\"folder\">\n";
-            $html .= '<span class="icon">';
-            $html .= '<img src="' .  SB_UI_DIR . 'admin/icons/' . UI_ICON_SET . '/folder.png" />';
-            $html .= '</span>';
+            $html .= '<span class="icon"><i data-feather="folder"></i></span>';
             $html .= "<a href=\"admin.php?com=media&action=list&";
             $html .= "folder={$subFolder}\" class=\"folder-label\">{$folderName}</a>\n";
             $html .= MediaHelper::getFolderTree($folders[$i], "");
