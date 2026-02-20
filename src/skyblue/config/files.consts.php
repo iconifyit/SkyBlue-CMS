@@ -156,18 +156,27 @@ sb_conf('SB_MENUS_FILE', SB_XML_DIR.'menus.xml');
 sb_conf('SB_MENU_BUILDER_FILE', SB_INC_DIR.'menubuilder.php');
 
 # ###################################################################################
-# SB_ADMIN_SKIN_MAIN points to the location of the HTML Skin file for the 
+# SB_ADMIN_SKIN_MAIN points to the location of the HTML Skin file for the
 # main Admin UI Dashboard page.
 # ###################################################################################
 
 sb_conf('SB_ADMIN_SKIN_MAIN', SB_ADMIN_SKINS_DIR.'skin.main.html');
 
 # ###################################################################################
-# SB_ADMIN_SKIN_INDEX points to the location of the HTML skin file for 
+# SB_ADMIN_SKIN_INDEX points to the location of the HTML skin file for
 # SkyBlueServer Manager dashboards.
 # ###################################################################################
 
 sb_conf('SB_ADMIN_SKIN_INDEX', SB_ADMIN_SKINS_DIR.'skin.index.html');
+
+# ###################################################################################
+# SB_ADMIN_SKIN_FILE specifies which admin skin PHP file to use.
+# Options:
+#   - 'skin.adminkit.php' (Bootstrap 5 AdminKit theme - modern, recommended)
+#   - 'skin.index.php'    (Legacy SkyBlue theme)
+# ###################################################################################
+
+sb_conf('SB_ADMIN_SKIN_FILE', 'skin.adminkit.php');
 
 # ###################################################################################
 # SB_MANAGER_CLASS_FILE points to the location of the SkyBlueServer Manager
