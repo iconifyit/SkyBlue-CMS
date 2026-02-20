@@ -25,5 +25,22 @@ $isAuthorized = $Authorize->checkDataAccess($Page);
 <?php if (! $isAuthorized) : ?>
     <p><?php __('PAGE.NOT_AUTORIZED', 'You are not authorized to view the requested resource.'); ?></p>
 <?php else : ?>
-    <?php echo Event::trigger('OnAfterFragments', $Page->getStory_content()); ?>
+    <?php
+    // Render Markdown content using Parsedown
+    $content = $Page->getStory_content();
+    if (!empty($content)) {
+        if (!class_exists('Parsedown')) {
+            $parsedownPath = _SBC_SYS_ . 'libs/Parsedown/Parsedown.php';
+            if (file_exists($parsedownPath)) {
+                require_once($parsedownPath);
+            }
+        }
+        if (class_exists('Parsedown')) {
+            $parsedown = new Parsedown();
+            $parsedown->setSafeMode(true);
+            $content = $parsedown->text($content);
+        }
+    }
+    echo Event::trigger('OnAfterFragments', $content);
+    ?>
 <?php endif; ?>

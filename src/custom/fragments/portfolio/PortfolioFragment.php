@@ -2,7 +2,7 @@
 
 class PortfolioFragment extends Fragment {
 
-    function items($params) {
+    static function items($params) {
         global $Core;
         $items = PortfolioFragment::data();
         $category = Filter::get($params, 'category');
@@ -11,8 +11,8 @@ class PortfolioFragment extends Fragment {
         }
         return $items;
     }
-    
-    function data() {
+
+    static function data() {
         global $Core;
         static $items;
         if (! is_array($items)) {
@@ -23,16 +23,16 @@ class PortfolioFragment extends Fragment {
         }
         return $items;
     }
-    
-    function groups() {
+
+    static function groups() {
         global $Core;
         if (!file_exists($Core->path . SB_XML_DIR . 'portfolio/category.xml')) return;
         return $Core->xmlHandler->ParserMain(
             $Core->path . SB_XML_DIR . 'portfolio/category.xml'
         );
     }
-    
-    function description($item) {
+
+    static function description($item) {
         $text = "";
         $fileName = Filter::get($item, 'story');
         if (trim($fileName) != '') {

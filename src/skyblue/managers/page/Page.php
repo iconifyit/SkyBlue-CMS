@@ -165,8 +165,14 @@ class Page extends TransferObject {
     /**
      * @var int    Whether or not to include in navigation
      */
-     
+
     var $show_in_navigation;
+
+    /**
+     * @var string  The content format ('html' or 'markdown')
+     */
+
+    var $content_format;
     
     /**
      * Getters/Setters
@@ -601,7 +607,7 @@ class Page extends TransferObject {
     function getShow_in_navigation() {
         return $this->show_in_navigation;
     }
-    
+
    /**
     * Sets show_in_navigation
     * @param int $show_in_navigation
@@ -610,5 +616,22 @@ class Page extends TransferObject {
    function setShow_in_navigation($show_in_navigation) {
        $this->show_in_navigation = $show_in_navigation;
    }
+
+    /**
+     * Gets the content format ('html' or 'markdown')
+     * @return string
+     */
+    function getContent_format() {
+        return $this->content_format;
+    }
+
+    /**
+     * Sets the content format ('html' or 'markdown')
+     * @param string $content_format
+     * @return void
+     */
+    function setContent_format($content_format) {
+        $this->content_format = $content_format;
+    }
 
 }

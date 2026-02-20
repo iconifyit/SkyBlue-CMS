@@ -4,15 +4,15 @@ require_once(dirname(__FILE__) . '/class.menubuilder.php');
 
 class Menu_treeFragment {
 
-    function getBuilder(&$data, &$Page) {
+    static function getBuilder(&$data, &$Page) {
         static $Builder;
         if (! is_object($Builder)) {
             $Builder = new MenuBuilder($data, $Page->getId());
         }
         return $Builder;
     }
-    
-    function getChildren($Parent) {
+
+    static function getChildren($Parent) {
         $children = array();
         $pages = Menu_treeFragment::getPublished();
         foreach ($pages as $Page) {
@@ -22,8 +22,8 @@ class Menu_treeFragment {
         }
         return $children;
     }
-    
-    function getPublished() {
+
+    static function getPublished() {
         static $published;
         if (! is_array($pages) || $refresh) {
             $Dao = Menu_treeFragment::getPageDao();
@@ -37,8 +37,8 @@ class Menu_treeFragment {
         }
         return $published;
     }
-    
-    function getPageDao($refresh=false) {
+
+    static function getPageDao($refresh=false) {
         static $Dao;
         if (! is_object($Dao) || $refresh) {
             if (! class_exists('PageDAO')) {

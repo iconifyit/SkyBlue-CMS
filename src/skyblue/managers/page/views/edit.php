@@ -183,6 +183,7 @@ add_head_element(Config::get('site_editor'), '', 'include');
                 <input type="hidden" name="story" value="<?php echo $Page->getStory(); ?>" />
                 <input type="hidden" name="pageNum" value="<?php echo Filter::get($_GET, 'pageNum', 1); ?>" />
                 <input type="hidden" name="is_new" value="<?php echo $isNew; ?>" />
+                <input type="hidden" name="content_format" value="markdown" />
             </div>
 
             <!-- Page Access Tab -->
