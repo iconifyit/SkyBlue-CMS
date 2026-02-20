@@ -76,7 +76,7 @@
         #table_liquid, .table_liquid {
             width: 100%;
         }
-        /* WYMeditor compatibility - reset Bootstrap styles and override #tabs scoped styles */
+        /* WYMeditor compatibility - use modern CSS instead of floats */
         .wym_skin_silver,
         .wym_skin_silver * {
             box-sizing: content-box;
@@ -87,14 +87,17 @@
             padding: 0;
             list-style: none;
         }
+        /* Use flexbox for button layout instead of floats */
         .wym_skin_silver .wym_buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2px;
             margin: 0;
             padding: 0;
         }
         .wym_skin_silver .wym_buttons li {
-            float: left;
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
             overflow: hidden;
             margin: 0 !important;
             padding: 0 !important;
@@ -122,9 +125,13 @@
             margin-bottom: 1rem;
         }
         .wym_area_top {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
             background: #f8f9fa;
             border-bottom: 1px solid #ced4da;
-            padding: 5px;
+            padding: 8px;
         }
         .wym_skin_silver .wym_section {
             margin: 0 !important;
@@ -133,17 +140,19 @@
         .wym_skin_silver .wym_tools,
         .wym_skin_silver .wym_containers,
         .wym_skin_silver .wym_classes {
-            float: left;
+            display: inline-flex;
             margin: 0 !important;
         }
         .wym_skin_silver .wym_dropdown ul {
             margin: 0 !important;
         }
         /* Reset any negative margins from #tabs scoped rules */
-        .wym_skin_silver .wym_area_top,
         .wym_skin_silver .wym_tools ul,
         .wym_skin_silver .wym_containers ul,
         .wym_skin_silver .wym_classes ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2px;
             margin: 0 !important;
             padding: 0 !important;
         }
