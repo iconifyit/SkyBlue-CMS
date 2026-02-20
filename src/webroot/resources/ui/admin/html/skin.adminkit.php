@@ -76,20 +76,39 @@
         #table_liquid, .table_liquid {
             width: 100%;
         }
-        /* WYMeditor compatibility - override #tabs scoped styles */
+        /* WYMeditor compatibility - reset Bootstrap styles and override #tabs scoped styles */
+        .wym_skin_silver,
+        .wym_skin_silver * {
+            box-sizing: content-box;
+        }
+        .wym_skin_silver ul,
+        .wym_skin_silver li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .wym_skin_silver .wym_buttons {
+            margin: 0;
+            padding: 0;
+        }
         .wym_skin_silver .wym_buttons li {
             float: left;
             width: 28px;
             height: 28px;
             overflow: hidden;
+            margin: 0 !important;
+            padding: 0 !important;
         }
         .wym_skin_silver .wym_buttons a {
+            display: block;
             width: 20px;
             height: 20px;
             overflow: hidden;
-            padding: 2px;
+            padding: 2px !important;
+            margin: 0 !important;
             text-decoration: none !important;
             border: 1px solid #666;
+            line-height: 1;
         }
         .wym_skin_silver .wym_buttons a:hover {
             text-decoration: none !important;
@@ -106,6 +125,27 @@
             background: #f8f9fa;
             border-bottom: 1px solid #ced4da;
             padding: 5px;
+        }
+        .wym_skin_silver .wym_section {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        .wym_skin_silver .wym_tools,
+        .wym_skin_silver .wym_containers,
+        .wym_skin_silver .wym_classes {
+            float: left;
+            margin: 0 !important;
+        }
+        .wym_skin_silver .wym_dropdown ul {
+            margin: 0 !important;
+        }
+        /* Reset any negative margins from #tabs scoped rules */
+        .wym_skin_silver .wym_area_top,
+        .wym_skin_silver .wym_tools ul,
+        .wym_skin_silver .wym_containers ul,
+        .wym_skin_silver .wym_classes ul {
+            margin: 0 !important;
+            padding: 0 !important;
         }
 
         /* Dashboard controls as Bootstrap cards */
