@@ -182,6 +182,107 @@
         .wym_skin_silver .wym_dropdown:hover ul {
             display: flex;
         }
+
+        /* WYMeditor modal dialog styling */
+        .modalCloseImg.simplemodal-close,
+        a.simplemodal-close {
+            display: none !important;
+        }
+        #simplemodal-container {
+            background: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+            padding: 1.5rem;
+            height: auto !important;
+            overflow: visible !important;
+            width: 550px !important;
+            top: 50% !important;
+            transform: translateY(-50%);
+        }
+        #simplemodal-container .simplemodal-data {
+            height: auto !important;
+            overflow: visible !important;
+        }
+        #simplemodal-container h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        #simplemodal-container p {
+            font-size: 0.875rem;
+            color: #6c757d;
+            margin-bottom: 1rem;
+        }
+        #simplemodal-container div.inputdiv {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        #simplemodal-container div.inputdiv h3 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin: 0;
+            flex-shrink: 0;
+        }
+        #simplemodal-container div.inputdiv select,
+        #simplemodal-container div.inputdiv input {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            margin: 0;
+            margin-left: auto;
+        }
+        #simplemodal-container div.inputdivlast {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #dee2e6;
+            border-bottom: none;
+            height: auto;
+            width: auto;
+            display: flex;
+            gap: 0.5rem;
+            justify-content: flex-start;
+        }
+        /* Override jQuery UI button styles */
+        .ui-state-default,
+        .ui-widget-content .ui-state-default,
+        #simplemodal-container .sb-button,
+        #simplemodal-container input[type="button"] {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: #212529;
+            background: #f8f9fa;
+            border: 1px solid #ced4da;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .ui-state-default:hover,
+        .ui-widget-content .ui-state-default:hover,
+        #simplemodal-container .sb-button:hover,
+        #simplemodal-container input[type="button"]:hover {
+            background: #e9ecef;
+            text-decoration: none;
+        }
+        #simplemodal-container input[name="save"],
+        #simplemodal-container input[value="Ok"] {
+            color: #fff;
+            background: #0d6efd;
+            border-color: #0d6efd;
+        }
+        #simplemodal-container input[name="save"]:hover,
+        #simplemodal-container input[value="Ok"]:hover {
+            background: #0b5ed7;
+            border-color: #0a58ca;
+        }
         .wym_skin_silver .wym_dropdown ul li {
             margin: 0 !important;
             padding: 0 !important;
