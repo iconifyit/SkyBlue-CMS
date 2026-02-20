@@ -1,0 +1,17 @@
+/**
+ * @scope noscript
+ */
+body.noscript #slider-prev, 
+body.noscript #slider-next {
+    display: none;
+}
+
+body.noscript h4.title, 
+body.noscript p.description { 
+    padding: 0px 10px !important; 
+}
+
+body.noscript a.button { 
+    display: none !important; 
+}
+/* @end noscript */

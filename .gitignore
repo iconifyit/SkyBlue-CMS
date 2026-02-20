@@ -1,0 +1,25 @@
+# Environment files
+.env
+
+# Claude
+.claude/
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Debug logs
+/tmp/
+
+# SQLite database backups
+*.sqlite.bak
+*.db.bak
+
+# PHP
+vendor/
+composer.lock

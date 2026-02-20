@@ -1,0 +1,13 @@
+<?php
+/**
+ * Site Configuration Override
+ *
+ * By default, SkyBlue auto-detects the site URL from the incoming request.
+ * If you need to override this (e.g., behind a reverse proxy), copy this
+ * file to site.php and set your values.
+ */
+
+return [
+    // Uncomment and set to override auto-detection
+    // 'site_url' => 'https://example.com/',
+];

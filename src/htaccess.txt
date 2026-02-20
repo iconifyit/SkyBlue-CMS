@@ -1,0 +1,17 @@
+AddHandler php5-script .php
+
+# Turn on rewrites.
+RewriteEngine on
+
+# Only apply to URLs on this domain
+RewriteCond %{HTTP_HOST} ^(www.)?skybluecanvas.com$
+
+# Only apply to URLs that aren't already under folder.
+RewriteCond %{REQUEST_URI} !^/www/
+
+# Rewrite all those to insert /folder.
+RewriteRule ^(.*)$ /www/$1
+
+# Also redirect the root folder.
+RewriteCond %{HTTP_HOST} ^(www.)?skybluecanvas.com$
+RewriteRule ^(/)?$ /www/ [L]

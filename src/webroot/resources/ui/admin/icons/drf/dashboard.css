@@ -1,0 +1,76 @@
+/**
+ * @scope Dashboard
+ */
+
+div.console {
+    border: 0px solid black;
+}
+
+.dashboard-controls {
+    list-style-type: none;
+    margin-top: 40px;
+}
+
+.dashboard-controls li {
+    border: 0px solid #CCC;
+    width: 200px;
+    height: 150px;
+    float: left;
+    margin: 15px 15px 0px 0px;
+    padding: 0px 0px 0px 50px;
+}
+
+.dashboard-controls li span.icon {
+    display: block;
+    width: 50px;
+    height: 60px;
+    position: absolute;
+    margin-left: -45px;
+}
+
+.dashboard-controls h2 {
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+    line-height: 1em;
+}
+
+.dashboard-controls li a {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    margin: 0px;
+    padding: 0px;
+}
+
+.dashboard-controls li a:hover {
+    text-decoration: underline;
+    color: #000;
+}
+
+.dashboard-controls li p {
+    margin: 15px 0px 0px 0px;
+}
+
+/**
+ * @scope Media Manager
+ */
+
+#folder-tree .icon {
+    display: inline-block;
+    width: 40px;
+    height: 60px;
+    float: left;
+}
+
+#folder-tree .icon img {
+    margin: 5px 0px 0px 0px;
+}
+
+#folder-tree .folder-label {
+    color: #555;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    padding-left: 0px;
+    height: 40px;
+}

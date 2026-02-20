@@ -1,0 +1,12 @@
+All of the files in the ui.defaults directory may be over-written when
+upgrades are performed. You should not edit any of the files in the ui.defaults
+directory or sub-directories.
+
+You can over-ride the CSS rules by adding duplicate rules to the CSS file in 
+your site skin directory.
+
+If you need to add images or JavaScript functions to your site, add them to 
+the images and/or JavaScript directories in your site sking. SkyBlue will load 
+your site skin *after* the system defaults are loaded so your style rules will 
+take precedence and your images and JavaScript functions will be accessible to 
+the user-agent.

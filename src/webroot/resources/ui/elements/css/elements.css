@@ -1,0 +1,127 @@
+body, div, dl, dt, dd, ul, ol, li, 
+h1, h2, h3, h4, h5, h6, pre, form, 
+fieldset, input, textarea, p, blockquote, 
+th, td, a,  address, caption, cite, code, 
+dfn, em, strong, th, var, abbr, acronym
+{
+  font-family: Arial, Helvetica, Sans-serif;
+}
+
+div.msg-error, 
+div.msg-info, 
+div.msg-warning, 
+div.msg-success
+{
+  display: block;
+  padding: 8px;
+  margin: 15px 0px 0px 0px;
+  border-width: 0px;
+  border-top-width: 3px;
+  border-style: solid;
+  padding: 15px 10px 15px 50px;
+}
+
+div.msg-error h2, 
+div.msg-info h2, 
+div.msg-warning h2, 
+div.msg-success h2
+{
+  padding: 0px;
+  margin: 0px;
+  font-size: 16px; 
+  font-weight: bold;
+  color: #000;
+}
+
+div.msg-error p, 
+div.msg-info p, 
+div.msg-warning p, 
+div.msg-success p
+{
+  padding: 0px !important;
+  margin: 6px 0px;
+  font-size: 14px; 
+  font-weight: normal;
+  color: #000;
+}
+
+div.msg-error
+{
+  border-color: #C89494;
+  background: #FEBFBF;
+  background-image: url(../images/icon.error.gif);
+  background-position: 6px 6px;
+  background-repeat: no-repeat;
+}
+
+div.msg-info
+{
+  border-color: #98B3D3;
+  background-color: #D3E5FF;
+  background-image: url(../images/icon.info.gif);
+  background-position: 6px 6px;
+  background-repeat: no-repeat;
+}
+
+div.msg-warning
+{
+  border-color: #FB0;
+  background: #FFEEB1;
+  background-image: url(../images/icon.warning.gif);
+  background-position: 6px 6px;
+  background-repeat: no-repeat;
+}
+
+div.msg-success
+{
+  border-color: #80C881;
+  background: #A6FFA5;
+  background-image: url(../images/icon.success.gif);
+  background-position: 6px 6px;
+  background-repeat: no-repeat;
+}
+
+div.msg-error-small, 
+div.msg-info-small, 
+div.msg-warning-small, 
+div.msg-success-small
+{
+  display: block;
+  border-width: 1px;
+  border-style: solid;
+  margin: 15px 0px 0px 0px;
+  padding: 3px 3px 3px 32px;
+}
+
+div.msg-info-small
+{
+  background: #D3E5FF;
+  border-color: #98B3D3;
+  background-image: url(../images/icon.info.sm.gif);
+  background-position: 3px 3px;
+  background-repeat: no-repeat;
+}
+
+div.msg-error-small p, 
+div.msg-info-small p, 
+div.msg-warning-small p, 
+div.msg-success-small p
+{
+  font-size: 12px;
+  text-align: left;
+  color: #000;
+  padding: 3px;
+  margin: 0px;    
+}
+
+h2.edit
+{
+  height: 13px;
+  padding: 15px 15px 12px 40px;
+  background-image: url(../images/icon.edit.32x32.png);
+  background-position: 4px 4px;
+  background-repeat: no-repeat;
+  border: 1px solid #AAC4DC;
+  background-color: #E0E9F2;
+  margin: 0px;
+}

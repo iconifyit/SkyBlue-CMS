@@ -1,0 +1,32 @@
+.item-list {
+    width: 100%; 
+    border-top: 1px solid #CCC; 
+    border-left: 1px solid #CCC;
+}
+
+.item-list th, 
+.item-list td {
+    border-right: 1px solid #CCC; 
+    border-bottom: 1px solid #CCC; 
+    padding: 3px;
+}
+
+.item-list th {
+    color; #333;
+    font-weight: bold;
+}
+
+.item-list td {
+    /* background: #EEE; */
+    border-bottom: 2px solid #CCC;
+    
+}
+
+.buttons-top {
+    text-align: right;
+}
+
+.item-list a {
+    border: none; 
+    text-decoration: none;
+}

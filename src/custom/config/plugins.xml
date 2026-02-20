@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugins>
+    <plugin name="plugin.bbcoder.php" />
+    <plugin name="plugin.patches.php" />
+    <plugin name="plugin.preloader.php" />
+    <plugin name="plugin.sitevars.php" />
+    <plugin name="plugin.snippets.php" />
+    <plugin name="plugin.ads.php" />
+    <plugin name="plugin.gadgets.php" />
+    <plugin name="plugin.magpie.php" />
+    <plugin name="plugin.theme.php" />
+    <plugin name="plugin.embed-video.php" />
+    <plugin name="plugin.test.php" />
+    <plugin name="plugin.myvars.php" />
+</plugins>

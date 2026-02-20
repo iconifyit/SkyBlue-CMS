@@ -1,0 +1,17 @@
+<?php
+$redis = new Redis();
+$redis->connect(getenv('REDIS_HOST'), getenv('REDIS_PORT'));
+
+$key = 'quote_of_the_day';
+$data = $redis->get($key);
+
+if (!$data) {
+    // Simulate a slow operation
+    $data = "“Talk is cheap. Show me the code.” — Linus Torvalds";
+    $redis->set($key, $data, 30); // cache for 30 seconds
+    echo "Fetched fresh: $data";
+}
+else {
+    echo "From cache: $data";
+}
+?>

@@ -1,0 +1,15 @@
+# Turn on rewrites.
+RewriteEngine on
+
+# Only apply to URLs on this domain
+RewriteCond %{HTTP_HOST} ^(www.)?localhost$
+
+# Only apply to URLs that aren't already under webroot folder.
+RewriteCond %{REQUEST_URI} !^/webroot/
+
+# Rewrite all those to insert /webroot.
+RewriteRule ^(.*)$ /webroot/$1
+
+# Also redirect the root folder.
+RewriteCond %{HTTP_HOST} ^(www.)?localhost$
+RewriteRule ^(/)?$ /webroot/ [L]

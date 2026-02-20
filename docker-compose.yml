@@ -1,0 +1,52 @@
+services:
+  web:
+    build: .
+    container_name: skyblue-web
+    volumes:
+      - ./src:/var/www
+    ports:
+      - "8090:80"
+    depends_on:
+      - db
+      - redis
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=secret
+      - MYSQL_DB=skyblue
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PORT=${REDIS_PORT}
+
+  db:
+    image: mysql:8.0
+    container_name: skyblue-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: skyblue
+    volumes:
+      - skyblue_db_data:/var/lib/mysql
+
+  redis:
+    image: redis:7-alpine
+    container_name: skyblue-redis
+    restart: always
+    ports:
+      - "6380:6379"
+    volumes:
+      - skyblue_redis_data:/data
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: skyblue-phpmyadmin
+    restart: always
+    ports:
+      - "8091:80"
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=secret
+
+volumes:
+  skyblue_db_data:
+  skyblue_redis_data:

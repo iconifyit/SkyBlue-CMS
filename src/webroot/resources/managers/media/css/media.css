@@ -1,0 +1,49 @@
+#newFolderDialog {
+    display: none;
+}
+#folder-tree, 
+#folder-tree ul {
+    list-style-type: none;
+    margin: 0px;
+}
+#folder-tree ul {
+    /*
+    background-image: url(ui/admin/images/vertical_line.gif);
+    background-position: 10px 0px;
+    background-repeat: repeat-y;
+    */
+}
+#folder-tree li {
+    padding-left: 40px;
+    border-top: 0px solid #ccc;
+    line-height: 40px;
+    /*
+    background-image: url(ui/admin/images/horizontal_line.gif);
+    background-position: 18px 17px;
+    background-repeat: no-repeat;
+    */
+}
+#folder-tree .folder-icon {
+    display: inline-block;
+    width: 50px;
+    height: 40px;
+    background-image: url(../../../ui/admin/icons/folder.png);
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+#folder-tree .folder-label:hover {
+    color: #000;
+    cursor: pointer;
+}
+#folder-tree .folder-label {
+    color: #555;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    padding-left: 0px;
+    height: 40px;
+}
+
+table td img, table td a img {border: none !important;}
+.buttons-top {text-align: right;}

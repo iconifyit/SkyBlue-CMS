@@ -1,0 +1,39 @@
+/* Editor Styles */
+
+#imagePreview { cursor: pointer; }
+
+#simplemodal-overlay { background-color: #000; }
+
+#simplemodal-container {
+    background-color: #FFF; 
+    padding: 12px; 
+    border: 8px solid #333;
+    height: auto;
+}
+
+#simplemodal-container a.modalCloseImg {
+    background: url(../images/x.png) no-repeat;
+    width: 25px;
+    height: 29px;
+    display: inline;
+    z-index: 3200;
+    position: absolute;
+    top: -19px;
+    right:-22px;
+    cursor: pointer;
+}
+
+div.inputdiv p,
+div.inputdiv h2,
+div.inputdiv h3, 
+div.inputdiv label {
+    color: #000;
+}
+
+#urlform {
+    width: 500px !important;
+}
+    
+#urlform div.inputdiv h3 {
+    width: 50%;
+}
