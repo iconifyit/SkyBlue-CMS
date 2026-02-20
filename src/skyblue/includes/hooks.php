@@ -705,7 +705,56 @@ function skyblue_toolbar() {
         'userid'    => $userid,
         'username'  => $username,
         'lastlogin' => $lastlogin
-    )); 
+    ));
+}
+
+/**
+ * Gets the SkyBlue AdminKit sidebar navigation (if logged in)
+ * @return void
+ */
+function skyblue_sidebar() {
+    global $Authenticate;
+    $userid   = "";
+    $username = "";
+    if (is_logged_in()) {
+        $User = $Authenticate->user();
+        $username  = $User->getUsername();
+        $userid    = $User->getId();
+    }
+    fragment(array(
+        'name'      => 'editor',
+        'view'      => 'sidebar',
+        'wrapper'   => 'no',
+        'userid'    => $userid,
+        'username'  => $username
+    ));
+}
+
+/**
+ * Gets the SkyBlue AdminKit top navbar (if logged in)
+ * @return void
+ */
+function skyblue_navbar() {
+    global $Authenticate;
+    $userid   = "";
+    $username = "";
+    $lastlogin = "";
+    if (is_logged_in()) {
+        $User = $Authenticate->user();
+        $firstname = $User->getName();
+        $username  = $User->getUsername();
+        $userid    = $User->getId();
+        $lastlogin = date("D M j, Y G:i:s T", $User->getLastlogin());
+    }
+    fragment(array(
+        'name'      => 'editor',
+        'view'      => 'navbar',
+        'wrapper'   => 'no',
+        'userid'    => $userid,
+        'username'  => $username,
+        'firstname' => $firstname ?? '',
+        'lastlogin' => $lastlogin
+    ));
 }
 
 /**

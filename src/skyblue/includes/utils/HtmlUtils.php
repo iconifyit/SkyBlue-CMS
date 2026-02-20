@@ -72,12 +72,19 @@ class HtmlUtils {
      */
     static function selector($arr, $name, $size=1, $attrs=array()) {
         $attrs_str = "";
+        // Add Bootstrap form-select class by default
+        $class = "form-select";
         if (!empty($attrs)) {
             foreach ($attrs as $key=>$value) {
-                $attrs_str .= " {$key}=\"{$value}\"";
+                if ($key === 'class') {
+                    $class .= " " . $value;
+                }
+                else {
+                    $attrs_str .= " {$key}=\"{$value}\"";
+                }
             }
         }
-        $html = "<select name=\"{$name}\" size=\"{$size}\"{$attrs_str}>\n";
+        $html = "<select name=\"{$name}\" class=\"{$class}\" size=\"{$size}\"{$attrs_str}>\n";
         for ($i=0; $i<count($arr); $i++) {
             $html .= $arr[$i];
         }
@@ -119,8 +126,8 @@ class HtmlUtils {
         $attrs = array(
             'type'  => 'submit',
             'name'  => 'submit',
-            'value' => __($value, $value, 1), 
-            'class' => 'sb-button ui-state-default ui-corner-all', 
+            'value' => __($value, $value, 1),
+            'class' => 'btn btn-primary',
             'onclick' => "return set_action(this, '$action');"
         );
         if (count($customAttrs)) {
@@ -131,7 +138,7 @@ class HtmlUtils {
         echo HtmlUtils::tag(
             'input',
             $attrs,
-            '', 
+            '',
             0
         );
     }
@@ -146,7 +153,7 @@ class HtmlUtils {
     static function mgrActionLink($text, $href, $customAttrs=array()) {
         $attrs = array(
             'href'    => $href,
-            'class'   => 'sb-button ui-state-default ui-corner-all'
+            'class'   => 'btn btn-primary me-2'
         );
         if (count($customAttrs)) {
             foreach ($customAttrs as $key=>$value) {
@@ -156,7 +163,7 @@ class HtmlUtils {
         echo HtmlUtils::tag(
             'a',
             $attrs,
-            __($text, $text, 1), 
+            __($text, $text, 1),
             1
         );
     }
@@ -167,21 +174,21 @@ class HtmlUtils {
      */
     static function mgrButtonSave() {
         HtmlUtils::mgrButton(
-            __('GLOBAL.SAVE', 'Save', 1), 
-            'save', 
-            array('class' => 'sb-button ui-state-default ui-corner-all wymupdate')
+            __('GLOBAL.SAVE', 'Save', 1),
+            'save',
+            array('class' => 'btn btn-success wymupdate')
         );
     }
-    
+
     /**
      * Creates an Apply button - this is the same as save but does not close the editor
      * @return void
      */
     static function mgrButtonApply() {
         HtmlUtils::mgrButton(
-            __('GLOBAL.APPLY', 'Apply', 1), 
-            'apply', 
-            array('class' => 'sb-button ui-state-default ui-corner-all wymupdate')
+            __('GLOBAL.APPLY', 'Apply', 1),
+            'apply',
+            array('class' => 'btn btn-primary wymupdate')
         );
     }
     
@@ -323,7 +330,7 @@ class HtmlUtils {
         $attrs = array(
             'href'    => "admin.php?com={$com}&action=delete&id={$id}",
             'onclick' => "confirm_delete(event, ' \'$name\' ', false, 'admin.php?com={$com}&action=delete&id={$id}{$url_params}');",
-            'class'   => "ui-icon ui-icon-closethick tooltip", 
+            'class'   => "btn btn-sm btn-outline-danger",
             'title'   => __('TASKS.DELETE', 'Delete', 1) . " $name"
         );
         if (count($customAttrs)) {
@@ -331,11 +338,11 @@ class HtmlUtils {
                 $attrs[$key] = $value;
             }
         }
-        echo HtmlUtils::taskIconWrapper(HtmlUtils::tag(
+        echo HtmlUtils::tag(
             'a',
             $attrs,
-            '<span class="hide">' . __('TASKS.DELETE', 'Delete', 1) . '</span>'
-        ));
+            '<i data-feather="trash-2"></i>'
+        );
     } 
     
     /**
@@ -355,7 +362,7 @@ class HtmlUtils {
         }
         $attrs = array(
             'href'  => "admin.php?com={$com}&action=edit&id={$id}{$url_params}",
-            'class' => "ui-icon ui-icon-pencil tooltip", 
+            'class' => "btn btn-sm btn-outline-primary",
             'title' => __('TASKS.EDIT', 'Edit', 1) . " $name"
         );
         if (count($customAttrs)) {
@@ -363,11 +370,11 @@ class HtmlUtils {
                 $attrs[$key] = $value;
             }
         }
-        echo HtmlUtils::taskIconWrapper(HtmlUtils::tag(
+        echo HtmlUtils::tag(
             'a',
             $attrs,
-            '<span class="hide">' . __('TASKS.EDIT', 'Edit', 1) . '</span>'
-        ));
+            '<i data-feather="edit-2"></i>'
+        );
     }
     
     /**
@@ -387,19 +394,19 @@ class HtmlUtils {
         }
         $attrs = array(
             'href'  => "admin.php?com={$com}&action=copy&id={$id}{$url_params}",
-            'class'   => "ui-icon ui-icon-copy tooltip", 
-            'title'   => __('TASKS.COPY', 'Copy', 1) . " $name"
+            'class' => "btn btn-sm btn-outline-secondary",
+            'title' => __('TASKS.COPY', 'Copy', 1) . " $name"
         );
         if (count($customAttrs)) {
             foreach ($customAttrs as $key=>$value) {
                 $attrs[$key] = $value;
             }
         }
-        echo HtmlUtils::taskIconWrapper(HtmlUtils::tag(
+        echo HtmlUtils::tag(
             'a',
             $attrs,
-            '<span class="hide">' . __('TASKS.COPY', 'Copy', 1) . '</span>'
-        ));
+            '<i data-feather="copy"></i>'
+        );
     }
 
     /**
@@ -412,25 +419,27 @@ class HtmlUtils {
      */
     static function mgrTaskPublish($com, $id, $name='', $direction='up', $customAttrs=array(), $params=array()) {
         $direction = strtolower($direction);
-        
+
         $url_params = "";
         if (count($params)) {
             foreach ($params as $key=>$value) {
                 $url_params .= "&{$key}={$value}";
             }
         }
-        
-        $uiClass   = "ui-icon ui-icon-play";
+
+        $icon      = "eye";
+        $btnClass  = "btn btn-sm btn-outline-success";
         $langToken = 'TASKS.PUBLISH';
         $langText  = 'Publish';
         if ($direction == 'down') {
             $langToken = 'TASKS.UN_PUBLISH';
             $langText  = 'Un-Publish';
-            $uiClass   = "ui-icon ui-icon-pause";
+            $icon      = "eye-off";
+            $btnClass  = "btn btn-sm btn-outline-warning";
         }
         $attrs = array(
             'href'  => "admin.php?com={$com}&action=publish&id={$id}&direction={$direction}{$url_params}",
-            'class' => $uiClass . ' tooltip',
+            'class' => $btnClass,
             'title' => "$langText $name"
         );
         if (count($customAttrs)) {
@@ -438,11 +447,11 @@ class HtmlUtils {
                 $attrs[$key] = $value;
             }
         }
-        echo HtmlUtils::taskIconWrapper(HtmlUtils::tag(
+        echo HtmlUtils::tag(
             'a',
             $attrs,
-            '<span class="hide">' . $langToken . '</span>'
-        ));
+            '<i data-feather="' . $icon . '"></i>'
+        );
     }
 
     /**
@@ -455,25 +464,25 @@ class HtmlUtils {
      */
     static function mgrTaskOrder($com, $id, $name='', $direction='up', $customAttrs=array(), $params=array()) {
         $direction = strtolower($direction);
-        
+
         $url_params = "";
         if (count($params)) {
             foreach ($params as $key=>$value) {
                 $url_params .= "&{$key}={$value}";
             }
         }
-        
-        $uiClass   = "ui-icon ui-icon-triangle-1-n";
+
+        $icon      = "chevron-up";
         $langToken = 'TASKS.ORDER_UP';
         $langText  = 'Move Up';
         if ($direction == 'down') {
             $langToken = 'TASKS.ORDER_DOWN';
             $langText  = 'Move Down';
-            $uiClass   = "ui-icon ui-icon-triangle-1-s";
+            $icon      = "chevron-down";
         }
         $attrs = array(
             'href'  => "admin.php?com={$com}&action=reorder&id={$id}&direction={$direction}{$url_params}",
-            'class' => $uiClass . ' tooltip',
+            'class' => "btn btn-sm btn-outline-secondary",
             'title' => "$langText $name"
         );
         if (count($customAttrs)) {
@@ -481,11 +490,11 @@ class HtmlUtils {
                 $attrs[$key] = $value;
             }
         }
-        echo HtmlUtils::taskIconWrapper(HtmlUtils::tag(
+        echo HtmlUtils::tag(
             'a',
             $attrs,
-            '<span class="hide">' . $langText . '</span>'
-        ));
+            '<i data-feather="' . $icon . '"></i>'
+        );
     }
     
     /**
@@ -505,55 +514,56 @@ class HtmlUtils {
                 $url_params .= "&{$key}={$value}";
             }
         }
+
+        // Map old jQuery UI icons to Feather icons
+        $featherIcon = $icon;
+        $iconMap = array(
+            'pencil'       => 'edit-2',
+            'closethick'   => 'trash-2',
+            'copy'         => 'copy',
+            'play'         => 'eye',
+            'pause'        => 'eye-off',
+            'triangle-1-n' => 'chevron-up',
+            'triangle-1-s' => 'chevron-down'
+        );
+        if (isset($iconMap[$icon])) {
+            $featherIcon = $iconMap[$icon];
+        }
+
         $attrs = array(
             'href'  => "admin.php?com={$com}&action={$action}&id={$id}{$url_params}",
             'title' => ucwords($action) . " {$name}",
-            'class' => "ui-icon ui-icon-{$icon} tooltip"
+            'class' => "btn btn-sm btn-outline-secondary"
         );
         if (count($customAttrs)) {
             foreach ($customAttrs as $key=>$value) {
                 $attrs[$key] = $value;
             }
         }
-        echo HtmlUtils::taskIconWrapper(HtmlUtils::tag(
+        echo HtmlUtils::tag(
             'a',
             $attrs,
-            '<span class="hide">' . __("TASKS.{$ucAction}", $action, 1) . '</span>'
-        ));
+            '<i data-feather="' . $featherIcon . '"></i>'
+        );
     }
-    
+
     /**
-     * Creates a button Slug for Component tasks
+     * Creates a button Slug for Component tasks (placeholder for alignment)
      * @param array  An optional array of additional attributes
      * @return void
      */
     static function mgrTaskSlug($customAttrs=array()) {
-        $attrs = array();
-        if (count($customAttrs)) {
-            foreach ($customAttrs as $key=>$value) {
-                $attrs[$key] = $value;
-            }
-        }
-        echo HtmlUtils::taskIconWrapper(HtmlUtils::tag(
-            'span',
-            array(
-                'class' => "slug"
-            ),
-            ''
-        ), false);
+        echo '<span class="btn btn-sm invisible"><i data-feather="minus"></i></span>';
     }
-    
+
     /**
      * Wraps a task button in a SPAN so all task buttons can be styled similarly.
      * @param string   The task button HTML
      * @return string  The task button wrapped in a SPAN
+     * @deprecated Use Bootstrap button classes directly instead
      */
     static function taskIconWrapper($button, $showBorder=true) {
-        return HtmlUtils::tag(
-            'span',
-            array('class' => 'task-button' . ($showBorder ? ' ui-state-default ui-corner-all' : '')),
-            $button
-        );
+        return $button;
     }
     
     /**
@@ -627,13 +637,10 @@ class HtmlUtils {
      */
     static function mgrThead($headings) {
         $count = count($headings);
-        $thead  = "<thead>\n";
+        $thead  = "<thead class=\"table-light\">\n";
         $thead .= "<tr>\n";
         for ($i=0; $i<$count; $i++) {
-            $class = "ui-widget-header";
-            if ($i == 0) $class .= " ui-corner-tl";
-            if ($i == $count-1) $class .= " ui-corner-tr";
-            $thead .= "<th class=\"{$class}\">{$headings[$i]}</th>\n";
+            $thead .= "<th>{$headings[$i]}</th>\n";
         }
         $thead .= "</tr>\n";
         $thead .= "</thead>\n";

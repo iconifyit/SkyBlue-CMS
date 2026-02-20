@@ -1,68 +1,58 @@
 <?php defined('SKYBLUE') or die('Bad file request');
 
 /**
- * @version      2.0 2008-12-12 19:47:43 $
+ * @version      2.0 2009-06-20 21:41:00 $
  * @package      SkyBlue CMS
- * @copyright    Copyright (C) 2005 - 2010 Scott Edwin Lewis. All rights reserved.
+ * @copyright    Copyright (C) 2005 - 2024 Scott Edwin Lewis. All rights reserved.
  * @license      GNU/GPL, see COPYING.txt
  * SkyBlue CMS is free software. This version may have been modified pursuant
  * to the GNU General Public License, and as distributed it includes or
  * is derivative of works licensed under the GNU General Public License or
  * other free or open source software licenses.
  * See COPYING.txt for copyright notices and details.
+ *
+ * Updated to use Bootstrap 5 styling
  */
-
-add_head_element('jquery.utils');
-add_head_element('page.onload', TABS_JS);
-add_head_element('page.style',  TABS_CSS);
 
 add_onload_scriptlet('focus_login', '$("#username").focus();');
 
 $theAction = $this->getVar('action', __('GLOBAL.LOGIN', 'Sign In', 1));
-
-$Item = null;
 $username = $this->getVar("username");
 
 ?>
-<div class="jquery_tab">
-    <div class="content">
-        <?php echo HtmlUtils::formatMessage($this->getMessage()); ?>
-        <?php HtmlUtils::mgrFormOpen($this->getVar('com')); ?>
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6 col-lg-4">
+            <?php echo HtmlUtils::formatMessage($this->getMessage()); ?>
 
-        <div id="tabs">
-            <ul>
-                <li><a href="#">Login</a></li>
-            </ul>
-            
-            <!-- First Tab -->
-            <div class="tab-body" id="tab-one">
-                <fieldset class="three-column last">
-                    <div class="column">
-                        <label for="username"><?php __('GLOBAL.USERNAME', 'Username'); ?>:</label>
-                        <input class="input-medium" type="text" name="username" value="<?php echo $username; ?>" id="username" />
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0"><?php __('GLOBAL.LOGIN', 'Sign In'); ?></h5>
+                </div>
+                <div class="card-body">
+                    <?php HtmlUtils::mgrFormOpen($this->getVar('com')); ?>
+
+                    <div class="mb-3">
+                        <label for="username" class="form-label"><?php __('GLOBAL.USERNAME', 'Username'); ?></label>
+                        <input class="form-control" type="text" name="username" value="<?php echo $username; ?>" id="username" />
                     </div>
-                    <div class="clearfix"></div>
-                </fieldset>
-                <fieldset class="three-column last">
-                    <div class="column">
-                        <label for="password"><?php __('GLOBAL.PASSWORD', 'Password'); ?>:</label>
-                        <input class="input-medium" type="password" name="password" value="" id="password" />
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label"><?php __('GLOBAL.PASSWORD', 'Password'); ?></label>
+                        <input class="form-control" type="password" name="password" value="" id="password" />
                     </div>
-                    <div class="clearfix"></div>
-                </fieldset>
-                <fieldset class="three-column last">
-                    <div class="column">
-                        <p class="buttons-bottom">
-                            <?php HtmlUtils::mgrButton('BTN.LOGIN', 'login'); ?>
-                        </p>
+
+                    <div class="d-grid mb-3">
+                        <?php HtmlUtils::mgrButton('BTN.LOGIN', 'login', array('class' => 'btn btn-primary')); ?>
                     </div>
-                    <div class="clearfix"></div>
-                </fieldset>
-                <fieldset class="three-column last">
-                    <div><a href="admin.php?com=login&action=lost_password"><?php __("LOGIN.LOST_PASSWORD", "Lost Password"); ?>?</a></div>
-                </fieldset>
+
+                    <div class="text-center">
+                        <a href="admin.php?com=login&action=lost_password"><?php __("LOGIN.LOST_PASSWORD", "Lost Password"); ?>?</a>
+                    </div>
+
+                    <?php HtmlUtils::mgrFormClose(); ?>
+                </div>
             </div>
         </div>
-        <?php HtmlUtils::mgrFormClose(); ?>
     </div>
 </div>

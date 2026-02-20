@@ -3,13 +3,15 @@
 /**
  * @version      2.0 2009-06-20 21:41:00 $
  * @package      SkyBlue CMS
- * @copyright    Copyright (C) 2005 - 2010 Scott Edwin Lewis. All rights reserved.
+ * @copyright    Copyright (C) 2005 - 2024 Scott Edwin Lewis. All rights reserved.
  * @license      GNU/GPL, see COPYING.txt
  * SkyBlue CMS is free software. This version may have been modified pursuant
  * to the GNU General Public License, and as distributed it includes or
  * is derivative of works licensed under the GNU General Public License or
  * other free or open source software licenses.
- * See COPYING.txt for copyright notices and details. 
+ * See COPYING.txt for copyright notices and details.
+ *
+ * Updated to use Bootstrap 5 styling
  */
 
 /**
@@ -17,106 +19,96 @@
  * @date   June 20, 2009
  */
 
-add_head_element('jquery.cookie');
-add_head_element('jquery.utils');
-add_head_element('page.onload', TABS_JS);
-add_head_element('page.style',  TABS_CSS);
-
 $Item = $this->getData();
 $theAction = $this->getVar('action');
 
 $groups = $this->getVar('groups');
 
 ?>
-<div class="jquery_tab">
-    <div class="content">
-        <h2>
-            <a href="admin.php?com=users"><?php __('COM.USERS', 'Users'); ?></a> / 
-            <?php __("GLOBAL.{$theAction}", ucwords($theAction)); ?> / 
-            <?php echo $Item->getUsername(); ?>
-        </h2>
-        
-        <?php echo HtmlUtils::formatMessage($this->getMessage()); ?>
-        
-        <?php HtmlUtils::mgrFormOpen($this->getVar('com')); ?>
+<h1 class="h3 mb-3">
+    <a href="admin.php?com=console" class="text-muted text-decoration-none"><?php __('COM.CONSOLE', 'Dashboard'); ?></a>
+    <span class="text-muted">/</span>
+    <a href="admin.php?com=settings" class="text-muted text-decoration-none"><?php __('COM.SETTINGS', 'Settings'); ?></a>
+    <span class="text-muted">/</span>
+    <a href="admin.php?com=users" class="text-muted text-decoration-none"><?php __('COM.USERS', 'Users'); ?></a>
+    <span class="text-muted">/</span>
+    <?php __("GLOBAL.{$theAction}", ucwords($theAction)); ?>
+</h1>
 
-        <p class="buttons-top">
-            <?php HtmlUtils::mgrButton('BTN.CANCEL', 'cancel'); ?>
-            <?php HtmlUtils::mgrButton('BTN.APPLY', 'apply'); ?>
-            <?php HtmlUtils::mgrButton('BTN.SAVE', 'save'); ?>
-        </p>
-        
-        <div id="tabs">
-            <ul>
-                <li><a href="#tab-one"><?php echo $Item->getName(); ?></a></li>
-            </ul>
-            
-            <!-- First Tab -->
-            <div class="tab-body" id="tab-one">
+<?php echo HtmlUtils::formatMessage($this->getMessage()); ?>
 
-                <fieldset class="three-column">
-                    <div class="column">
-                        <label for="id"><?php __('USERS.ID', 'Item ID'); ?>:</label> <?php echo $Item->getId(); ?>
-                        <input id="id" type="hidden" name="id" value="<?php echo $Item->getId(); ?>" />
-                    </div>
-                    <div class="column">
-                        <label for="name"><?php __('USERS.NAME', 'Name'); ?>:</label>
-                        <input class="input-medium" type="text" name="name" value="<?php echo $Item->getName(); ?>" id="name" />
-                    </div>
-                    <div class="column">
-                        <label for="email"><?php __('USERS.EMAIL', 'Email'); ?>:</label>
-                        <input class="input-medium" type="text" name="email" value="<?php echo $Item->getEmail(); ?>" id="email" />
-                    </div>
-                    <div class="clear"></div>
-                </fieldset>
-                
-                <fieldset class="three-column">
-                    <div class="column">
-                        <label for="username"><?php __('USERS.USERNAME', 'Username'); ?>:</label>
-                        <input class="input-medium" type="text" name="username" value="<?php echo $Item->getUsername(); ?>" id="username" />
-                    </div>
-                    <div class="column">
-                        <label for="password"><?php __('USERS.PASSWORD', 'Password'); ?>:</label>
-                        <input class="input-medium" type="password" name="password" value="" id="password" />
-                    </div>
-                    <div class="column">
-                        <label for="confirm-password"><?php __('USERS.CONFIRM_PASSWORD', 'Confirm Password'); ?>:</label>
-                        <input class="input-medium" type="password" name="confirm-password" value="" id="confirm-password" />
-                    </div>
-                    <div class="clear"></div>
-                </fieldset>
-                
-                <fieldset class="three-column last">
-                    <div class="column">
-                        <label for="groups"><?php __('USERS.GROUPS', 'Groups'); ?>:</label>
-                        <ul>
-                        <?php $count = count($groups); ?>
-                        <?php for ($i=0; $i<$count; $i++) : ?>
-                        <?php $checked = UsersHelper::hasGroup($Item, $groups[$i]) ? " checked=\"checked\"" : "" ; ?>
-                        <li>
-                            <input type="checkbox" name="groups[]" value="<?php echo $groups[$i]->getId();?>"<?php echo $checked;?>/>&nbsp;
-                            <?php echo $groups[$i]->getName(); ?>
-                        </li>
-                        <?php endfor; ?>
-                        </ul>
-                    </div>
-                    <div class="column">
-                        <label for="block"><?php __('USERS.BLOCK', 'Block User?'); ?>:</label>
-                        <?php echo HtmlUtils::yesNoList('block', $Item->getBlock()); ?>
-                        </div>
-                    <div class="clear"></div>
-                </fieldset>
+<?php HtmlUtils::mgrFormOpen($this->getVar('com')); ?>
 
-           </div>
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="card-title mb-0"><?php echo $Item->getName() ?: __('USERS.NEW', 'New User', 1); ?></h5>
+        <div>
+            <?php HtmlUtils::mgrButton('BTN.CANCEL', 'cancel', array('class' => 'btn btn-outline-secondary me-2')); ?>
+            <?php HtmlUtils::mgrButton('BTN.APPLY', 'apply', array('class' => 'btn btn-primary me-2')); ?>
+            <?php HtmlUtils::mgrButton('BTN.SAVE', 'save', array('class' => 'btn btn-success')); ?>
         </div>
-        <p class="buttons-bottom">
-            <?php HtmlUtils::mgrButton('BTN.CANCEL', 'cancel'); ?>
-            <?php HtmlUtils::mgrButton('BTN.APPLY', 'apply'); ?>
-            <?php HtmlUtils::mgrButton('BTN.SAVE', 'save'); ?>
-        </p>     
-        
-        <input type="hidden" name="is_new" value="<?php echo $this->getVar('is_new'); ?>" />
+    </div>
+    <div class="card-body">
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label for="id" class="form-label"><?php __('USERS.ID', 'Item ID'); ?></label>
+                <input type="text" class="form-control" value="<?php echo $Item->getId(); ?>" disabled readonly />
+                <input id="id" type="hidden" name="id" value="<?php echo $Item->getId(); ?>" />
+            </div>
+            <div class="col-md-4">
+                <label for="name" class="form-label"><?php __('USERS.NAME', 'Name'); ?></label>
+                <input class="form-control" type="text" name="name" value="<?php echo $Item->getName(); ?>" id="name" />
+            </div>
+            <div class="col-md-4">
+                <label for="email" class="form-label"><?php __('USERS.EMAIL', 'Email'); ?></label>
+                <input class="form-control" type="email" name="email" value="<?php echo $Item->getEmail(); ?>" id="email" />
+            </div>
+        </div>
 
-        <?php HtmlUtils::mgrFormClose(); ?>
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label for="username" class="form-label"><?php __('USERS.USERNAME', 'Username'); ?></label>
+                <input class="form-control" type="text" name="username" value="<?php echo $Item->getUsername(); ?>" id="username" />
+            </div>
+            <div class="col-md-4">
+                <label for="password" class="form-label"><?php __('USERS.PASSWORD', 'Password'); ?></label>
+                <input class="form-control" type="password" name="password" value="" id="password" />
+            </div>
+            <div class="col-md-4">
+                <label for="confirm-password" class="form-label"><?php __('USERS.CONFIRM_PASSWORD', 'Confirm Password'); ?></label>
+                <input class="form-control" type="password" name="confirm-password" value="" id="confirm-password" />
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label"><?php __('USERS.GROUPS', 'Groups'); ?></label>
+                <div class="border rounded p-3">
+                    <?php $count = count($groups); ?>
+                    <?php for ($i=0; $i<$count; $i++) : ?>
+                    <?php $checked = UsersHelper::hasGroup($Item, $groups[$i]) ? " checked" : "" ; ?>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="groups[]" value="<?php echo $groups[$i]->getId();?>"<?php echo $checked;?> id="group_<?php echo $groups[$i]->getId(); ?>" />
+                        <label class="form-check-label" for="group_<?php echo $groups[$i]->getId(); ?>">
+                            <?php echo $groups[$i]->getName(); ?>
+                        </label>
+                    </div>
+                    <?php endfor; ?>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="block" class="form-label"><?php __('USERS.BLOCK', 'Block User?'); ?></label>
+                <?php echo HtmlUtils::yesNoList('block', $Item->getBlock()); ?>
+            </div>
+        </div>
+
+        <input type="hidden" name="is_new" value="<?php echo $this->getVar('is_new'); ?>" />
+    </div>
+    <div class="card-footer d-flex justify-content-end">
+        <?php HtmlUtils::mgrButton('BTN.CANCEL', 'cancel', array('class' => 'btn btn-outline-secondary me-2')); ?>
+        <?php HtmlUtils::mgrButton('BTN.APPLY', 'apply', array('class' => 'btn btn-primary me-2')); ?>
+        <?php HtmlUtils::mgrButton('BTN.SAVE', 'save', array('class' => 'btn btn-success')); ?>
     </div>
 </div>
+
+<?php HtmlUtils::mgrFormClose(); ?>
