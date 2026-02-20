@@ -142,20 +142,64 @@
             display: inline-flex;
             margin: 0 !important;
         }
-        /* Dropdown sections (containers, classes) - preserve vertical layout */
+        /* Dropdown sections (containers, classes) - Bootstrap-style dropdown */
         .wym_skin_silver .wym_dropdown {
             position: relative;
             margin: 0 !important;
+        }
+        .wym_skin_silver .wym_dropdown h2 {
+            display: block;
+            padding: 0.375rem 0.75rem !important;
+            margin: 0 !important;
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: #212529;
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            cursor: pointer;
+        }
+        .wym_skin_silver .wym_dropdown h2:hover {
+            background-color: #e9ecef;
+        }
+        .wym_skin_silver .wym_dropdown h2:after {
+            content: " ▾";
+            font-size: 0.7em;
         }
         .wym_skin_silver .wym_dropdown ul {
             display: none;
             position: absolute;
             flex-direction: column;
             margin: 0 !important;
-            z-index: 100;
+            padding: 0.5rem 0 !important;
+            background: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 0.25rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+            min-width: 10rem;
+            z-index: 1000;
         }
         .wym_skin_silver .wym_dropdown:hover ul {
             display: flex;
+        }
+        .wym_skin_silver .wym_dropdown ul li {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        .wym_skin_silver .wym_dropdown ul li a {
+            display: block;
+            padding: 0.35rem 1rem !important;
+            margin: 0 !important;
+            font-size: 0.875rem;
+            color: #212529;
+            text-decoration: none;
+            white-space: nowrap;
+            background: transparent;
+            border: 0;
+        }
+        .wym_skin_silver .wym_dropdown ul li a:hover {
+            background-color: #e9ecef;
+            color: #1e2125;
         }
 
         /* Dashboard controls as Bootstrap cards */
