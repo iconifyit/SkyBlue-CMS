@@ -322,6 +322,65 @@
             gap: 0.5rem;
             justify-content: flex-start;
         }
+        /* jQuery UI dialog styling */
+        .ui-dialog {
+            border: none;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+            padding: 0;
+        }
+        .ui-dialog .ui-dialog-titlebar {
+            background: #f8f9fa;
+            border: none;
+            border-bottom: 1px solid #dee2e6;
+            border-radius: 0.5rem 0.5rem 0 0;
+            padding: 1rem 1.5rem;
+        }
+        .ui-dialog .ui-dialog-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #212529;
+        }
+        .ui-dialog .ui-dialog-titlebar-close {
+            display: none !important;
+        }
+        .ui-dialog .ui-dialog-content {
+            padding: 1.5rem;
+        }
+        .ui-dialog .ui-dialog-buttonpane {
+            background: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+            padding: 1rem 1rem 1rem 1.5rem;
+            margin: 0;
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+        }
+        .ui-dialog .ui-dialog-buttonpane button {
+            float: none !important;
+            padding: 0.5rem 1rem !important;
+            font-size: 0.875rem !important;
+            font-weight: 400 !important;
+            color: #fff !important;
+            background: #dc3545 !important;
+            border: 1px solid #dc3545 !important;
+            border-radius: 0.375rem !important;
+            cursor: pointer !important;
+            text-decoration: none !important;
+            justify-self: start !important;
+        }
+        .ui-dialog .ui-dialog-buttonpane button:hover {
+            background: #bb2d3b !important;
+            border-color: #b02a37 !important;
+        }
+        .ui-dialog .ui-dialog-buttonpane button + button {
+            color: #212529 !important;
+            background: #f8f9fa !important;
+            border-color: #ced4da !important;
+            justify-self: end !important;
+        }
+        .ui-dialog .ui-dialog-buttonpane button + button:hover {
+            background: #e9ecef !important;
+        }
         /* Override jQuery UI button styles */
         .ui-state-default,
         .ui-widget-content .ui-state-default,
