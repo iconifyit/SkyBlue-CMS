@@ -34,9 +34,8 @@
     <!-- Legacy SkyBlue CSS for form elements -->
     <link rel="stylesheet" type="text/css" href="<?php echo SB_UI_DIR; ?>admin/css/editor.css" />
 
-    <!--skyblue_headers-->
-    <!--#fragment(name=editor&view=styles&wrapper=no)-->
-    <!--/skyblue_headers-->
+    <!-- SkyBlue Editor Styles -->
+    <?php fragment(array('name' => 'editor', 'view' => 'styles', 'wrapper' => 'no')); ?>
 
     <style>
         /* SkyBlue Admin Overrides */
@@ -77,6 +76,38 @@
         #table_liquid, .table_liquid {
             width: 100%;
         }
+        /* WYMeditor compatibility - override #tabs scoped styles */
+        .wym_skin_silver .wym_buttons li {
+            float: left;
+            width: 28px;
+            height: 28px;
+            overflow: hidden;
+        }
+        .wym_skin_silver .wym_buttons a {
+            width: 20px;
+            height: 20px;
+            overflow: hidden;
+            padding: 2px;
+            text-decoration: none !important;
+            border: 1px solid #666;
+        }
+        .wym_skin_silver .wym_buttons a:hover {
+            text-decoration: none !important;
+            border: 1px solid #000;
+        }
+        /* WYMeditor box styling */
+        .wym_box {
+            background: #fff;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            margin-bottom: 1rem;
+        }
+        .wym_area_top {
+            background: #f8f9fa;
+            border-bottom: 1px solid #ced4da;
+            padding: 5px;
+        }
+
         /* Dashboard controls as Bootstrap cards */
         .dashboard-controls {
             display: flex;
@@ -129,7 +160,7 @@
                             </p>
                         </div>
                         <div class="col-6 text-end">
-                            <!--#fragment(name=console&view=footer)-->
+                            <?php fragment(array('name' => 'console', 'view' => 'footer', 'wrapper' => 'no')); ?>
                         </div>
                     </div>
                 </div>
@@ -140,7 +171,10 @@
     <!-- AdminKit JS -->
     <script src="<?php echo SB_UI_DIR; ?>admin/js/adminkit/app.js"></script>
 
-    <!--#fragment(name=editor&view=scripts&wrapper=no)-->
+    <!-- SkyBlue Editor Scripts (includes jQuery) -->
+    <?php fragment(array('name' => 'editor', 'view' => 'scripts', 'wrapper' => 'no')); ?>
+
+    <!-- Dynamic head elements (WYSIWYG editor, etc.) -->
     <?php get_head_elements(); ?>
 </body>
 </html>
