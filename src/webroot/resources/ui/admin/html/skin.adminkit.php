@@ -96,8 +96,8 @@
             padding: 0 !important;
         }
         .wym_skin_silver .wym_buttons li {
-            width: 24px;
-            height: 24px;
+            width: 26px;
+            height: 26px;
             overflow: hidden;
             margin: 0 !important;
             padding: 0 !important;
