@@ -435,6 +435,111 @@
             color: #1e2125;
         }
 
+        /* EasyMDE Markdown Editor styling */
+        .EasyMDEContainer {
+            border: 1px solid #ced4da;
+            border-radius: 0.375rem;
+            overflow: hidden;
+        }
+        .EasyMDEContainer .editor-toolbar {
+            background: #f8f9fa;
+            border: none;
+            border-bottom: 1px solid #ced4da;
+            border-radius: 0;
+            padding: 0.5rem;
+        }
+        .EasyMDEContainer .editor-toolbar button {
+            color: #495057;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+        }
+        .EasyMDEContainer .editor-toolbar button:hover {
+            background: #e9ecef;
+            border-color: #ced4da;
+        }
+        .EasyMDEContainer .editor-toolbar button.active {
+            background: #0d6efd;
+            color: #fff;
+            border-color: #0d6efd;
+        }
+        .EasyMDEContainer .editor-toolbar i.separator {
+            border-left-color: #ced4da;
+            border-right-color: #fff;
+        }
+        .EasyMDEContainer .CodeMirror {
+            border: none;
+            border-radius: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 0.875rem;
+            padding: 0.75rem;
+            min-height: 400px;
+        }
+        .EasyMDEContainer .CodeMirror-scroll {
+            min-height: 400px;
+        }
+        .EasyMDEContainer .editor-statusbar {
+            background: #f8f9fa;
+            border-top: 1px solid #ced4da;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.75rem;
+            color: #6c757d;
+        }
+        .EasyMDEContainer .editor-preview,
+        .EasyMDEContainer .editor-preview-side {
+            background: #fff;
+            padding: 1rem;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        .EasyMDEContainer .editor-preview h1,
+        .EasyMDEContainer .editor-preview h2,
+        .EasyMDEContainer .editor-preview h3,
+        .EasyMDEContainer .editor-preview h4,
+        .EasyMDEContainer .editor-preview h5,
+        .EasyMDEContainer .editor-preview h6 {
+            color: #212529;
+            margin-bottom: 0.5rem;
+        }
+        .EasyMDEContainer .editor-preview pre {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+            padding: 1rem;
+        }
+        .EasyMDEContainer .editor-preview code {
+            background: #f8f9fa;
+            padding: 0.125rem 0.25rem;
+            border-radius: 0.25rem;
+            font-size: 0.875em;
+        }
+        .EasyMDEContainer .editor-preview blockquote {
+            border-left: 4px solid #0d6efd;
+            padding-left: 1rem;
+            margin-left: 0;
+            color: #6c757d;
+        }
+        .EasyMDEContainer .editor-preview table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+        .EasyMDEContainer .editor-preview table th,
+        .EasyMDEContainer .editor-preview table td {
+            border: 1px solid #dee2e6;
+            padding: 0.5rem;
+        }
+        .EasyMDEContainer .editor-preview table th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        /* Fullscreen mode */
+        .EasyMDEContainer .CodeMirror-fullscreen,
+        .EasyMDEContainer .editor-toolbar.fullscreen {
+            z-index: 1050;
+        }
+        .EasyMDEContainer .editor-preview-side {
+            z-index: 1051;
+        }
+
         /* Dashboard controls as Bootstrap cards */
         .dashboard-controls {
             display: flex;
