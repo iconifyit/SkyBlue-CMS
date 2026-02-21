@@ -2,14 +2,14 @@
 
 class NewsFragment extends Fragment {
 
-    function getData() {
+    static function getData() {
         global $Core;
         return NewsFragment::getPublished($Core->xmlHandler->ParserMain(
             SB_XML_DIR . "news.xml"
         ));
     }
     
-    function getPublished(&$items) {
+    static function getPublished(&$items) {
         $published = array();
         if (!count($items)) return array();
         foreach ($items as $item) {
@@ -20,7 +20,7 @@ class NewsFragment extends Fragment {
         return $published;
     }
     
-    function getLink($pageId, $params=array()) {
+    static function getLink($pageId, $params=array()) {
         global $Router;
         
         $newsId = Filter::getNumeric($params, 'news_id');
@@ -41,19 +41,19 @@ class NewsFragment extends Fragment {
         return $link;
     }
     
-    function getStory(&$article) {
+    static function getStory(&$article) {
         if (file_exists(SB_STORY_DIR . Filter::get($article, 'story'))) {
-            return FileSystem::read_file(SB_STORY_DIR . Filter::get($article, 'story')); 
+            return FileSystem::read_file(SB_STORY_DIR . Filter::get($article, 'story'));
         }
         return null;
     }
 
-    function getIntro($item) {
+    static function getIntro($item) {
         if (trim(Filter::get($item, 'intro')) == "") return "";
         return base64_decode(Filter::get($item, 'intro'));
     }
-    
-    function setPageTitle(&$data, $title) {
+
+    static function setPageTitle(&$data, $title) {
         if (is_array($data)) {
             if (isset($data['model'])) {
                 $model =& $data['model'];

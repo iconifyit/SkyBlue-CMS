@@ -37,7 +37,6 @@ $isAuthorized = $Authorize->checkDataAccess($Page);
         }
         if (class_exists('Parsedown')) {
             $parsedown = new Parsedown();
-            $parsedown->setSafeMode(true);
             $content = $parsedown->text($content);
         }
     }

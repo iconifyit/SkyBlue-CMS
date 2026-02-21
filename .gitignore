@@ -23,3 +23,10 @@
 # PHP
 vendor/
 composer.lock
+
+tmp/
+logs/
+cache/
+scratch/
+scratch-*
+scratch.*
