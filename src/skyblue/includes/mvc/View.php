@@ -54,8 +54,9 @@ class View extends Publisher {
         if (! $this->isAjax && get_constant('_ADMIN_') === 1) {
             $this->assign('body', $this->view);
             $this->assign('dashboard', '');
+            $skinFile = defined('SB_ADMIN_SKIN_FILE') ? SB_ADMIN_SKIN_FILE : 'skin.index.php';
             $this->view = $this->buffer_view(
-                SB_ADMIN_SKINS_DIR . 'skin.index.php',
+                SB_ADMIN_SKINS_DIR . $skinFile,
                 $this->tokens
             );
         }

@@ -1,0 +1,433 @@
+/**
+ * IconMason Skin - Custom Styles
+ *
+ * Custom styling for the IconMason documentation site.
+ * Extends Bootstrap 5 with documentation-specific styles.
+ */
+
+/* ===========================================================================
+   CSS Variables
+   =========================================================================== */
+
+:root {
+    --im-primary       : #0d6efd;
+    --im-dark          : #212529;
+    --im-sidebar-width : 280px;
+    --im-sidebar-bg    : #1a1d21;
+    --im-border-color  : #373b3e;
+    --im-bg            : #212529;
+    --im-text          : #e9ecef;
+    --im-text-muted    : #adb5bd;
+    --im-link          : #6ea8fe;
+    --im-code-bg       : #2d3238;
+}
+
+/* ===========================================================================
+   Base Styles
+   =========================================================================== */
+
+html, body {
+    height : 100%;
+}
+
+body {
+    font-family      : -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height      : 1.6;
+    color            : var(--im-text);
+    background-color : var(--im-bg);
+}
+
+/* Dark theme links */
+a {
+    color : var(--im-link);
+}
+
+a:hover {
+    color : #8bb9fe;
+}
+
+/* Light background overrides - ensure dark text on light backgrounds */
+.bg-white,
+.bg-light {
+    color : var(--im-dark);
+}
+
+.bg-white a,
+.bg-light a {
+    color : var(--im-primary);
+}
+
+.bg-white a:hover,
+.bg-light a:hover {
+    color : #0a58ca;
+}
+
+.bg-white .doc-content,
+.bg-light .doc-content {
+    color : #212529;
+}
+
+/* ===========================================================================
+   Sidebar Navigation
+   =========================================================================== */
+
+/* Page wrapper for proper footer placement */
+.docs-wrapper {
+    display        : flex;
+    flex-direction : column;
+    min-height     : 100vh;
+}
+
+.docs-wrapper .container-fluid {
+    flex : 1 0 auto;
+}
+
+.docs-wrapper footer {
+    flex-shrink : 0;
+}
+
+.sidebar {
+    z-index          : 100;
+    padding          : 1rem 0;
+    background-color : var(--im-bg);
+}
+
+.sidebar-sticky {
+    padding-top : 0.5rem;
+}
+
+.sidebar .nav-link {
+    font-weight   : 500;
+    color         : var(--im-text-muted);
+    padding       : 0.5rem 1rem;
+    border-radius : 0.25rem;
+    margin        : 0.1rem 0.5rem;
+    font-size     : 0.9rem;
+}
+
+.sidebar .nav-link:hover {
+    background-color : rgba(255, 255, 255, .05);
+    color            : var(--im-link);
+}
+
+.sidebar .nav-link.active {
+    background-color : var(--im-primary);
+    color            : #fff;
+}
+
+.sidebar .nav-link i {
+    font-size : 0.9rem;
+    width     : 1.25rem;
+}
+
+.sidebar-heading {
+    font-size      : .75rem;
+    text-transform : uppercase;
+    letter-spacing : 0.05em;
+    color          : var(--im-text-muted);
+}
+
+/* ===========================================================================
+   Documentation Content
+   =========================================================================== */
+
+.doc-content {
+    max-width : 900px;
+}
+
+.doc-content h1,
+.doc-content h2,
+.doc-content h3,
+.doc-content h4,
+.doc-content h5,
+.doc-content h6 {
+    margin-top    : 1.5rem;
+    margin-bottom : 1rem;
+    font-weight   : 600;
+}
+
+.doc-content h1 { font-size : 2rem; }
+.doc-content h2 { font-size : 1.75rem; }
+.doc-content h3 { font-size : 1.5rem; }
+.doc-content h4 { font-size : 1.25rem; }
+
+.doc-content p {
+    margin-bottom : 1rem;
+}
+
+.doc-content ul,
+.doc-content ol {
+    margin-bottom  : 1rem;
+    padding-left   : 2rem;
+}
+
+.doc-content li {
+    margin-bottom : 0.5rem;
+}
+
+/* ===========================================================================
+   Code Blocks
+   =========================================================================== */
+
+.doc-content code {
+    padding          : 0.2em 0.4em;
+    margin           : 0;
+    font-size        : 85%;
+    background-color : var(--im-code-bg);
+    border-radius    : 6px;
+    font-family      : ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    color            : #f8f8f2;
+}
+
+.doc-content pre {
+    padding          : 1rem;
+    overflow         : auto;
+    font-size        : 85%;
+    line-height      : 1.45;
+    background-color : var(--im-code-bg);
+    border-radius    : 6px;
+    border           : 1px solid var(--im-border-color);
+}
+
+.doc-content pre code {
+    padding          : 0;
+    margin           : 0;
+    font-size        : 100%;
+    background-color : transparent;
+    border           : 0;
+}
+
+/* ===========================================================================
+   Images
+   =========================================================================== */
+
+.doc-content img {
+    max-width     : 100%;
+    height        : auto;
+    border-radius : 8px;
+    box-shadow    : 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin        : 1rem 0;
+}
+
+/* Half-size images (for IconMason screenshots) */
+.doc-content img[src*="#half-size"],
+img.half-size {
+    max-width : 50%;
+}
+
+@media (max-width: 768px) {
+    .doc-content img[src*="#half-size"],
+    img.half-size {
+        max-width : 100%;
+    }
+}
+
+/* ===========================================================================
+   Hero Section
+   =========================================================================== */
+
+.hero-section {
+    background : linear-gradient(135deg, #212529 0%, #343a40 100%);
+}
+
+.hero-image {
+    max-width : 100%;
+    height    : auto;
+}
+
+/* ===========================================================================
+   Feature Cards
+   =========================================================================== */
+
+.feature-icon {
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+    font-size       : 1.5rem;
+}
+
+.features-section .card {
+    transition : transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.features-section .card:hover {
+    transform  : translateY(-5px);
+    box-shadow : 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* ===========================================================================
+   Blog/News Styles
+   =========================================================================== */
+
+.news-container .card {
+    transition : transform 0.2s ease-in-out;
+}
+
+.news-container .card:hover {
+    transform : translateY(-3px);
+}
+
+.news-article {
+    max-width : 800px;
+}
+
+.news-article .article-content img {
+    max-width     : 100%;
+    height        : auto;
+    border-radius : 8px;
+    margin        : 1rem 0;
+}
+
+/* ===========================================================================
+   Contact Form
+   =========================================================================== */
+
+.contact-form-container {
+    max-width : 600px;
+}
+
+.contact-form-container .form-control:focus {
+    border-color : var(--im-primary);
+    box-shadow   : 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* ===========================================================================
+   Footer
+   =========================================================================== */
+
+footer {
+    margin-top : auto;
+}
+
+footer a {
+    text-decoration : none;
+}
+
+footer a:hover {
+    text-decoration : underline;
+}
+
+/* ===========================================================================
+   Responsive Adjustments
+   =========================================================================== */
+
+@media (max-width: 767.98px) {
+    .sidebar {
+        position     : static;
+        width        : 100%;
+        height       : auto;
+        padding      : 1rem 0;
+        border-right : none;
+        border-bottom: 1px solid var(--im-border-color);
+    }
+
+    .sidebar-sticky {
+        height : auto;
+    }
+
+    .hero-section .display-4 {
+        font-size : 2rem;
+    }
+
+    .hero-image {
+        margin-top : 2rem;
+    }
+}
+
+/* ===========================================================================
+   Print Styles
+   =========================================================================== */
+
+@media print {
+    .sidebar,
+    .navbar,
+    footer {
+        display : none;
+    }
+
+    main {
+        margin-left : 0;
+    }
+
+    .doc-content {
+        max-width : 100%;
+    }
+}
+
+/* ===========================================================================
+   Dark Theme Components
+   =========================================================================== */
+
+/* Cards in dark theme */
+.card {
+    background-color : var(--im-sidebar-bg);
+    border-color     : var(--im-border-color);
+    color            : var(--im-text);
+}
+
+.card-title {
+    color : var(--im-text);
+}
+
+.card-text {
+    color : var(--im-text-muted);
+}
+
+/* List groups in dark theme */
+.list-group-item {
+    background-color : var(--im-sidebar-bg);
+    border-color     : var(--im-border-color);
+    color            : var(--im-text);
+}
+
+.list-group-item a {
+    color : var(--im-link);
+}
+
+/* Form controls in dark theme */
+.form-control,
+.form-select {
+    background-color : var(--im-code-bg);
+    border-color     : var(--im-border-color);
+    color            : var(--im-text);
+}
+
+.form-control:focus,
+.form-select:focus {
+    background-color : var(--im-code-bg);
+    border-color     : var(--im-primary);
+    color            : var(--im-text);
+    box-shadow       : 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.form-control::placeholder {
+    color : var(--im-text-muted);
+}
+
+/* Newsletter section form - white field with dark text */
+.newsletter-section .form-control {
+    background-color : #ffffff;
+    color            : #495057;
+    border-color     : #ced4da;
+}
+
+.newsletter-section .form-control::placeholder {
+    color : #6c757d;
+}
+
+.newsletter-section .form-control:focus {
+    background-color : #ffffff;
+    color            : #495057;
+}
+
+/* ===========================================================================
+   Utility Classes
+   =========================================================================== */
+
+.doc-footer {
+    font-size : 0.875rem;
+}
+
+.text-decoration-none:hover {
+    text-decoration : underline !important;
+}

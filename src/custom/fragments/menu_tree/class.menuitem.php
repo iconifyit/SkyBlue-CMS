@@ -36,7 +36,7 @@ class MenuItem {
      */
      
     function addChild(&$page) {
-        $child =& new MenuItem($this, $page);
+        $child = new MenuItem($this, $page);
         array_push($this->children, $child);
         return $child;
     }
