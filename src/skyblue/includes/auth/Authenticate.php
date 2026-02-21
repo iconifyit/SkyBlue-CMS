@@ -232,13 +232,17 @@ class Authenticate extends Publisher {
             ! $User->getBlock()) {
             return true;
         }
-        else {
+
+        // Only show "session timed out" warning if user WAS previously logged in
+        // (indicated by TIMEOUT being set in session). Don't show warning for
+        // users who were never logged in.
+        $timeout = $Session->get('TIMEOUT');
+        if (!empty($timeout)) {
             $Session->addMessage(
                 'warning',
                 'Warning',
                 __('GLOBAL.SESSION_TIMED_OUT', 'Your Session has timed out', 1)
             );
-            return false;
         }
         return false;
     }
